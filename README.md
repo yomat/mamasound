@@ -1,5 +1,9 @@
-la_colonie
+Mamasound
 ==========
 
-A Symfony project created on May 9, 2016, 10:17 am.
+Mamasound : on refait le site!
+
+![](web/images/logo.png)
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
 # mamasound
