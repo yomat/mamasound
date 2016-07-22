@@ -218,4 +218,3 @@ class Event
         return $this->article;
     }
 }
-

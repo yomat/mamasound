@@ -10,4 +10,17 @@ namespace AppBundle\Repository;
  */
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getEvents($date){
+        $qb = $this -> createQueryBuilder('event')
+      /*      -> where('event.date > :date')
+            -> setParameter('date', $date)
+            -> orderBy('event.date', 'DESC')*/
+        ;
+        $query = $qb -> getQuery();
+// 		return $query -> getResult();
+        //return new \Doctrine\ORM\Tools\Pagination\Paginator($query);
+        return $query -> getResult();
+    }
+
 }

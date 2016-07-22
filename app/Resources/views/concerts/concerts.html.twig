@@ -1,0 +1,22 @@
+{%  extends "concerts/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - concerts
+{% endblock %}
+
+{% block body %}
+	<h2>Le programme des concerts du {{ date }}</h2>
+	<ul>
+		{% for event in {{ events }} %}
+			<li>[{{event.id}}] {{event.name}} <em> {{event.start | date('d-m-Y')}} </em>
+				{#{% if article.image %}
+					<br><img src= {{ asset('images/') ~ article.image.url }} alt="{{article.image.alt}}, width = "300px", height = 300PX"/>
+				{% endif %}#}
+				{#<p style="color:#777">
+					<a class = "btn btn-xs" href="{{ path('lieu_detail', {id:event.id} ) }}">Lieu&mdash;&mdash;[<span style="color:#999">{{category.title}}</span>]</a>
+					<a class = "btn btn-xs" href="{{ path('groupe_detail', {id:event.id} ) }}">Groupe&rarr;[<span style="color:#999">{{category.title}}</span>]</a>
+				</p>#}
+			</li>
+		{% endfor %}
+	</ul>
+{% endblock %}

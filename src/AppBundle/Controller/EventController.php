@@ -13,34 +13,57 @@ use AppBundle\Entity\Comment;
 use AppBundle\Form\CommentType;
 
 /**
- * @Route("/blog")
+ * @Route("/mamasound")
  */
 
-class BlogController extends Controller
+class EventController extends Controller
 {
 	protected $nbArticlesByPage = 3;
+
+	/**
+	 * @Route("/concerts/{date}", name="concerts", defaults={"date":null})
+	 */
+	public function listConcertsAction(Request $request, $date){
+		// date
+		$strFormat = 'Y-m-d H:i:s';
+		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
+
+		// events
+		$events = $this -> getDoctrine() -> getManager()
+						-> getRepository('AppBundle:Event')
+						-> getEvents($strDate);
+
+		// vue twig
+		return $this->render('concerts/concerts.html.twig',[
+				'date' => $strDate,
+				'events' => $events
+			]
+		);
+	}
+
     /**
-     * @Route("/{page}", name="blog_homepage", defaults={"page":1}, requirements={"page":"\d+"})
+     * @Route("/{page}", name="homepage", defaults={"page":1}, requirements={"date":"\d+"})
      */
     public function indexAction(Request $request, $page) {
-    	$articlesPaginator = $this 	-> getDoctrine() -> getManager()
+    	/*$articlesPaginator = $this 	-> getDoctrine() -> getManager()
 							    	-> getRepository('AppBundle:Article')
 		    						-> getArticlesIndexByPage($page, $this->nbArticlesByPage);
     	$nbPages = ceil( count( $articlesPaginator )  / $this -> nbArticlesByPage);
-    	
+
     	$articleShortener = $this -> get('yomat.shortenedArticle');
-    	
+
     	foreach($articlesPaginator as $article){
     		$article -> setShortenedContent(
     			$articleShortener -> getShortenedArticle($article -> getContent())
     		);
     	}
-    	
+
         return $this->render('blog/index.html.twig', [
         		'articles' => $articlesPaginator,
         		'activePage' => $page,
         		'nbPages' => $nbPages
-        ] );
+        ] );*/
+		return $this->render(':default:mama.html.twig');
     }
     
     /**
