@@ -5,18 +5,28 @@
 {% endblock %}
 
 {% block body %}
-	<h2>Le programme des concerts du {{ date }}</h2>
-	<ul>
-		{% for event in {{ events }} %}
-			<li>[{{event.id}}] {{event.name}} <em> {{event.start | date('d-m-Y')}} </em>
-				{#{% if article.image %}
-					<br><img src= {{ asset('images/') ~ article.image.url }} alt="{{article.image.alt}}, width = "300px", height = 300PX"/>
-				{% endif %}#}
-				{#<p style="color:#777">
-					<a class = "btn btn-xs" href="{{ path('lieu_detail', {id:event.id} ) }}">Lieu&mdash;&mdash;[<span style="color:#999">{{category.title}}</span>]</a>
-					<a class = "btn btn-xs" href="{{ path('groupe_detail', {id:event.id} ) }}">Groupe&rarr;[<span style="color:#999">{{category.title}}</span>]</a>
-				</p>#}
-			</li>
-		{% endfor %}
-	</ul>
+	<h2>Le programme des concerts du <text class="dateBig">{{ date | date('d M Y')}}</text></h2>
+    <div class="west">
+
+    </div>
+    <div class="events">
+        <ul>
+            {% for event in events %}
+                <li>
+                    <article class="event">
+                        <text class="event-start-big"><strong>{{ event.start | date('h\\:i') }}</strong></text>
+                        <img  class="event-style" src= "{{ asset('images/concerts/' ~ event.category ~ '.png') }}"/>
+                        <text class="event-info">
+                            <h3><strong>{{ event.title }}</strong></h3>
+                            <em>{{ event.category }}</em><br>
+                            {{ event.price }}€<br>
+                            {{ event.start | date('h\\Hi') }} - {{ event.end | date('h\\Hi') }}<br>
+                            <em>LE LIEU !</em>
+                        </text>
+                    </article>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
 {% endblock %}

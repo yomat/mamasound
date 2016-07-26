@@ -28,6 +28,7 @@ class EventController extends Controller
 		$strFormat = 'Y-m-d H:i:s';
 		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
 
+		
 		// events
 		$events = $this -> getDoctrine() -> getManager()
 						-> getRepository('AppBundle:Event')
@@ -41,31 +42,6 @@ class EventController extends Controller
 		);
 	}
 
-    /**
-     * @Route("/{page}", name="homepage", defaults={"page":1}, requirements={"date":"\d+"})
-     */
-    public function indexAction(Request $request, $page) {
-    	/*$articlesPaginator = $this 	-> getDoctrine() -> getManager()
-							    	-> getRepository('AppBundle:Article')
-		    						-> getArticlesIndexByPage($page, $this->nbArticlesByPage);
-    	$nbPages = ceil( count( $articlesPaginator )  / $this -> nbArticlesByPage);
-
-    	$articleShortener = $this -> get('yomat.shortenedArticle');
-
-    	foreach($articlesPaginator as $article){
-    		$article -> setShortenedContent(
-    			$articleShortener -> getShortenedArticle($article -> getContent())
-    		);
-    	}
-
-        return $this->render('blog/index.html.twig', [
-        		'articles' => $articlesPaginator,
-        		'activePage' => $page,
-        		'nbPages' => $nbPages
-        ] );*/
-		return $this->render(':default:mama.html.twig');
-    }
-    
     /**
      * @Route("/articles/{id}", name="blog_detail", requirements={"id":"\d+"})
      * 
