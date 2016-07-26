@@ -18,7 +18,7 @@
             {% for event in events %}
                 <li>
                     <article class="event">
-                        <text class="event-start-big"><strong>{{ event.start | date('h\\:i') }}</strong></text>
+                        <text class="event-start-big"><strong>{{ event.start | date('H\\:i') }}</strong></text>
                         <img  class="event-style" src= "{{ asset('images/concerts/' ~ event.category ~ '.png') }}"/>
                         <text class="event-info">
                             <h3><strong>{{ event.title }}</strong></h3>
@@ -30,6 +30,24 @@
                 </li>
             {% endfor %}
         </ul>
+    </div>
+
+    <div class="east">
+        <div class="group">
+            <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
+            <h3><strong>Ilé Trio Brazil</strong></h3>
+            <text>Daniel Ilé, Guillaume Rodriguez & Vladimir Derevitsky.
+                Samba forró reggae MPB bossa nova.
+            </text>
+        </div>
+
+        <div class="map">
+            <img class="map3d" src="{{ asset('images/map.png') }}">
+            <h3><strong>La petite scène</strong></h3>
+            <text>6 Rue de la Fontaine</text><br>
+            <text>34000 Montpellier</text><br>
+            <text>04 67 54 22 15</text>
+        </div>
     </div>
 
 {% endblock %}

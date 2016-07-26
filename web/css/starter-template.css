@@ -57,7 +57,7 @@ ul{
 
 .events {
   float: left;
-  width: 75%;
+  width: 50%;
 }
 
 .event {
@@ -93,7 +93,7 @@ ul{
   float: left;
   margin: auto 20px;
   padding: 5px;
-  width: 60%;
+  width: 40%;
 }
 
 .logo-mama{
@@ -129,7 +129,51 @@ ul{
   margin-top: 20px;
 }
 
+.east{
+  float: right;
+  width: 23%;
+  height: auto;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.group{
+  float: left;
+  clear: both;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  padding: 8px;
+  box-shadow: 1px 1px 2px #555;
+}
+
+.photo-group{
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.map{
+float: left;
+width: 100%;
+height: auto;
+margin-top: 20px;
+background-color: white;
+padding: 8px;
+box-shadow: 1px 1px 2px #555;
+}
+
+.map3d{
+  width: 100%;
+  height: auto;
+  margin-bottom: 8px;
+}
+
 .dateBig{
 color: white;
 font-size: 120%;
+}
+
+.title-footer{
+  text-align: center;
 }
