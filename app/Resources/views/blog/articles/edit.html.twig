@@ -1,0 +1,16 @@
+{%  extends "blog/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - Edition
+{% endblock %}
+
+{% block body %}
+	{% for message in app.session.flashbag.get('info') %}
+		<p class= "alert alert-success">{{  message }}</p>
+	{%  endfor %}
+	{% include "blog/articles/form.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+	<script src="//cdn.ckeditor.com/4.5.9/basic/ckeditor.js"></script>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% block textarea_widget %}
+	{% spaceless %}
+	    <textarea {{ block('widget_attributes') }} class="form-control ckeditor">{{ value }}</textarea>
+	{% endspaceless %}
+{% endblock textarea_widget %}

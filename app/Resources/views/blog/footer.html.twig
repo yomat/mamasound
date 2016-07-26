@@ -1,0 +1,12 @@
+<h2>Articles</h2>
+	<ul> 
+		{% for article in articles %}
+			<li>
+			<a class = "btn btn-xs" href="{{ path('blog_detail', {id:article.id} ) }}">
+				[{{article.id}}] {{article.title}} <em> {{article.date | date('d-m-Y')}} </em>
+				&#128214;
+			</a>
+			</li>
+		{% endfor %} 
+	</ul>
+</body>

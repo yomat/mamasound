@@ -1,0 +1,14 @@
+{%  extends "blog/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - Nouvel article
+{% endblock %}
+
+{% block body %}
+	<h2>Nouvel article</h2>
+	{% include "blog/articles/form.html.twig" %}
+{% endblock %}
+
+{% block javascripts %}
+	<script src="//cdn.ckeditor.com/4.5.9/basic/ckeditor.js"></script>
+{% endblock %}

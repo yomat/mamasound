@@ -1,0 +1,26 @@
+{%  extends "blog/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - Category
+{% endblock %}
+
+{% block body %}
+<h2>({{articleCount}}) Articles in category &mdash;&mdash;[{{category.title}}]</h2>
+	<ul> 
+		{% for article in articles %}
+			<li>[{{article.id}}] {{article.title}} <em> {{article.date | date('d-m-Y')}} </em>
+			{% if article.image %}
+				<img src= "{{article.image.url}}", alt="{{article.image.alt}}", width = "150px", height = 150px"/>
+			{% endif %}
+				<p>{{ shortenedArticle(article.content)}}</p>
+				{% if article.categories|length > 0 %}
+				<p style="color:#777">
+					[CATEGORIES]{% for category in article.categories %}<a class = "btn btn-xs" href="{{ path('blog_articles_from_category', {id:category.id} ) }}">&mdash;&mdash;[<span style="color:#999">{{category.title}}</span>]</a>{% endfor %}<br> 
+				</p>
+				{% endif %}
+					<a class = "btn btn-warning" href="{{ path('blog_detail', {id:article.id} ) }}"> Voir &rarr; </a>
+			</li>
+		{% endfor %} 
+	</ul>
+</body>
+{% endblock %}

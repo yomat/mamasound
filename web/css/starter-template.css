@@ -1,0 +1,97 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+  font-family: 'Hamster';
+  src: url('../fonts/Hamster.otf');
+}
+
+body {
+  padding-top: 20px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: left;
+}
+
+.events {
+  /* Largeur Fluide et liquide, changer le 1000px par 100% */
+  max-width:100%;
+  /* Centre le conteneur dans la page */
+  margin:20px auto;
+}
+
+h2 {
+  font-family : 'Hamster';
+  color : lightgray;
+  font-size: 350%;
+  background-color: #555;
+  padding: 16px;
+  text-shadow: 1px 1px 4px #000000;
+}
+
+h3 {
+  font-size: 120%;
+  padding: 0px;
+  margin: 0px 0px 5px;
+}
+
+ul{
+  list-style:none;
+  margin-left:0;
+  padding-left:0;
+}
+
+/*.event-info .event-style .event-start-big {*/
+  /*display: block;*/
+/*}*/
+
+
+.event {
+  display: inline-flex;
+  clear: both;
+  box-shadow: 1px 1px 4px #555;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.event-start-big {
+  float: left;
+  font-family : 'Hamster';
+  font-size: 240%;
+  color: deeppink;
+  margin: auto 10px;
+  width:96px;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px #808080;
+
+}
+
+.event-style{
+  float: left;
+  width:128px;
+  background-color: deeppink;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.event-info{
+  float: left;
+  margin: auto 20px;
+  padding: 5px;
+  width:50%;
+}
+
+.event-place{
+  float: left;
+  padding: 5px;
+  margin: auto 10px;
+  width:96px;
+  text-align: center;
+  text-shadow: 0.5px 0.5px 1px #808080;
+}
+
+
+.dateBig{
+color: white;
+font-size: 120%;
+}

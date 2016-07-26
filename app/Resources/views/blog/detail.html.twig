@@ -1,0 +1,41 @@
+{%  extends "blog/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - Detail
+{% endblock %}
+
+{% block body %}
+	{% for message in app.session.flashbag.get('info') %}
+		<p class= "alert alert-success">{{  message }}</p>
+	{%  endfor %}
+	{% for message in app.session.flashbag.get('info_comment') %}
+		<p class= "alert alert-warning">{{  message }}</p>
+	{%  endfor %}
+	<article>
+		<h2>{{article.title}} [{{article.id}}]</h2>
+		<em> [ {{article.date | date('d-m-Y')}}{% if article.date < article.editDate %} ; {{article.editDate | date('d-m-Y')}}{% endif %} ]  </em> <br>
+		<p style="color:#777">
+			[CATEGORIES]{% for category in article.categories %}<a class = "btn btn-xs" href="{{ path('blog_articles_from_category', {id:category.id} ) }}">&mdash;&mdash;[<span style="color:#999">{{category.title}}</span>]</a>{% endfor %}<br> 
+		</p>
+		<content>
+			{% if article.image %}
+					<img src= {{ asset('images/') ~ article.image.url }} alt="{{article.image.alt}}"/>
+			{% endif %}
+			<p>{{article.content | raw}}</p>
+		</content>
+	</article>
+	<a class = "btn btn-success" href="{{ path('blog_edit_article', {id:article.id} ) }}"> Edit &#10000; </a>
+	<a class = "btn btn-danger" href="{{ path('blog_delete_article', {id:article.id} ) }}"> Delete &#10084; </a>
+	<h2>Comments</h2>
+	
+{# 	<a class = "btn btn-warning" href="{{ path('blog_comment', {id:article.id} ) }}"> Laisser un commentaire &rarr; </a>#}
+	{% include "blog/commentForm.html.twig" %}
+	<ul> 
+		{% for comment in article.comments %}
+			<li>{{comment.author}} <em> @ {{comment.date | date('d-m-Y')}} </em> :<br>
+			<p>{{ comment.content|raw}}</p>
+			</li>
+		{% endfor %} 
+	</ul>
+</body>
+{% endblock %}

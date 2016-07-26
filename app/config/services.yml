@@ -1,0 +1,21 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+    max: 300
+    items_by_page: 3
+
+services:
+    yomat.shortenedArticle:
+        class: AppBundle\Tools\ArticleShortener
+        arguments: ["@session", "[..]", "%max%"]
+        tags:
+            - {name: twig.extension}
+    yomat.maintenanceListener:
+        class: AppBundle\Listener\MaintenanceListener
+        arguments: [false, "@templating"]
+        tags:
+            - {name: kernel.event_listener, event: kernel.response, method:onKernelResponse}
+#    twig.extension.intl:
+#        class: Twig_Extensions_Extension_Intl
+#        tags:
+#            - { name: twig.extension }

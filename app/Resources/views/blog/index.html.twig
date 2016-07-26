@@ -1,0 +1,47 @@
+{%  extends "blog/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - Accueil
+{% endblock %}
+
+{% block body %}
+<h2>Articles</h2>
+	<ul> 
+		{% for article in articles %}
+			<li>[{{article.id}}] {{article.title}} <em> {{article.date | date('d-m-Y')}} </em>
+{% if article.image %}
+	<br><img src= {{ asset('images/') ~ article.image.url }} alt="{{article.image.alt}}, width = "300px", height = 300PX"/>
+{% endif %}
+				<p>{{ article.shortenedContent|raw}}</p>
+				{% if article.categories|length > 0 %}
+				<p style="color:#777">
+				[CATEGORIES]{% for category in article.categories %}<a class = "btn btn-xs" href="{{ path('blog_articles_from_category', {id:category.id} ) }}">&mdash;&mdash;[<span style="color:#999">{{category.title}}</span>]</a>{% endfor %}<br> 
+				</p>
+				{% endif %}
+					<a class = "btn btn-warning" href="{{ path('blog_detail', {id:article.id} ) }}"> Voir &rarr; </a>
+			</li>
+		{% endfor %} 
+	</ul>
+	<nav>
+		<ul class="pagination">
+			<li {% if activePage == 1 %} class="disabled"{% endif %}>
+				{% if activePage == 1 %}<span>&laquo;</span>
+				{% else %} <a href="{{ path('blog_homepage', {page:activePage-1} ) }}">&laquo;</a>
+			</li>
+			{% endif %}
+			{%  for i in 1..nbPages %}
+				{% if i != activePage %}
+					<li><a href="{{ path('blog_homepage', {page:i} ) }}">{{ i }}</a></li>
+				{% else %}
+					<li class="active"><a href="{{ path('blog_homepage', {page:i} ) }}">{{ i }}</a></li>
+				{% endif %}
+			{% endfor %}
+			<li {% if activePage == nbPages %} class="disabled"{% endif %}>
+				{% if activePage == nbPages %}<span>&raquo;</span>
+				{% else %} <a href="{{ path('blog_homepage', {page:activePage+1} ) }}">&raquo;</a>
+				{% endif %}
+			</li>
+		</ul>
+	</nav>
+</body>
+{% endblock %}

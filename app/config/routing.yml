@@ -1,0 +1,8 @@
+yomat_catalog:
+    resource: "@YomatCatalogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
