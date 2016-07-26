@@ -18,11 +18,10 @@
                         <img  class="event-style" src= "{{ asset('images/concerts/' ~ event.category ~ '.png') }}"/>
                         <text class="event-info">
                             <h3><strong>{{ event.title }}</strong></h3>
+                            <strong>{{ event.price }} €</strong>  -  fin : {{ event.end | date('h\\Hi') }}<br>
                             <em>{{ event.category }}</em><br>
-                            {{ event.price }}€<br>
-                            {{ event.start | date('h\\Hi') }} - {{ event.end | date('h\\Hi') }}<br>
-                            <em>LE LIEU !</em>
                         </text>
+                        <text class="event-place"><em>LE LIEU !</em></text>
                     </article>
                 </li>
             {% endfor %}
