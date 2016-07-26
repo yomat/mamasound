@@ -5,10 +5,14 @@
 {% endblock %}
 
 {% block body %}
-	<h2>Le programme des concerts du <text class="dateBig">{{ date | date('d M Y')}}</text></h2>
+	<h2>
+        &#9835; Le programme des concerts du  <text class="dateBig"> {{ date | date('d M Y')}}</text>
+    </h2>
     <div class="west">
-
+        <div class="datepicker-here" data-language='fr'></div>
+        <img class="logo-concerts" src="{{ asset('images/mms_concerts.png') }}", width="200px", height="225px">
     </div>
+
     <div class="events">
         <ul>
             {% for event in events %}
@@ -18,8 +22,8 @@
                         <img  class="event-style" src= "{{ asset('images/concerts/' ~ event.category ~ '.png') }}"/>
                         <text class="event-info">
                             <h3><strong>{{ event.title }}</strong></h3>
-                            <strong>{{ event.price }} €</strong>  -  fin : {{ event.end | date('h\\Hi') }}<br>
                             <em>{{ event.category }}</em><br>
+                            <strong>{{ event.price }} €</strong>  -  fin : {{ event.end | date('h\\Hi') }}<br>
                         </text>
                         <text class="event-place"><em>LE LIEU !</em></text>
                     </article>

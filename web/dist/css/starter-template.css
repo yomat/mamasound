@@ -55,10 +55,6 @@ ul{
   /*display: block;*/
 /*}*/
 
-.events {
-  float: left;
-  width: 75%;
-}
 
 .event {
   display: inline-flex;
@@ -93,7 +89,7 @@ ul{
   float: left;
   margin: auto 20px;
   padding: 5px;
-  width: 60%;
+  width: 40%;
 }
 
 .logo-mama{
@@ -110,23 +106,10 @@ ul{
 }
 
 .logo-concerts{
-  clear: both;
-  float: left;
-  text-align: center;
-  margin: 20px;
-  /*position: fixed;*/
-}
-
-.datepicker-here{
-  clear: both;
-  float: left;
-}
-
-.west{
-  float: left;
-  width: 25%;
-  height: auto;
-  margin-top: 20px;
+  float: right;
+  margin: -100px 10px auto -245px;
+  vertical-align: middle;
+  position: fixed;
 }
 
 .dateBig{
