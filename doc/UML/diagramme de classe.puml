@@ -1,0 +1,74 @@
+@startuml
+
+class Event {
+    int id
+    int placeId
+    String title
+    EventType type
+    CategoryType category
+    DateTime start
+    DateTime end
+    String short
+    String article
+    double price
+}
+
+class Group {
+    int id
+    String name
+    String shortDesc
+    String description
+}
+
+class Place {
+    int id
+    String name
+    double latitude
+    double longitude
+    double elevation
+    String address
+    String short
+    String article
+}
+
+enum EventType {
+    concert
+    expo
+    theatre
+}
+enum CategoryType {
+--Concerts--
+    blues
+    ...
+    hip-hop
+    ...
+    world
+
+--Expos--
+    street-art
+    mapping
+    ...
+
+--Théâtre--
+    café-théâtre
+    classique
+    cirque
+    conte
+    impro
+    kabuki
+    ..
+
+--Danse--
+    bollywood
+    contemporain
+    cirque
+    ...
+
+}
+
+Group --> Event: "1..*" se produit à "1..*"
+Event --> Place: "1..*" a lieu dans "1"
+Event -- EventType: "*" "1"
+Event -- CategoryType: "*" "1"
+
+@enduml

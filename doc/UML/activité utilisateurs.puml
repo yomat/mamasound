@@ -1,0 +1,15 @@
+@startuml
+
+user as "Utilisateur du site"
+web_user as "Mama Visiteur"
+writter as "Mama Rédacteur"
+
+writter -up-|> user
+web_user  -up-|> user
+
+writter --> (Login)
+writter --> (Edition du site)
+web_user --> (Consultation du site)
+
+(Login) <--(Edition du site)
+@enduml
