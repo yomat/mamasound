@@ -4,7 +4,7 @@ Mamasound
 
 ![](web/images/map_icon.png) On refait le site !
 
-# Navigatrion principale
+# Navigation principale
 ## Les événements
     - Quand ?
     - Le(s) artiste(s) / collectif(s) ?
