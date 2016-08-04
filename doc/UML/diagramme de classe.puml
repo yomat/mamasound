@@ -11,6 +11,7 @@ class Event {
     String short
     String article
     double price
+    boolean mamaEvent
 }
 
 class Group {
@@ -29,6 +30,7 @@ class Place {
     String address
     String short
     String article
+    boolean partenaire
 }
 
 enum EventType {

@@ -11,5 +11,5 @@ writter --> (Login)
 writter --> (Edition du site)
 web_user --> (Consultation du site)
 
-(Login) <--(Edition du site)
+(Login) <-- (Edition du site)
 @enduml
