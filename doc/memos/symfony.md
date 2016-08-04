@@ -1,7 +1,8 @@
 
 ### Ajout de champs dans une Entity
 
-1. modifier l'entité
+ 1. modifier l'entité
+
 Par exemple :
 ```
     /**
@@ -12,7 +13,8 @@ Par exemple :
     private $mamaEvent;
 ```
 
-2. mettre à jour le schéma
+ 2. mettre à jour le schéma
+
 ```
 $ php bin/console doctrine:schema:update --force
 ```

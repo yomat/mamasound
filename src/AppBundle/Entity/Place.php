@@ -70,6 +70,12 @@ class Place
      */
     private $article;
 
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="partenaire", type="boolean")
+     */
+    private $partenaire;
 
     /**
      * Get id

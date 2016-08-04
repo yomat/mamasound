@@ -35,6 +35,12 @@ class Groupe
      */
     private $short;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="article", type="text")
+     */
+    private $article;
 
     /**
      * Get id

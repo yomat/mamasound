@@ -17,8 +17,8 @@ class Event {
 class Group {
     int id
     String name
-    String shortDesc
-    String description
+    String short
+    String article
 }
 
 class Place {
