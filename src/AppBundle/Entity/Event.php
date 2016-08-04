@@ -79,6 +79,20 @@ class Event
     private $price;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="mamaEvent", type="boolean")
+     */
+    private $mamaEvent;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="partenaire", type="boolean")
+     */
+    private $partenaire;
+
+    /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      * @ORM\ManyToMany(	targetEntity="AppBundle\Entity\Groupe",
      * 					inversedBy="events")
