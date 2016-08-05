@@ -16,7 +16,7 @@
     <div class="events">
         <ul>
             {% for event in events %}
-                {% if event.type == "concert" %}
+                {% if event.type == "expo" %}
                     <li>
                         <article class="event">
                             <text class="event-start-big"><strong>{{ event.start | date('H\\:i') }}</strong></text>
