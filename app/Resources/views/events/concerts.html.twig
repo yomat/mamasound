@@ -1,4 +1,4 @@
-{%  extends "concerts/layout.html.twig" %}
+{%  extends "events/layout.html.twig" %}
 
 {% block title %}
 	{{ parent()}} - concerts
@@ -16,11 +16,11 @@
     <div class="events">
         <ul>
             {% for event in events %}
-                {% if event.type == "expo" %}
+                {% if event.type == "concert" %}
                     <li>
                         <article class="event">
                             <text class="event-start-big"><strong>{{ event.start | date('H\\:i') }}</strong></text>
-                            <img  class="event-style" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+                            <img  class="event-style-concert" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
                             <text class="event-info">
                                 <h3><strong>{{ event.title }}</strong></h3>
                                 <em>{{ event.category }}</em><br>

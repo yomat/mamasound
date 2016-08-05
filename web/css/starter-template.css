@@ -89,6 +89,30 @@ ul{
   text-align: center;
 }
 
+.event-style-concert{
+  float: left;
+  width:128px;
+  background-color: #ff3333;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.event-style-expo{
+  float: left;
+  width:128px;
+  background-color: #ff3333;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.event-style-theatre{
+  float: left;
+  width:128px;
+  background-color: #b89bff;
+  padding-left: 10px;
+  text-align: center;
+}
+
 .event-info{
   float: left;
   margin: auto 20px;

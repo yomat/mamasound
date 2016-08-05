@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ path("concerts") }}">
+          <a class="navbar-brand" href="{{ path("all_events") }}">
               <img class="logo-mama" src="{{ asset('images/logo_text_grey.png') }}" alt="Mama Sound"/></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -41,11 +41,12 @@
 {#             <li class="active"><a href="#">Home</a></li>#}
             <li class="menu-item"><a href="{{ path("concerts") }}">
                     <img src="{{ asset('images/map_concert.png') }}"/>Concert</a></li>
-            <li class="menu-item"><a href="#about">
+            <li class="menu-item"><a href="{{ path("expos") }}">
                     <img src="{{ asset('images/map_expo.png') }}"/>Expo</a></li>
-            <li class="menu-item"><a href="#contact">
+            <li class="menu-item"><a href="{{ path("theatres") }}">
                     <img src="{{ asset('images/map_theatre.png') }}"/>Théâtre</a></li>
-
+            <li class="menu-item"><a href="{{ path("all_events") }}">
+                    <img src="{{ asset('images/map_all.png') }}"/>Tout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 

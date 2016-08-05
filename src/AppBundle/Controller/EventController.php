@@ -21,9 +21,9 @@ class EventController extends Controller
 	protected $nbArticlesByPage = 3;
 
 	/**
-	 * @Route("/concerts/{date}", name="concerts", defaults={"date":null})
+	 * @Route("/events/all/{date}", name="all_events", defaults={"date":null})
 	 */
-	public function listConcertsAction(Request $request, $date){
+	public function listEventsAction(Request $request, $date){
 		// date
 		$strFormat = 'Y-m-d H:i:s';
 		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
@@ -35,7 +35,73 @@ class EventController extends Controller
 						-> getEvents($strDate);
 
 		// vue twig
-		return $this->render('concerts/concerts.html.twig',[
+		return $this->render('events/events.html.twig',[
+				'date' => $strDate,
+				'events' => $events
+			]
+		);
+	}
+
+	/**
+	 * @Route("/events/concert{date}", name="concerts", defaults={"date":null})
+	 */
+	public function listConcertsAction(Request $request, $date){
+		// date
+		$strFormat = 'Y-m-d H:i:s';
+		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
+
+
+		// events
+		$events = $this -> getDoctrine() -> getManager()
+			-> getRepository('AppBundle:Event')
+			-> getEvents($strDate);
+
+		// vue twig
+		return $this->render('events/concerts.html.twig',[
+				'date' => $strDate,
+				'events' => $events
+			]
+		);
+	}
+
+	/**
+	 * @Route("/events/expo/{date}", name="expos", defaults={"date":null})
+	 */
+	public function listExposAction(Request $request, $date){
+		// date
+		$strFormat = 'Y-m-d H:i:s';
+		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
+
+
+		// events
+		$events = $this -> getDoctrine() -> getManager()
+			-> getRepository('AppBundle:Event')
+			-> getEvents($strDate);
+
+		// vue twig
+		return $this->render('events/expos.html.twig',[
+				'date' => $strDate,
+				'events' => $events
+			]
+		);
+	}
+
+	/**
+	 * @Route("/events/theatre/{date}", name="theatres", defaults={"date":null})
+	 */
+	public function listTheatresAction(Request $request, $date){
+		// date
+		$strFormat = 'Y-m-d H:i:s';
+		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
+
+
+		// events
+		$events = $this -> getDoctrine() -> getManager()
+			-> getRepository('AppBundle:Event')
+			-> getEvents($strDate);
+
+		// vue twig
+		return $this->render('events/theatres.html.twig',[
 				'date' => $strDate,
 				'events' => $events
 			]
