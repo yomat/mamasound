@@ -19,7 +19,7 @@
                 {% if event.type == "expo" %}
                     <li>
                         <article class="event">
-                            <text class="event-start-big"><strong>{{ event.start | date('H\\:i') }}</strong></text>
+                            <text class="event-start-big" color="#6cf1bc"><strong>{{ event.start | date('H\\:i') }}</strong></text>
                             <img  class="event-style-expo" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
                             <text class="event-info">
                                 <h3><strong>{{ event.title }}</strong></h3>

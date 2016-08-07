@@ -7,7 +7,8 @@
 
 body {
   padding-top: 20px;
-  background: #554466 url("../images/background.png");
+  background: #554466 url("../images/background_expo.png");
+  background-size: contain;
 }
 .starter-template {
   padding: 40px 15px;
@@ -51,6 +52,23 @@ ul{
   padding-left:0;
 }
 
+.navbar-fixed-top {
+  height: 150px; /* Whatever you want. */
+}
+
+.logo-mama{
+  float: left;
+}
+
+.logo-concerts{
+  float: left;
+  text-align: center;
+  /*margin: 20px;*/
+  width: 15%;
+  height: auto;
+  /*position: fixed;*/
+}
+
 /*.event-info .event-style .event-start-big {*/
   /*display: block;*/
 /*}*/
@@ -66,14 +84,13 @@ ul{
   box-shadow: 1px 1px 2px #555;
   margin-bottom: 15px;
   width: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .event-start-big {
   float: left;
-  font-family : 'Hamster';
-  font-size: 240%;
-  color: deeppink;
+  /*font-family : 'Hamster';*/
+  font-size: 150%;
   margin: auto 10px;
   width:96px;
   text-align: center;
@@ -100,7 +117,7 @@ ul{
 .event-style-expo{
   float: left;
   width:128px;
-  background-color: #ff3333;
+  background-color: #6cf1bc;
   padding-left: 10px;
   text-align: center;
 }
@@ -120,25 +137,15 @@ ul{
   width: 40%;
 }
 
-.logo-mama{
-  width: 200px;
-}
+
 
 .event-place{
-  float: right;
-  padding: 5px;
-  margin: auto 10px;
-  width:128px;
-  text-align: right;
-  text-shadow: 0.5px 0.5px 1px #808080;
-}
-
-.logo-concerts{
-  clear: both;
-  float: left;
-  text-align: center;
-  margin: 20px;
-  /*position: fixed;*/
+float: right;
+padding: 5px;
+margin: auto 10px;
+width:128px;
+text-align: right;
+text-shadow: 0.5px 0.5px 1px #808080;
 }
 
 .datepicker-here{
