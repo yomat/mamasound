@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,86 +11,88 @@
     <link rel="icon" href="/yomat/mamasound/web/favico.png">
 
     <title>{% block title %} mama sound {% endblock %}</title>
- 	{% block stylesheets %}{% endblock %}
- 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    {% block stylesheets %}{% endblock %}
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/starter-template.css') }}" rel="stylesheet">
 
 
-   </head>
-     
-  <body>
+</head>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{ path("all_events") }}">
-              <img class="logo-concerts" src="{{ asset('images/mms_concerts.png') }}", width="150px", height="180px">
-          </a>
-        </div>
-        <div>
-            <img class="logo-mama" src="{{ asset('images/logo_text_grey.png') }}" alt="Mama Sound"/>
-            <div id="navbar" class="collapse navbar-collapse">
-              <ul class="nav navbar-nav">
-    {#             <li class="active"><a href="#">  Home</a></li>#}
-                <li class="menu-item"><a href="{{ path("concerts") }}">
-                        <img src="{{ asset('images/map_concert.png') }}"/>Concert</a></li>
-                <li class="menu-item"><a href="{{ path("expos") }}">
-                        <img src="{{ asset('images/map_expo.png') }}"/>Expo</a></li>
-                <li class="menu-item"><a href="{{ path("theatres") }}">
-                        <img src="{{ asset('images/map_theatre.png') }}"/>Théâtre</a></li>
-                <li class="menu-item"><a href="{{ path("all_events") }}">
-                        <img src="{{ asset('images/map_all.png') }}"/>Tout</a></li>
-              </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </nav>
+<body>
 
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path("all_events") }}">
+                <img class="logo-perso" src="{{ asset('images/mms_concerts.png') }}", width="150px", height="180px">
+            </a>
+        </div>
+        <div class="navbar-east">
+            <div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        {#             <li class="active"><a href="#">  Home</a></li>#}
+                        <li class="menu-item"><a href="{{ path("concerts") }}">
+                                <img src="{{ asset('images/map_concert.png') }}"/>Concert</a></li>
+                        <li class="menu-item"><a href="{{ path("expos") }}">
+                                <img src="{{ asset('images/map_expo.png') }}"/>Expo</a></li>
+                        <li class="menu-item"><a href="{{ path("theatres") }}">
+                                <img src="{{ asset('images/map_theatre.png') }}"/>Théâtre</a></li>
+                        <li class="menu-item"><a href="{{ path("all_events") }}">
+                                <img src="{{ asset('images/map_all.png') }}"/>Tout</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+            <img class="logo-mama-sound" src="{{ asset('images/mama-expo.png') }}" alt="Mama Sound"/>
+        </div>
+    </div>
+</nav>
 
-      <div class="starter-template">
-      {% block layout %}
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      {% endblock %}
-      
-      </div>
+<div class="container">
 
-    </div><!-- /.container -->
+    <div class="starter-template">
+        {% block layout %}
+            <h1>Bootstrap starter template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        {% endblock %}
 
+    </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-    <link href="{{ asset('dist/css/datepicker.min.css') }}" rel="stylesheet" type="text/css">
-    <script src="{{ asset('dist/js/datepicker.min.js') }}"></script>
-
-    <!-- Include French language -->
-    <script src="{{ asset('dist/js/i18n/datepicker.fr.js') }}"></script>
+</div><!-- /.container -->
 
 
-    {% block javascripts %}{% endblock %}
-    
-  </body>
-  
-  <footer>
-  	{{  render(controller("AppBundle:Blog:footer")) }}
-  </footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../../dist/js/bootstrap.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<link href="{{ asset('dist/css/datepicker.min.css') }}" rel="stylesheet" type="text/css">
+<script src="{{ asset('dist/js/datepicker.min.js') }}"></script>
+
+<!-- Include French language -->
+<script src="{{ asset('dist/js/i18n/datepicker.fr.js') }}"></script>
+
+
+{% block javascripts %}{% endblock %}
+
+</body>
+
+<footer>
+    {{  render(controller("AppBundle:Blog:footer")) }}
+</footer>
 
 </html>

@@ -6,11 +6,10 @@
 
 {% block body %}
 	<h2>
-        &#9835; Le programme des concerts du  <text class="dateBig"> {{ date | date('d M Y')}}</text>
+       <text class="dateBig"> {{ date | date('d M Y')}}</text> - Le programme des expos
     </h2>
     <div class="west">
         <div class="datepicker-here" data-language='fr'></div>
-        <img class="logo-concerts" src="{{ asset('images/mms_concerts.png') }}", width="200px", height="225px">
     </div>
 
     <div class="events">
@@ -18,16 +17,7 @@
             {% for event in events %}
                 {% if event.type == "expo" %}
                     <li>
-                        <article class="event">
-                            <text class="event-start-big" color="#6cf1bc"><strong>{{ event.start | date('H\\:i') }}</strong></text>
-                            <img  class="event-style-expo" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
-                            <text class="event-info">
-                                <h3><strong>{{ event.title }}</strong></h3>
-                                <em>{{ event.category }}</em><br>
-                                <strong>{{ event.price }} €</strong>  -  fin : {{ event.end | date('h\\Hi') }}<br>
-                            </text>
-                            <text class="event-place"><em>LE LIEU !</em></text>
-                        </article>
+                        {% include "events/expo_cell.html.twig" %}
                     </li>
                 {% endif %}
             {% endfor %}

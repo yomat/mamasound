@@ -1,0 +1,10 @@
+<article class="event">
+    <text class="event-start-big" color="#6cf1bc"><strong>{{ event.start | date('H\\:i') }}</strong></text>
+    <img  class="event-style-expo" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+    <text class="event-info">
+        <h3><strong>{{ event.title }}</strong></h3>
+        <em>{{ event.category }}</em><br>
+        <strong>{{ event.price }} €</strong>  -  fin : {{ event.end | date('h\\Hi') }}<br>
+    </text>
+    <text class="event-place"><em>LE LIEU !</em></text>
+</article>

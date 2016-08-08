@@ -1,210 +1,226 @@
 @CHARSET "ISO-8859-1";
 
 @font-face {
-  font-family: 'Hamster';
-  src: url('../fonts/Hamster.otf');
+    font-family: 'Hamster';
+    src: url('../fonts/Hamster.otf');
+}
+
+@font-face {
+    font-family: 'Delphine';
+    src: url('../fonts/Delphine.ttf');
+}
+
+@font-face {
+    font-family: 'Essays1743';
+    src: url('../fonts/Essays1743.ttf');
 }
 
 body {
-  padding-top: 20px;
-  background: #554466 url("../images/background_expo.png");
-  background-size: contain;
+    padding-top: 20px;
+    background: #554466 url("../images/background_expo.png");
+    background-size: contain;
 }
+
 .starter-template {
-  padding: 40px 15px;
-  text-align: left;
+    padding: 100px 15px;
+    text-align: left;
 }
 
 .events {
-  /* Largeur Fluide et liquide, changer le 1000px par 100% */
-  max-width:100%;
-  /* Centre le conteneur dans la page */
-  margin:20px auto;
+    /* Largeur Fluide et liquide, changer le 1000px par 100% */
+    max-width: 100%;
+    /* Centre le conteneur dans la page */
+    margin: 20px auto;
 }
 
-.menu-item{
-  font-family : 'Hamster';
-  font-size: 200%;
-  color : whitesmoke;
-  text-shadow: 1px 1px 4px #554466;
+.menu-item {
+    font-family: 'Delphine';
+    font-size: 200%;
+    color: whitesmoke;
+    text-shadow: 1px 1px 4px #554466;
 }
 
 h2 {
-  font-family : 'Hamster';
-  color : lightgray;
-  font-size: 350%;
-  background-color: #555;
-  padding: 16px;
-  text-shadow: 1px 1px 4px #000000;
-  box-shadow: 1px 1px 2px #555;
-  margin-top: 40px;
+    font-family: 'Essays1743';
+    color: lightgray;
+    font-size: 250%;
+    background-color: #555;
+    padding: 16px;
+    text-shadow: 1px 1px 4px #000000;
+    box-shadow: 1px 1px 2px #555;
+    margin-top: 40px;
 }
 
 h3 {
-  font-size: 120%;
-  padding: 0;
-  margin: 0 0 5px;
+    font-size: 120%;
+    padding: 0;
+    margin: 0 0 5px;
 }
 
-ul{
-  list-style:none;
-  margin-left:0;
-  padding-left:0;
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.navbar-header {
+    float: left;
 }
 
 .navbar-fixed-top {
-  height: 150px; /* Whatever you want. */
+    height: 150px; /* Whatever you want. */
 }
 
-.logo-mama{
-  float: left;
+.navbar-east {
+    float: left;
 }
 
-.logo-concerts{
-  float: left;
-  text-align: center;
-  /*margin: 20px;*/
-  width: 15%;
-  height: auto;
-  /*position: fixed;*/
+.logo-mama-sound {
+    float: left;
+    width: 50%;
+    height: 50%;
+}
+
+.logo-perso {
+    float: left;
+
 }
 
 /*.event-info .event-style .event-start-big {*/
-  /*display: block;*/
+/*display: block;*/
 /*}*/
 
 .events {
-  float: left;
-  width: 50%;
+    float: left;
+    width: 50%;
 }
 
 .event {
-  display: inline-flex;
-  clear: both;
-  box-shadow: 1px 1px 2px #555;
-  margin-bottom: 15px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.95);
+    display: inline-flex;
+    clear: both;
+    box-shadow: 1px 1px 2px #555;
+    margin-bottom: 15px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .event-start-big {
-  float: left;
-  /*font-family : 'Hamster';*/
-  font-size: 150%;
-  margin: auto 10px;
-  width:96px;
-  text-align: center;
-  text-shadow: 0.5px 0.5px 1px #808080;
+    float: left;
+    font-family: 'Essays1743';
+    font-size: 200%;
+    color: lightslategray;
+    margin: auto 10px;
+    width: 96px;
+    text-align: center;
+    text-shadow: 0.5px 0.5px 1px #808080;
 
 }
 
-.event-style{
-  float: left;
-  width:128px;
-  background-color: deeppink;
-  padding-left: 10px;
-  text-align: center;
+.event-style {
+    float: left;
+    width: 128px;
+    background-color: lightgray;
+    padding-left: 10px;
+    text-align: center;
 }
 
-.event-style-concert{
-  float: left;
-  width:128px;
-  background-color: #ff3333;
-  padding-left: 10px;
-  text-align: center;
+.event-style-concert {
+    float: left;
+    width: 128px;
+    background-color: #ff3333;
+    padding-left: 10px;
+    text-align: center;
 }
 
-.event-style-expo{
-  float: left;
-  width:128px;
-  background-color: #6cf1bc;
-  padding-left: 10px;
-  text-align: center;
+.event-style-expo {
+    float: left;
+    width: 128px;
+    background-color: #6cf1bc;
+    padding-left: 10px;
+    text-align: center;
 }
 
-.event-style-theatre{
-  float: left;
-  width:128px;
-  background-color: #b89bff;
-  padding-left: 10px;
-  text-align: center;
+.event-style-theatre {
+    float: left;
+    width: 128px;
+    background-color: #b89bff;
+    padding-left: 10px;
+    text-align: center;
 }
 
-.event-info{
-  float: left;
-  margin: auto 20px;
-  padding: 5px;
-  width: 40%;
+.event-info {
+    float: left;
+    margin: auto 20px;
+    padding: 5px;
+    width: 40%;
 }
 
-
-
-.event-place{
-float: right;
-padding: 5px;
-margin: auto 10px;
-width:128px;
-text-align: right;
-text-shadow: 0.5px 0.5px 1px #808080;
+.event-place {
+    float: right;
+    padding: 5px;
+    margin: auto 10px;
+    width: 128px;
+    text-align: right;
+    text-shadow: 0.5px 0.5px 1px #808080;
 }
 
-.datepicker-here{
-  clear: both;
-  float: left;
+.datepicker-here {
+    clear: both;
+    float: left;
 }
 
-.west{
-  float: left;
-  width: 25%;
-  height: auto;
-  margin-top: 20px;
+.west {
+    float: left;
+    width: 25%;
+    height: auto;
+    margin-top: 20px;
 }
 
-.east{
-  float: right;
-  width: 23%;
-  height: auto;
-  margin-top: 20px;
-  margin-left: 20px;
+.east {
+    float: right;
+    width: 23%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
-.group{
-  float: left;
-  clear: both;
-  width: 100%;
-  height: auto;
-  background-color: white;
-  padding: 8px;
-  box-shadow: 1px 1px 2px #555;
+.group {
+    float: left;
+    clear: both;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 1px 1px 2px #555;
 }
 
-.photo-group{
-  width: 100%;
-  height: auto;
-  margin-bottom: 8px;
+.photo-group {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
 }
 
-.map{
-float: left;
-width: 100%;
-height: auto;
-margin-top: 20px;
-background-color: white;
-padding: 8px;
-box-shadow: 1px 1px 2px #555;
+.map {
+    float: left;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 1px 1px 2px #555;
 }
 
-.map3d{
-  width: 100%;
-  height: auto;
-  margin-bottom: 8px;
+.map3d {
+    width: 100%;
+    height: auto;
+    margin-bottom: 8px;
 }
 
-.dateBig{
-color: white;
-font-size: 120%;
+.dateBig {
+    color: white;
+    font-size: 120%;
 }
 
-.title-footer{
-  text-align: center;
+.title-footer {
+    text-align: center;
 }
