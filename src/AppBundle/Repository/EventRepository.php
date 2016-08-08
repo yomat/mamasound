@@ -11,18 +11,18 @@ namespace AppBundle\Repository;
 class EventRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getEvents($date){
-        $qb = $this -> _em -> createQueryBuilder()
-                    -> select('e')
-                    -> from('AppBundle:Event', 'e');
-      /*      -> where('event.date > :date')
-            -> setParameter('date', $date)
-            -> orderBy('event.date', 'DESC')
-      ;*/
-        /*$query = $qb -> getQuery()*/;
+    public function getEvents($date, $eventType){
+        if ($eventType === NULL || $eventType == "all_events")
+            $qb = $this -> _em -> createQueryBuilder()
+                        -> select('e')
+                        -> from('AppBundle:Event', 'e');
+        else
+            $qb = $this -> _em -> createQueryBuilder()
+                -> select('e')
+                -> from('AppBundle:Event', 'e')
+                -> where('e.type = :eventType')
+                -> setParameter('eventType', $eventType);
  		return $qb -> getQuery() -> getResult();
-        /*$results = $query -> getArrayResult();
-        return $results;*/
     }
 
 }

@@ -33,7 +33,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ path("all_events") }}">
+            <a class="navbar-brand" href="{{ path("events", {'eventType': "all_events"}) }}">
                 <img class="logo-perso" src="{{ asset('images/mms_concerts.png') }}", width="150px", height="180px">
             </a>
         </div>
@@ -42,13 +42,13 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         {#             <li class="active"><a href="#">  Home</a></li>#}
-                        <li class="menu-item"><a href="{{ path("concerts") }}">
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "concert"}) }}">
                                 <img src="{{ asset('images/map_concert.png') }}"/>Concert</a></li>
-                        <li class="menu-item"><a href="{{ path("expos") }}">
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "expo"}) }}">
                                 <img src="{{ asset('images/map_expo.png') }}"/>Expo</a></li>
-                        <li class="menu-item"><a href="{{ path("theatres") }}">
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "theatre"}) }}">
                                 <img src="{{ asset('images/map_theatre.png') }}"/>Théâtre</a></li>
-                        <li class="menu-item"><a href="{{ path("all_events") }}">
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "all_events"}) }}">
                                 <img src="{{ asset('images/map_all.png') }}"/>Tout</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
