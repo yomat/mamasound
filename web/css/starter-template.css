@@ -17,8 +17,10 @@
 
 body {
     padding-top: 20px;
-    background: #554466 url("../images/background_expo.png");
-    background-size: contain;
+    background: #554466 url("../images/background_expo.png") center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .starter-template {
@@ -48,6 +50,7 @@ h2 {
     padding: 16px;
     text-shadow: 1px 1px 4px #000000;
     box-shadow: 1px 1px 2px #555;
+    padding-left:150px;
     margin-top: 40px;
 }
 
@@ -176,14 +179,17 @@ ul {
     width: 25%;
     height: auto;
     margin-top: 20px;
+    position: sticky;
 }
 
 .east {
+    top: 150px;
     float: right;
     width: 23%;
     height: auto;
     margin-top: 20px;
     margin-left: 20px;
+    position: sticky;
 }
 
 .group {
@@ -202,7 +208,7 @@ ul {
     margin-bottom: 8px;
 }
 
-.map {
+.placeInfo {
     float: left;
     width: 100%;
     height: auto;
@@ -210,6 +216,10 @@ ul {
     background-color: white;
     padding: 8px;
     box-shadow: 1px 1px 2px #555;
+}
+
+#mapid {
+    height: 400px;
 }
 
 .map3d {

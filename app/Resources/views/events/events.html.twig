@@ -4,6 +4,7 @@
 	{{ parent()}} - concerts
 {% endblock %}
 
+
 {% block body %}
 	<h2>
         &#9835; Le programme des concerts du  <text class="dateBig"> {{ date | date('d M Y')}}</text>
@@ -44,7 +45,11 @@
             </text>
         </div>
 
-        <div class="map">
+
+        <div class="placeInfo">
+
+            <div id="mapid"></div>
+
             <img class="map3d" src="{{ asset('images/map.png') }}">
             <h3><strong>La petite scène</strong></h3>
             <text>6 Rue de la Fontaine</text><br>
@@ -52,5 +57,13 @@
             <text>04 67 54 22 15</text>
         </div>
     </div>
+
+{% endblock %}
+
+{% block javascript %}
+
+    window.onload = function() {
+    alert('script works');
+    };
 
 {% endblock %}

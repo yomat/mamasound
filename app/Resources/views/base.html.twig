@@ -19,10 +19,19 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/starter-template.css') }}" rel="stylesheet">
 
+    <!-- Tiles for the map -->
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
 
 </head>
 
-<body>
+{% block javascript %}
+
+    window.onload = function() {
+    alert('script works');
+    };
+
+{% endblock %}
+<body onload="InitialiserCarte();">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -53,7 +62,7 @@
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
-            <img class="logo-mama-sound" src="{{ asset('images/mama-expo.png') }}" alt="Mama Sound"/>
+            <img class="logo-mama-sound" src="{{ asset('images/mama-sound.png') }}" alt="Mama Sound"/>
         </div>
     </div>
 </nav>
@@ -86,6 +95,9 @@
 <!-- Include French language -->
 <script src="{{ asset('dist/js/i18n/datepicker.fr.js') }}"></script>
 
+<!-- Include  Leaflet -->
+<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<script src="{{ asset('dist/js/leaflet_mamasound.js') }}"></script>
 
 {% block javascripts %}{% endblock %}
 
