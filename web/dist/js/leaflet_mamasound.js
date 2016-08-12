@@ -21,3 +21,18 @@ function InitialiserCarte() {
 $(document).ready(function(){
     InitialiserCarte();
 });
+
+// variable to store HTML5 audio element
+var music = document.getElementById('music');
+
+function playAudio() {
+    if (music.paused) {
+        music.play();
+        playRadioButton.className = "";
+        playRadioButton.className = "pause";
+    } else {
+        music.pause();
+        playRadioButton.className = "";
+        playRadioButton.className = "play";
+    }
+}

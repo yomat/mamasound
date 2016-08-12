@@ -35,6 +35,7 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -46,6 +47,7 @@
                 <img class="logo-perso" src="{{ asset('images/mms_concerts.png') }}", width="150px", height="180px">
             </a>
         </div>
+
         <div class="navbar-east">
             <div>
                 <div id="navbar" class="collapse navbar-collapse">
@@ -63,6 +65,22 @@
                 </div><!--/.nav-collapse -->
             </div>
             <img class="logo-mama-sound" src="{{ asset('images/mama-sound.png') }}" alt="Mama Sound"/>
+        </div>
+
+        <div class="navbar-east-radio">
+            <div id="audioplayer">
+                <button id="playRadioButton" class="play" onclick="play()"></button>
+                <div id="timeline">
+                    <div id="playhead"></div>
+                </div>
+            </div>
+            <button id="playRadioButton" class="play" onclick="playAudio()"></button>
+
+            {#<img src="{{ asset('images/radio_on.png') }}" alt="Radio"/>#}
+
+            <audio  id="music" autoplay>
+                <source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">
+            </audio>
         </div>
     </div>
 </nav>

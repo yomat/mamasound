@@ -17,7 +17,8 @@
 
 body {
     padding-top: 20px;
-    background: #554466 url("../images/background_expo.png") center;
+    /*background: #554466 url("../images/background_expo.png") center;*/
+    background: #554466 url("../images/entete_google_play.jpg") center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -68,6 +69,8 @@ ul {
 
 .navbar-header {
     float: left;
+    clear: right;
+
 }
 
 .navbar-fixed-top {
@@ -76,11 +79,19 @@ ul {
 
 .navbar-east {
     float: left;
+    clear: right;
+    width: 60%;
+}
+
+.navbar-east-radio {
+    float: right;
+    clear: right;
+
 }
 
 .logo-mama-sound {
     float: left;
-    width: 50%;
+    width: 80%;
     height: 50%;
 }
 
@@ -184,8 +195,18 @@ ul {
 
 .east {
     top: 150px;
-    float: right;
+    float: left;
     width: 23%;
+    height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
+    position: sticky;
+}
+
+.east-2col {
+    top: 150px;
+    float: right;
+    width: 48%;
     height: auto;
     margin-top: 20px;
     margin-left: 20px;
@@ -197,6 +218,17 @@ ul {
     clear: both;
     width: 100%;
     height: auto;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 1px 1px 2px #555;
+}
+
+.group-small {
+    float: left;
+    clear: both;
+    width: 48%;
+    height: auto;
+    margin-top: 20px;
     background-color: white;
     padding: 8px;
     box-shadow: 1px 1px 2px #555;
@@ -218,8 +250,25 @@ ul {
     box-shadow: 1px 1px 2px #555;
 }
 
+.placeInfo-small {
+    float: right;
+    width: 48%;
+    height: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 1px 1px 2px #555;
+}
+
+
+.map{
+    margin: 8px;
+    background-color: white;
+}
+
 #mapid {
     height: 400px;
+
 }
 
 .map3d {
@@ -236,3 +285,21 @@ ul {
 .title-footer {
     text-align: center;
 }
+
+
+ #playRadioButton{
+     height:60px;
+     width: 60px;
+     border: none;
+     background-size: 100% 100%;
+     background-position: center;
+ }
+
+.play{
+    background: url('../images/radio_off.png') no-repeat;
+    width: 50px;
+    height: 50px;
+}
+
+.pause{background: url('../images/radio_on.png') no-repeat;}
+
