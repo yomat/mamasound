@@ -260,23 +260,32 @@ ul {
 }
 
 .group-small {
+    top: 540px;
+    right: 264px;;
+    position: fixed;
     float: right;
-    width: 48%;
+    width: 300px;
     height: auto;
     margin-top: 20px;
     background-color: white;
     padding: 8px;
-    box-shadow: 1px 1px 2px #555;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
+    transition:all 200ms ease-out;
+
+
 }
 .group-small div:hover{
+    top: 540px;
+    right: 260px;;
+    position: fixed;
     float: right;
-    clear: both;
-    width: 48%;
+    width: 300px;
     height: auto;
     margin-top: 20px;
     background-color: white;
     padding: 8px;
     box-shadow: 1px 1px 2px #555;
+
 }
 
 
@@ -298,23 +307,35 @@ ul {
 }
 
 .placeInfo-small {
+    top: 540px;
     float: left;
-    width: 48%;
+    width: 17%;
     height: auto;
     margin-top: 20px;
     background-color: white;
-    padding: 8px;
-    box-shadow: 1px 1px 2px #555;
+    padding: 2px;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
+    position: fixed;
+
 }
 
+.east-2col-east-then-north{
+    padding: 2px;
+    background-color: white;
+    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
+    position: fixed;
+    float: right;
+    clear: both;
+    width: 35%;
+}
 
 .map{
-    margin: 8px;
-    background-color: white;
-    position: fixed;
+    padding: 20px;
 }
 
 #mapid {
+    padding: 20px;
+    background-color: white;
     height: 400px;
 
 }
