@@ -34,6 +34,7 @@ body {
     max-width: 100%;
     /* Centre le conteneur dans la page */
     margin: 20px auto;
+    margin-top: 60px;
 }
 
 .menu-item {
@@ -70,11 +71,14 @@ ul {
 .navbar-header {
     float: left;
     clear: right;
-
 }
 
 .navbar-fixed-top {
     height: 150px; /* Whatever you want. */
+    transform: skewY(-5deg);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.81);
+
 }
 
 .navbar-east {
@@ -84,8 +88,12 @@ ul {
 }
 
 .navbar-east-radio {
-    float: right;
+    float: left;
     clear: right;
+    transform: skewY(5deg);
+    position: relative;
+    left: -130px;
+    top: 15px;
 
 }
 
@@ -93,10 +101,12 @@ ul {
     float: left;
     width: 80%;
     height: 50%;
+
 }
 
 .logo-perso {
     float: left;
+    transform: skewY(5deg);
 
 }
 
@@ -110,6 +120,7 @@ ul {
 }
 
 .event {
+    transform: skewY(-5deg);
     display: inline-flex;
     clear: both;
     border-style: none;
@@ -223,6 +234,10 @@ ul {
     box-shadow: 1px 1px 2px #555;
 }
 
+#scene3D{
+    perspective:2000px;
+}
+
 .group-small {
     float: left;
     clear: both;
@@ -232,7 +247,10 @@ ul {
     background-color: white;
     padding: 8px;
     box-shadow: 1px 1px 2px #555;
+    transform: rotate3d(.5, -1, .05, 40deg);
 }
+
+
 
 .photo-group {
     width: 100%;
@@ -264,6 +282,7 @@ ul {
 .map{
     margin: 8px;
     background-color: white;
+    position: fixed;
 }
 
 #mapid {

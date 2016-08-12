@@ -34,33 +34,32 @@
             <div id="mapid"></div>
         </div>
 
-        <div class="group-small">
-            <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
-            <h3><strong>Ilé Trio Brazil</strong></h3>
-            <text>Daniel Ilé, Guillaume Rodriguez & Vladimir Derevitsky.
-                Samba forró reggae MPB bossa nova.
-            </text>
-        </div>
+        {#<div id="scene3D" class="group-small">#}
+            {#<img class="photo-group" src="{{ asset('images/photo_group.png') }}">#}
+            {#<h3><strong>Que Tengo</strong></h3>#}
+            {#<text>Fermez les yeux, aiguisez votre corps et laissez-vous emporter dans un univers de multiples sensations!#}
+            {#</text>#}
+        {#</div>#}
 
+        <div id="scene3D" >
+            <div class="group-small">
+                <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
+                <h3><strong>Que Tengo</strong></h3>
+                <text>Fermez les yeux, aiguisez votre corps et laissez-vous emporter dans un univers de multiples sensations!
+                </text>
+            </div>
+        </div>
 
         <div class="placeInfo-small">
 
 
 
-            <img class="map3d" src="{{ asset('images/map.png') }}">
+            <img class="map3d" src="{{ asset('images/placeImage.png') }}">
             <h3><strong>La petite scène</strong></h3>
             <text>6 Rue de la Fontaine</text><br>
             <text>34000 Montpellier</text><br>
             <text>04 67 54 22 15</text>
         </div>
     </div>
-
-{% endblock %}
-
-{% block javascript %}
-
-    window.onload = function() {
-    alert('script works');
-    };
 
 {% endblock %}
