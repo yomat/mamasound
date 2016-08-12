@@ -24,13 +24,6 @@
 
 </head>
 
-{% block javascript %}
-
-    window.onload = function() {
-    alert('script works');
-    };
-
-{% endblock %}
 <body onload="InitialiserCarte();">
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -78,7 +71,9 @@
 
 
             <audio  id="music">
+                <source src="http://size.ice.infomaniak.ch/size-128.mp3" type="audio/mp3">
                 <source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">
+
 
             </audio>
 

@@ -131,6 +131,8 @@ ul {
 }
 
 .event-start-big {
+    transform: skewY(5deg);
+
     float: left;
     font-family: 'Essays1743';
     font-size: 200%;
@@ -176,6 +178,8 @@ ul {
 }
 
 .event-info {
+    transform: skewY(5deg);
+
     float: left;
     margin: auto 20px;
     padding: 5px;
@@ -183,6 +187,8 @@ ul {
 }
 
 .event-place {
+    transform: skewY(5deg);
+
     float: right;
     padding: 5px;
     margin: auto 10px;
@@ -236,9 +242,12 @@ ul {
 
 #scene3D div{
     perspective:800px;
-    transform: translateZ(-300px) rotate3d(.8, -2, .05, -30deg) ;
-    filter: blur(5px);
-    transition:all 250ms ease-in;
+    transform:
+            translateZ(-2000px)
+            rotate3d(-2, 2, .5, -50deg)
+            scale3d(.8, .8, .8);
+    filter: blur(16 px);
+    transition:all 200ms ease-in;
 
 }
 
@@ -246,6 +255,8 @@ ul {
     perspective:800px;
     filter: blur(0px);
     transform: rotate3d(0,0,0,0deg);
+    transition:all 200ms ease-out;
+
 }
 
 .group-small {
