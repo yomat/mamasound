@@ -286,10 +286,15 @@ ul {
     text-align: center;
 }
 
+#audioplayer{
+    height:100px;
+    width: 100px;
+    margin: 20px;
+}
 
  #playRadioButton{
-     height:60px;
-     width: 60px;
+     height:100%;
+     width: 100%;
      border: none;
      background-size: 100% 100%;
      background-position: center;

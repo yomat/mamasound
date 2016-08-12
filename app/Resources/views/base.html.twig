@@ -68,19 +68,19 @@
         </div>
 
         <div class="navbar-east-radio">
+
             <div id="audioplayer">
-                <button id="playRadioButton" class="play" onclick="play()"></button>
+                <button id="playRadioButton" class="play" onclick="playAudio()"></button>
                 <div id="timeline">
                     <div id="playhead"></div>
                 </div>
             </div>
-            <button id="playRadioButton" class="play" onclick="playAudio()"></button>
 
-            {#<img src="{{ asset('images/radio_on.png') }}" alt="Radio"/>#}
 
             <audio  id="music" autoplay>
                 <source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">
             </audio>
+
         </div>
     </div>
 </nav>
