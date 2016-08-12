@@ -234,12 +234,31 @@ ul {
     box-shadow: 1px 1px 2px #555;
 }
 
-#scene3D{
-    perspective:2000px;
+#scene3D div{
+    perspective:800px;
+    transform: translateZ(-300px) rotate3d(.8, -2, .05, -30deg) ;
+    filter: blur(5px);
+    transition:all 250ms ease-in;
+
+}
+
+#scene3D div:hover{
+    perspective:800px;
+    filter: blur(0px);
+    transform: rotate3d(0,0,0,0deg);
 }
 
 .group-small {
-    float: left;
+    float: right;
+    width: 48%;
+    height: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 8px;
+    box-shadow: 1px 1px 2px #555;
+}
+.group-small div:hover{
+    float: right;
     clear: both;
     width: 48%;
     height: auto;
@@ -247,7 +266,6 @@ ul {
     background-color: white;
     padding: 8px;
     box-shadow: 1px 1px 2px #555;
-    transform: rotate3d(.5, -1, .05, 40deg);
 }
 
 
@@ -269,7 +287,7 @@ ul {
 }
 
 .placeInfo-small {
-    float: right;
+    float: left;
     width: 48%;
     height: auto;
     margin-top: 20px;
