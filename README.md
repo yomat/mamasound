@@ -3,7 +3,7 @@ Mamasound
 ![](web/images/logo.png)
 
 ![](web/images/map_icon.png) On refait le site !
-![](doc/screenshots/mama site.2016-08-12.png)
+![](doc/screenshots/mama-last-screenshot.png)
 
 # Navigation principale
 ## Les événements
