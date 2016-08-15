@@ -21,6 +21,7 @@ class EventController extends Controller
 	protected $nbArticlesByPage = 3;
 	protected $event_type = "concert";
 
+
 	/**
 	 * @Route("/events/{eventType}/{date}", name="events",
 	 *     defaults={
@@ -29,6 +30,7 @@ class EventController extends Controller
 	 *	 })
 	 */
 	public function listEventsAction(Request $request, $date, $eventType){
+
 		// date
 		$strFormat = 'Y-m-d H:i:s';
 		$strDate = !is_null($date) ? date( $strFormat, $date ) : date( $strFormat ) ;
@@ -44,6 +46,22 @@ class EventController extends Controller
 			]
 		);
 	}
+
+	/**
+	 * @Route("/eventDetail/{id}", name="event_detail", requirements={"id":"\d+"})
+	 */
+	public function detailEvent(Request $request, $id){
+		// récupération de l'event dans le repo
+		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
+		$event = $repo -> find($id);
+
+		// vue twig
+		return $this->render('events/event_groups.html.twig',[
+				'event' => $event
+			]
+		);
+	}
+
 
     /**
      * @Route("/articles/{id}", name="blog_detail", requirements={"id":"\d+"})
@@ -70,7 +88,6 @@ class EventController extends Controller
 	    		$session = $this->get('session');
 	    	
 	    		try{
-	    			
 	    			$entityManager -> flush();
 	    			$session -> getFlashBag()-> add('info_comment', 'Commentaire enregistré');
 	    			return $this -> redirectToRoute('blog_detail', array('id' => $article->getId()) );

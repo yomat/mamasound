@@ -25,4 +25,7 @@ class EventRepository extends \Doctrine\ORM\EntityRepository
  		return $qb -> getQuery() -> getResult();
     }
 
+    public function getEvent($id){
+        return null;
+    }
 }

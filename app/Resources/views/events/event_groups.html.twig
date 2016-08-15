@@ -1,0 +1,33 @@
+{%  extends "events/layout.html.twig" %}
+
+{% block title %}
+	{{ parent()}} - concerts
+{% endblock %}
+
+
+{% block body %}
+
+  <div class="event-groups">
+
+      {#TODO si desc article#}
+      <article>
+          <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
+          <h4>{{ event.title }}</h4>
+          <text class = "desc">{{ event.article }}</text>
+      </article>
+
+      {#TODO symfony for each group article#}
+      {#{% for group in event.groups %}#}
+
+          {#<div class="group-full">#}
+              {#<img class="photo-group" src="{{ asset('images/photo_group.png') }}">#}
+              {#<article>#}
+                  {#<h4>{{ group.name }}</h4>#}
+                  {#{{ group.article }}#}
+              {#</article>#}
+          {#</div>#}
+
+      {#{% endfor %}#}
+      <br><br><br>
+    </div>
+{% endblock %}

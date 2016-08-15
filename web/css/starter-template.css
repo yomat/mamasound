@@ -37,6 +37,43 @@ body {
     margin-top: 60px;
 }
 
+.photo-desc{
+    float: left;
+    clear:both;
+
+    width: 30%;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.desc{
+    /*transform: skewY(5deg);*/
+    background-color: rgba(255, 255, 255, 0.91);
+    float: left;
+
+    font-family: 'Essays1743';
+    font-size: 140%;
+    color: #35364c;
+    padding: 80px;
+
+    text-align: justify;
+    /*box-shadow: 0.5px 0.5px 1px #808080;*/
+}
+
+h4 {
+    transform: skewY(-5deg);
+    float:left;
+
+    font-family: 'Essays1743';
+    color: #35364c;
+    font-size: 300%;
+    background-color: rgba(255, 255, 255, 0.73);
+    padding: 16px;
+    text-shadow: 1px 1px 4px #000000;
+    box-shadow: 1px 1px 2px #555;
+    padding-top: 80px;
+}
+
 .menu-item {
     font-family: 'Delphine';
     font-size: 200%;
@@ -55,6 +92,8 @@ h2 {
     padding-left:150px;
     margin-top: 40px;
 }
+
+
 
 h3 {
     font-size: 120%;
@@ -271,15 +310,14 @@ ul {
     padding: 8px;
     box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
     transition:all 200ms ease-out;
-
-
 }
+
 .group-small div:hover{
     top: 540px;
-    right: 260px;;
+    right: 260px;
     position: fixed;
-    float: right;
-    width: 300px;
+    float: left;
+    width: 500px;
     height: auto;
     margin-top: 20px;
     background-color: white;
@@ -355,6 +393,7 @@ ul {
     transform: skewY(-5deg);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
     background-color: rgba(0, 0, 0, 0.81);
+    bottom: -100px;
 }
 
 .title-footer {

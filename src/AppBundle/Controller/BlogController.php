@@ -56,6 +56,7 @@ class BlogController extends Controller
     	// ajout de commentaire
     	$comment = new Comment();
     	$form = $this->createForm(CommentType::class, $comment);
+		
     	// envoie par POST
 		if($request->getMethod()=="POST"){	
 			$form->handleRequest($request);

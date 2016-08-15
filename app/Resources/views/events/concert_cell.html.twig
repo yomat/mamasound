@@ -1,5 +1,5 @@
 <div class="eventCell" onclick="moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});">
-    <article class="event" data-latitude="{{ event.place.latitude }}" data-longitude="{{ event.place.longitude }}">
+    <article class="event" data-latitude="{{ event.place.latitude }}" data-longitude="{{ event.place.longitude }}" data-place-name="{{ event.place.name }}">
         <text class="event-start-big" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
         <img  class="event-style-concert" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
         <text class="event-info">

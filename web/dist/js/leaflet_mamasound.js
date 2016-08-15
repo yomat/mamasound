@@ -2,15 +2,11 @@ var mymap;
 var markers = new Array;
 
 function InitialiserCarte() {
-
-
     mymap = L.map('mapid');
 
-    //mymap.on('load', function(){showMarkers()}); // msg 3/3 : loading markers
     mymap.on("load", function(){showMarkers()});
-    //mymap.on("load", function(){alert("map has loaded!")});
 
-    mymap.setView([ 43.6207009, 3.9033527000000277], 14 );
+    mymap.setView([ 43.6207009, 3.9033527000000277], 15 );
 
     // create the tile layer with correct attribution
     var tileUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
@@ -25,10 +21,6 @@ function InitialiserCarte() {
         id: 'yomat.1330ef5f',
         accessToken: 'pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw'
     }).addTo(mymap);
-
-
-
-
 }
 
 $(document).ready(function(){
@@ -39,15 +31,14 @@ $(document).ready(function(){
     InitialiserCarte();
 });
 
-//var events;//TODO -> scope de initMarkers
 function initMarkers() {
-    //alert("initmarkers");
-    var events = document.getElementsByClassName('event');
+    var eventElements = document.getElementsByClassName('event');
     var i;
-    for (i = 0; i < events.length; i++) {
-        var marker =  L.marker([events[i].getAttribute('data-latitude'), events[i].getAttribute('data-longitude')]);
+    for (i = 0; i < eventElements.length; i++) {
+        el = eventElements[i]
+        var marker =  L.marker([el.getAttribute('data-latitude'), el.getAttribute('data-longitude')]);
+        marker.bindPopup(el.getAttribute('data-place-name'));
         markers.push(marker);
-        //marker.addTo(mymap);
     }
 }
 
@@ -57,7 +48,9 @@ function showMarkers(){
     var i;
     for(i = 0 ; i < markers.length; i++)
     {
-        markers[i].addTo(mymap);
+        markers[i].addTo(mymap)
+            //.bindPopup('tutu')
+            .openPopup();
         //marker = L.marker(markersLatLon[i]).addTo(mymap);
         //     .bindPopup('( ( ( d- -b ) ) )<br>home')
         //     .openPopup();
@@ -69,6 +62,8 @@ function moveToPlace(latitude, longitude){
     mymap.panTo([latitude, longitude]);
 }
 
+
+//------ AUDIO
 // variable to store HTML5 audio element
 var music = document.getElementById('music');
 
