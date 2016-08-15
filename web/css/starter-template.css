@@ -289,7 +289,6 @@ ul {
 }
 
 
-
 .photo-group {
     width: 100%;
     height: auto;
@@ -310,7 +309,7 @@ ul {
     top: 540px;
     float: left;
     width: 17%;
-    height: auto;
+    height: 45%;
     margin-top: 20px;
     background-color: white;
     padding: 2px;
@@ -351,8 +350,28 @@ ul {
     font-size: 120%;
 }
 
+.footer{
+    height: 100px; /* Whatever you want. */
+    transform: skewY(-5deg);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
+    background-color: rgba(0, 0, 0, 0.81);
+}
+
 .title-footer {
-    text-align: center;
+    color: lightgray;
+    float: right;
+    text-align: right;
+    background: none;
+    box-shadow: none;
+
+}
+
+.logo-color{
+    margin-right: 20px;
+    width: 64px;
+    height: auto;
+    float: right;
+    padding-top: 20px;
 }
 
 #audioplayer{

@@ -22,10 +22,13 @@
     <!-- Tiles for the map -->
     <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
 
+    <!-- Include  Leaflet -->
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
 </head>
 
-<body onload="InitialiserCarte();">
-
+{#<body onload="InitialiserCarte();">#}
+<body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
 
@@ -71,8 +74,8 @@
 
 
             <audio  id="music">
-                <source src="http://size.ice.infomaniak.ch/size-128.mp3" type="audio/mp3">
-                {#<source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">#}
+                {#<source src="http://size.ice.infomaniak.ch/size-128.mp3" type="audio/mp3">#}
+                <source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">
 
 
             </audio>
@@ -97,20 +100,23 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="../../dist/js/bootstrap.min.js"></script>
+
+
+{#<script src="../../dist/js/bootstrap.min.js"></script>#}
+
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+<!-- date picker -->
 <link href="{{ asset('dist/css/datepicker.min.css') }}" rel="stylesheet" type="text/css">
 <script src="{{ asset('dist/js/datepicker.min.js') }}"></script>
 
 <!-- Include French language -->
 <script src="{{ asset('dist/js/i18n/datepicker.fr.js') }}"></script>
 
-<!-- Include  Leaflet -->
-<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
 <script src="{{ asset('dist/js/leaflet_mamasound.js') }}"></script>
 
 {% block javascripts %}{% endblock %}
