@@ -4,6 +4,10 @@ Mamasound
 
 ![](web/images/map_icon.png) On refait le site !
 ![](doc/screenshots/mama-last-screenshot.png)
+_vue globale_
+
+![](doc/screenshots/detail-event.mama.png)
+_vue de l'événement_
 
 # Navigation principale
 ## Les événements
