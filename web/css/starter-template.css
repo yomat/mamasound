@@ -15,6 +15,11 @@
     src: url('../fonts/Essays1743.ttf');
 }
 
+@font-face {
+    font-family: 'FranlinGothic';
+    src: url('../fonts/ITCFranklinGothicStd-Book.otf');
+}
+
 body {
     padding-top: 20px;
     /*background: #554466 url("../images/background_expo.png") center;*/
@@ -170,16 +175,16 @@ ul {
 }
 
 .event-start-big {
-    transform: skewY(5deg);
+    /*transform: skewY(5deg);*/
 
     float: left;
-    font-family: 'Essays1743';
+    font-family: 'FranlinGothic';
     font-size: 200%;
-    color: lightslategray;
+    color: grey;
     margin: auto 10px;
     width: 96px;
     text-align: center;
-    text-shadow: 0.5px 0.5px 1px #808080;
+    //text-shadow: 0.5px 0.5px 1px #808080;
 
 }
 
