@@ -99,5 +99,28 @@ class Groupe
     {
         return $this->short;
     }
-}
 
+    /**
+     * Set article
+     *
+     * @param string $article
+     *
+     * @return Groupe
+     */
+    public function setArticle($article)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return string
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+}

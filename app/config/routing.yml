@@ -1,3 +1,7 @@
+app_groupe:
+    resource: "@AppBundle/Controller/GroupeController.php"
+    type:     annotation
+
 yomat_catalog:
     resource: "@YomatCatalogBundle/Controller/"
     type:     annotation

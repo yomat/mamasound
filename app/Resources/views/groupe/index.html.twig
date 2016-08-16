@@ -1,0 +1,45 @@
+{% extends ':events:layout.html.twig' %}
+
+{% block body %}
+    <h1>Groupe list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Short</th>
+                <th>Article</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupe in groupes %}
+            <tr>
+                <td><a href="{{ path('groupe_show', { 'id': groupe.id }) }}">{{ groupe.id }}</a></td>
+                <h4>{{ groupe.name }}</h4>
+                <text class="desc">{{ groupe.short }}</text>
+                {%  if groupe.article is defined %}
+                    <text class="desc">{{ groupe.article }}</text>
+                {% endif %}
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('groupe_show', { 'id': groupe.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('groupe_edit', { 'id': groupe.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('groupe_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
