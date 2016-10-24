@@ -1,12 +1,22 @@
 <div class="eventCell" onclick="moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});">
-    <article class="event" data-latitude="{{ event.place.latitude }}" data-longitude="{{ event.place.longitude }}" data-place-name="{{ event.place.name }}">
-        <text class="event-start-big" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
-        <img  class="event-style-concert" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
-        <text class="event-info">
-            <h3><strong>{{ event.title }}</strong></h3>
-            <em>{{ event.category }}</em><br>
-            <strong>{{ event.price }} €</strong><br>
-        </text>
-        <text class="event-place"><em>{{ event.place.name }}</em></text>
-    </article>
+    <div class="event row flex-xs-middle" data-latitude="{{ event.place.latitude }}" data-longitude="{{ event.place.longitude }}" data-place-name="{{ event.place.name }}">
+
+        <div class="col-xs-2">
+            <text class="event-start-big" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
+        </div>
+
+        <img  class="event-style-concert col-xs-2" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+
+        <div class="col-xs-5">
+            <text class="event-info">
+                <strong>{{ event.title }}</strong><br>
+                <em>{{ event.category }}</em>
+                {#<strong>{{ event.price }} €</strong><br>#}
+            </text>
+        </div>
+
+        <div class="col-xs-3">
+            <text class="event-place"><em>{{ event.place.name }}</em></text>
+        </div>
+    </div>
 </div>

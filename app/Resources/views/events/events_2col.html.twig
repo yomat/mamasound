@@ -6,54 +6,74 @@
 
 
 {% block body %}
-    <div class="events">
-        <ul>
-            {% for event in events %}
-                {% if event.type == "expo" %}
-                    <li>
-                        {% include "events/expo_cell.html.twig" %}
-                    </li>
-                {% endif %}
-                {% if event.type == "concert" %}
-                    <li>
-                        {% include "events/concert_cell.html.twig" %}
-                    </li>
-                {% endif %}
-                {% if event.type == "theatre" %}
-                    <li>
-                        {% include "events/theatre_cell.html.twig" %}
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-    </div>
 
-    <div class="east-2col">
+        <div class="west col-md-3">
+            <div class="datepicker-here col-sm-12" data-language='fr'></div>
 
-        <div class="east-2col-east-then-north">
-            <div map>
-                <div id="mapid"></div>
+            <div class="loclinks col-sm-12">
+                <a href="/MamaPass" style="width: 100%; float: left;">
+                    <img src="http://www.mamasound.fr/assets/4db236f61d2c2b779dee578374052121.jpg">
+                </a>
             </div>
         </div>
 
-        <div class="placeInfo-small">
-          <img class="map3d" src="{{ asset('images/placeImage.png') }}">
-            <h3><strong>La petite scène</strong></h3>
-            <text>6 Rue de la Fontaine</text><br>
-            <text>34000 Montpellier</text><br>
-            <text>04 67 54 22 15</text>
-        </div>
-
-        <div id="scene3D" >
-            <div class="group-small">
-                <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
-                <h3><strong>Que Tengo</strong></h3>
-                <text>Fermez les yeux, aiguisez votre corps et laissez-vous emporter dans un univers de multiples sensations!
-                </text>
+        <div class="col-md-5">
+            <div class="events">
+                <ul>
+                    {% for event in events %}
+                        {% if event.type == "expo" %}
+                            <li>
+                                {% include "events/expo_cell.html.twig" %}
+                            </li>
+                        {% endif %}
+                        {% if event.type == "concert" %}
+                            <li>
+                                {% include "events/concert_cell.html.twig" %}
+                            </li>
+                        {% endif %}
+                        {% if event.type == "theatre" %}
+                            <li>
+                                {% include "events/theatre_cell.html.twig" %}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
         </div>
 
+        <div class="east col-md-4">
 
-    </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="map">
+                        <div id="mapid"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="placeInfo-small">
+                        <img class="place-sm-photo" src="{{ asset('images/placeImage.png') }}">
+                        <h3><strong>La petite scène</strong></h3>
+                        <text>6 Rue de la Fontaine</text><br>
+                        <text>34000 Montpellier</text><br>
+                        <text>04 67 54 22 15</text>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div id="scene3D" class="group-small">
+                        <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
+                        <h3><strong>Que Tengo</strong></h3>
+                        <text>Fermez les yeux, aiguisez votre corps et laissez-vous emporter dans un univers de multiples sensations!
+                        </text>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
 
 {% endblock %}

@@ -34,13 +34,6 @@ body {
     text-align: left;
 }
 
-.events {
-    /* Largeur Fluide et liquide, changer le 1000px par 100% */
-    max-width: 100%;
-    /* Centre le conteneur dans la page */
-    margin: 20px auto;
-    margin-top: 60px;
-}
 
 .photo-desc{
     float: left;
@@ -52,7 +45,6 @@ body {
 }
 
 .desc{
-    /*transform: skewY(5deg);*/
     background-color: rgba(255, 255, 255, 0.91);
     float: left;
 
@@ -62,7 +54,6 @@ body {
     padding: 80px;
 
     text-align: justify;
-    /*box-shadow: 0.5px 0.5px 1px #808080;*/
 }
 
 h4 {
@@ -118,162 +109,94 @@ ul {
 }
 
 .navbar-fixed-top {
-    height: 150px; /* Whatever you want. */
-    transform: skewY(-5deg);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
+    //height: 128px; /* Whatever you want. */
     background-color: rgba(0, 0, 0, 0.81);
 
 }
 
 .navbar-east {
     float: left;
-    clear: right;
-    width: 60%;
 }
 
 .navbar-east-radio {
-    float: left;
-    clear: right;
-    transform: skewY(5deg);
-    position: relative;
-    left: -130px;
-    top: 15px;
-
 }
 
-.logo-mama-sound {
-    float: left;
-    width: 80%;
-    height: 50%;
-
+/********************************
+    MAIN PANELS
+********************************/
+.west {
+//margin-top: 60px;
+    position: sticky;
 }
-
-.logo-perso {
-    float: left;
-    transform: skewY(5deg);
-
-}
-
-/*.event-info .event-style .event-start-big {*/
-/*display: block;*/
-/*}*/
 
 .events {
-    float: left;
-    width: 50%;
 }
 
+.east {
+}
+
+/********************************
+    DATEPICKER
+********************************/
+.datepicker-here {
+}
+
+/********************************
+    EVENT CELL
+********************************/
 .event {
-    transform: skewY(-5deg);
     display: inline-flex;
-    clear: both;
+    //clear: both;
     border-style: none;
     box-shadow: 8px 8px 2px rgba(0, 0, 0, 0.25);
-    margin-bottom: 15px;
     width: 100%;
     background: rgba(255, 255, 255, 0.9);
+    margin: 0px;
 }
 
 .event-start-big {
-    /*transform: skewY(5deg);*/
-
-    float: left;
-    font-family: 'FranlinGothic';
-    font-size: 200%;
-    color: grey;
-    margin: auto 10px;
-    width: 96px;
+    font-size: 125%;
+    color: #2e3450;
     text-align: center;
-    //text-shadow: 0.5px 0.5px 1px #808080;
-
 }
 
 .event-style {
-    float: left;
-    width: 128px;
     background-color: lightgray;
-    padding-left: 10px;
     text-align: center;
 }
 
 .event-style-concert {
-    float: left;
-    width: 128px;
+    clear: both;
+    height: inherit;
     background-color: #ff3333;
-    padding-left: 10px;
     text-align: center;
 }
 
 .event-style-expo {
-    float: left;
-    width: 128px;
-    /*background-color: #6cf1bc;*/
     background-color: rgba(108, 241, 188, 0.5);
-    padding-left: 10px;
     text-align: center;
 }
 
 .event-style-theatre {
-    float: left;
-    width: 128px;
     background-color: #b89bff;
-    padding-left: 10px;
     text-align: center;
 }
 
 .event-info {
-    transform: skewY(5deg);
-
-    float: left;
-    margin: auto 20px;
     padding: 5px;
-    width: 40%;
 }
 
 .event-place {
-    transform: skewY(5deg);
-
     float: right;
     padding: 5px;
     margin: auto 10px;
-    width: 128px;
     text-align: right;
-    text-shadow: 0.5px 0.5px 1px #808080;
+    //text-shadow: 0.5px 0.5px 1px #808080;
 }
 
-.datepicker-here {
-    clear: both;
-    float: left;
-}
-
-.west {
-    float: left;
-    width: 25%;
-    height: auto;
-    margin-top: 20px;
-    position: sticky;
-}
-
-.east {
-    top: 150px;
-    float: left;
-    width: 23%;
-    height: auto;
-    margin-top: 20px;
-    margin-left: 20px;
-    position: sticky;
-}
-
-.east-2col {
-    top: 150px;
-    float: right;
-    width: 48%;
-    height: auto;
-    margin-top: 20px;
-    margin-left: 20px;
-    position: sticky;
-}
-
+/********************************
+    GROUP
+********************************/
 .group {
     float: left;
     clear: both;
@@ -292,7 +215,6 @@ ul {
             scale3d(.8, .8, .8);
     filter: blur(16 px);
     transition:all 200ms ease-in;
-
 }
 
 #scene3D div:hover{
@@ -300,17 +222,11 @@ ul {
     filter: blur(0px);
     transform: rotate3d(0,0,0,0deg);
     transition:all 200ms ease-out;
-
 }
 
 .group-small {
-    top: 540px;
-    right: 264px;;
-    position: fixed;
-    float: right;
-    width: 300px;
-    height: auto;
-    margin-top: 20px;
+    //position: fixed;
+    //height: auto;
     background-color: white;
     padding: 8px;
     box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
@@ -324,13 +240,11 @@ ul {
     float: left;
     width: 500px;
     height: auto;
-    margin-top: 20px;
+    margin-top: 120px;
     background-color: white;
     padding: 8px;
     box-shadow: 1px 1px 2px #555;
-
 }
-
 
 .photo-group {
     width: 100%;
@@ -338,6 +252,9 @@ ul {
     margin-bottom: 8px;
 }
 
+/********************************
+    PLACE
+********************************/
 .placeInfo {
     float: left;
     width: 100%;
@@ -349,40 +266,27 @@ ul {
 }
 
 .placeInfo-small {
-    top: 540px;
-    float: left;
-    width: 17%;
-    height: 45%;
-    margin-top: 20px;
     background-color: white;
-    padding: 2px;
+    padding: 8px;
     box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
-    position: fixed;
+    //position: fixed;
 
 }
 
-.east-2col-east-then-north{
-    padding: 2px;
-    background-color: white;
-    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
-    position: fixed;
-    float: right;
-    clear: both;
-    width: 35%;
-}
-
+/********************************
+    MAP
+********************************/
 .map{
-    padding: 20px;
+    padding: 8px;
+    background-color: white;
+    margin-bottom: 20px;
 }
 
 #mapid {
-    padding: 20px;
-    background-color: white;
     height: 400px;
-
 }
 
-.map3d {
+.place-sm-photo {
     width: 100%;
     height: auto;
     margin-bottom: 8px;
@@ -395,7 +299,6 @@ ul {
 
 .footer{
     height: 100px; /* Whatever you want. */
-    transform: skewY(-5deg);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
     background-color: rgba(0, 0, 0, 0.81);
     bottom: -100px;
@@ -419,14 +322,12 @@ ul {
 }
 
 #audioplayer{
-    height:100px;
-    width: 100px;
-    margin: 20px;
+    margin: 5px;
 }
 
  #playRadioButton{
-     height:100%;
-     width: 100%;
+     //height:100%;
+     //width: 100%;
      border: none;
      background-size: 100% 100%;
      background-position: center;
@@ -434,9 +335,14 @@ ul {
 
 .play{
     background: url('../images/radio_off.png') no-repeat;
+    //background-size: 100% 100%;
+
     width: 50px;
     height: 50px;
 }
 
-.pause{background: url('../images/radio_on.png') no-repeat;}
+.pause{background: url('../images/radio_on.png') no-repeat;
+    width: 50px;
+    height: 50px;
+}
 

@@ -6,7 +6,9 @@ function InitialiserCarte() {
 
     mymap.on("load", function(){showMarkers()});
 
-    mymap.setView([ 43.6207009, 3.9033527000000277], 15 );
+    //mymap.setView([ 43.6207009, 3.9033527000000277], 15 );// Montpellier
+    mymap.setView([ 47.218371, -1.553621000000021], 15 );// Nantes
+
 
     // create the tile layer with correct attribution
     var tileUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
