@@ -1,10 +1,20 @@
-<article class="event">
-    <text class="event-start-big" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
-    <img  class="event-style-expo" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
-    <text class="event-info">
-        <h3><strong>{{ event.title }}</strong></h3>
-        <em>{{ event.category }}</em><br>
-        <strong>{{ event.price }} €</strong><br>
-    </text>
-    <text class="event-place"><em>LE LIEU !</em></text>
-</article>
+<div class="event-cell-view row" onclick="moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});">
+    <div class="event exposition-event" data-latitude="{{ event.place.latitude }}" data-longitude="{{ event.place.longitude }}" data-place-name="{{ event.place.name }}">
+
+        <text class="event-start-big col-xs-2" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
+
+        <img  class="event-style-expo col-xs-2" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+
+        <div class="col-xs-5">
+            <text class="event-info">
+                <strong>{{ event.title }}</strong><br>
+                <em>{{ event.category }}</em>
+                {#<strong>{{ event.price }} €</strong><br>#}
+            </text>
+        </div>
+
+        <div class="col-xs-3">
+            <text class="event-place"><em>{{ event.place.name }}</em></text>
+        </div>
+    </div>
+</div>
