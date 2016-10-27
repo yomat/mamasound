@@ -7,10 +7,13 @@
 
         <div class="col-xs-5">
             <text class="event-info">
-                <strong>{{ event.title }}</strong><br>
-                <em>{{ event.category }}</em>
+                {{ event.title }}<br>
                 {#<strong>{{ event.price }} €</strong><br>#}
             </text>
+            <text class="event-style-free">
+                {{ event.category }}
+            </text>
+
         </div>
 
         <div class="col-xs-3">
