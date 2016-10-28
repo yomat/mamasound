@@ -3,12 +3,13 @@
 
         <text class="event-start-big col-xs-2" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
 
-        <img  class="event-style-concert col-xs-2" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+        <div class="col-xs-2">
+            <img  class="event-style-concert col-xs-12" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+        </div>
 
         <div class="col-xs-5">
             <text class="event-info">
-                {{ event.title }}<br>
-                {#<strong>{{ event.price }} €</strong><br>#}
+                {{ event.title }}<br>{#<strong>{{ event.price }} €</strong><br>#}
             </text>
             <text class="event-style-free">
                 {{ event.category }}

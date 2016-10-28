@@ -41,7 +41,7 @@ class EventController extends Controller
 		$events = $repo -> getEvents($strDate, $eventType);
 
 		// vue twig
-		return $this->render('events/events_2col.html.twig',[
+		return $this->render('events/events.html.twig',[
 				'date' => $strDate,
 				'events' => $events
 			]
