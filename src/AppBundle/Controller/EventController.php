@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\ArticleType;
 use AppBundle\Entity\Article;
@@ -51,6 +52,22 @@ class EventController extends Controller
 	 * @Route("/eventDetail/{id}", name="event_detail", requirements={"id":"\d+"})
 	 */
 	public function detailEvent(Request $request, $id){
+		if($request->getMethod()=="POST"){
+			$id = $request-> get('eventId');
+
+			// récupération de l'event dans le repo
+			$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
+			$event = $repo -> find($id);
+
+			return new JsonResponse($event);
+
+			/*return new JsonResponse(
+				$this 	-> getDoctrine()
+						-> getManager()
+						-> getRepository('AppBundle:Event')
+						-> find($id)
+			);*/
+		}
 		// récupération de l'event dans le repo
 		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
 		$event = $repo -> find($id);
@@ -76,6 +93,7 @@ class EventController extends Controller
     	// ajout de commentaire
     	$comment = new Comment();
     	$form = $this->createForm(CommentType::class, $comment);
+
     	// envoie par POST
 		if($request->getMethod()=="POST"){	
 			$form->handleRequest($request);

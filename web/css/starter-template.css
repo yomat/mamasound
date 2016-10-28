@@ -200,6 +200,10 @@ ul {
     min-height: 50px;
 }
 
+.event:hover{
+    transform: skewX(2deg);
+}
+
 .event-info{
     font-family: 'Essays1743';
     font-size: 150%;
