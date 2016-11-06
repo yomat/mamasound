@@ -25,7 +25,7 @@ body {
     //background: #554466 url("../images/background_expo.png") center;
     //background: #ffffc8 url("../images/entete_google_play.jpg") center;
     //background: #a5a5a5; //url("../images/entete_google_play.jpg") center;
-    background: #554466 url("../images/expos/expo-02.jpg") center;
+    background: #d8bfb4;// url("../images/expos/expo-06.jpg") center;
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -33,7 +33,7 @@ body {
 }
 
 .starter-template {
-    padding: 100px 15px;
+    padding: 80px 0px;
     text-align: left;
 }
 
@@ -130,10 +130,18 @@ ul {
 .scene3d {
 }
 
+.starter-template > * {
+    padding: 0 8px 0 8px;
+}
+
+
 .west {
+
 }
 
 .events {
+    //background-color: #f4f4f4;
+    padding: 0px 5% 0px 5%;
 }
 
 .east {
@@ -143,20 +151,26 @@ ul {
     DATEPICKER
 ********************************/
 .datepicker-here {
+    padding: 0;
 }
 
 .datepicker-here > div{
-    //box-shadow: 16px 16px 4px rgba(0, 0, 0, 0.75);
+//box-shadow: 16px 16px 4px rgba(0, 0, 0, 0.75);
 }
 
 .datepicker-here > div:hover{
+}
+
+.datepicker--cell {
+    height: 24px;
 }
 /********************************
     MAMAPASS [+]
 ********************************/
 #mamapass {
+    padding: 0;
     margin-top: 20px;
-    perspective:500px;
+    perspective: 500px;
 }
 
 #mamapass div{
@@ -237,18 +251,20 @@ ul {
 }
 
 .exposition-event{
-    box-shadow: 0px 0px 4px rgba(0, 255, 0, 0.5);
+    box-shadow: 0px 0px 4px rgba(255, 247, 100, 0.5);
     transition:all 750ms ease-out;
 }
 
 .exposition-event:hover{
-    box-shadow: 0px 0px 16px rgba(0, 255, 0, 0.9);
-    background: rgba(245, 255, 245, 1);
+
+    box-shadow: 0px 0px 16px rgba(255, 180, 0, 0.9);
+    background: rgb(255, 248, 214);
     transition:all 0ms ease-in;
 }
 
 .event-start-big {
-    font-size: 125%;
+    font-family: itc_franklin_gothic_stdLight,sans-serif;
+    font-size: 15px;
     color: #2e3450;
     text-align: center;
     padding: 0;
@@ -260,27 +276,40 @@ ul {
 }
 
 .event-style-concert {
-   // clear: both;
-    background-color: #ff3333;
-    background-color: #808080;
+    background-color: rgba(200, 200, 200, 0.95);
     text-align: center;
-    padding: 0;
-    padding-left: 1.5%;
-    margin-left: 2px;
-    font-family: 'Essays1743';
+    padding: 0 0 0 10%;
+    height: 100%;
+}
 
+.event-style-concert-background{
+    background-color: #ff3333;
+    padding:0;
+    padding-left: 2px;
 }
 
 .event-style-expo {
-    background-color: rgba(0, 255, 0, 0.5);
+    background-color: rgba(200, 200, 200, 0.95);
     text-align: center;
-    padding: 0;
+    padding: 0 0 0 10%;
+}
+
+.event-style-expo-background{
+    background-color: #fff647;
+    padding:0;
+    padding-left: 2px;
 }
 
 .event-style-theatre {
-    background-color: #b89bff;
+    background-color: rgba(200, 200, 200, 0.95);
     text-align: center;
-    padding: 0;
+    padding: 0 0 0 10%;
+}
+
+.event-style-theatre-background{
+    background-color: #b89bff;
+    padding:0;
+    padding-left: 2px;
 }
 
 .event-place {
@@ -293,59 +322,35 @@ ul {
 /********************************
     GROUP
 ********************************/
+.east > .row{
+    padding: 0;
+    margin-bottom: 8px;
+}
+
 .group {
-    float: left;
-    clear: both;
     width: 100%;
     height: auto;
     background-color: white;
-    padding: 8px;
+    //padding: 8px;
     box-shadow: 1px 1px 2px #555;
 }
 
-#scene3D div{
-    perspective:800px;
-    transform:
-            translateZ(-2000px)
-            rotate3d(-2, 2, .5, -50deg)
-            scale3d(.8, .8, .8);
-    filter: blur(16 px);
-    transition:all 200ms ease-in;
-}
-
-#scene3D div:hover{
-    perspective:800px;
-    filter: blur(0px);
-    transform: rotate3d(0,0,0,0deg);
-    transition:all 200ms ease-out;
-}
-
-.group-small {
-    //position: fixed;
-    //height: auto;
+.groupInfo-small {
     background-color: white;
     padding: 8px;
-    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.84);
     transition:all 200ms ease-out;
+    min-height: 25vh;
+    max-height: 25vh;
 }
 
-.group-small div:hover{
-    top: 540px;
-    right: 260px;
-    position: fixed;
-    float: left;
-    width: 500px;
-    height: auto;
-    margin-top: 120px;
-    background-color: white;
-    padding: 8px;
+.groupInfo-small:hover{
     box-shadow: 1px 1px 2px #555;
 }
 
 .photo-group {
     width: 100%;
     height: auto;
-    margin-bottom: 8px;
 }
 
 /********************************
@@ -353,8 +358,8 @@ ul {
 ********************************/
 .placeInfo {
     float: left;
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
     margin-top: 20px;
     background-color: white;
     padding: 8px;
@@ -365,34 +370,56 @@ ul {
     background-color: white;
     padding: 8px;
     box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
+    min-height: 25vh;
+    max-height: 25vh;
     //position: fixed;
-
 }
 
 /********************************
     MAP
 ********************************/
 .map{
-    padding: 8px;
+    padding: 1px;
     background-color: white;
-    margin-bottom: 20px;
+    margin:0;
+    margin-bottom: 8px;
 }
 
 #mapid {
-    height: 400px;
+    min-height: 30vh;
+    margin:0;
+    padding:0
 }
 
 .place-sm-photo {
     width: 100%;
     height: auto;
-    margin-bottom: 8px;
 }
 
-.dateBig {
-    color: white;
-    font-size: 120%;
+/********************************
+    3D
+********************************/
+#scene3D div{
+    perspective:800px;
+    transform:
+            translateZ(-2000px)
+            rotate3d(-2, 2, .5, -50deg)
+            scale3d(.8, .8, .8);
+    filter: blur(16 px);
+    transition:all 200ms ease-in;
 }
 
+
+#scene3D div:hover{
+    perspective:800px;
+    filter: blur(0px);
+    transform: rotate3d(0,0,0,0deg);
+    transition:all 200ms ease-out;
+}
+
+/********************************
+    FOOTER
+********************************/
 .footer{
     height: 100px; /* Whatever you want. */
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
@@ -409,14 +436,10 @@ ul {
 
 }
 
-.logo-color{
-    margin-right: 20px;
-    width: 64px;
-    height: auto;
-    float: right;
-    padding-top: 20px;
-}
 
+/********************************
+    AUDIO PLAYER
+********************************/
 #audioplayer{
     margin: 5px;
 }

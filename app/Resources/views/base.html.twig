@@ -14,8 +14,7 @@
     {% block stylesheets %}{% endblock %}
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/starter-template.css') }}" rel="stylesheet">
 
@@ -98,11 +97,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
 
-
-{#<script src="../../dist/js/bootstrap.min.js"></script>#}
-
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- date picker -->
 {#<link href="{{ asset('dist/css/datepicker.min.css') }}" rel="stylesheet" type="text/css">#}
@@ -114,6 +110,39 @@
 
 
 <script src="{{ asset('dist/js/leaflet_mamasound.js') }}"></script>
+
+<!-- enable symfony routing -->
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+<script>
+    $(document).ready(function() {
+
+        // Requête
+        function ajaxCall_getEvent(event_id) {
+            alert('ajaxCall_getEvent');
+
+            // récupérer la balise div "center"
+            var center_div = $('#center');
+            $.ajax({
+                url: Routing.generate('event_detail', { id: event_id }),
+                method: "POST",
+                data: {id: event_id}
+            }).done(function(msg){
+                setEventDetail_toCenterDiv();
+                alert('');
+            });
+        }
+
+        // mettre à jour les données de la div center avec la vue
+        function setEventDetail_toCenterDiv(){
+            // mettre à jour la div "center"
+            center_div.innerHTML= "<h1>CONCERT</h1>"; // effacer le contenu de la div
+
+        }
+    });
+
+</script>
 
 {% block javascripts %}{% endblock %}
 

@@ -49,9 +49,9 @@ class EventController extends Controller
 	}
 
 	/**
-	 * @Route("/eventDetail/{id}", name="event_detail", requirements={"id":"\d+"})
+	 * @Route("/eventDetail/{id}", options={"expose"=true}, name="event_detail", requirements={"id":"\d+"})
 	 */
-	public function detailEvent(Request $request, $id){
+	public function showDetailEvent(Request $request, $id){
 		if($request->getMethod()=="POST"){
 			$id = $request-> get('eventId');
 

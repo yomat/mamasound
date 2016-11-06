@@ -26,6 +26,7 @@ function InitialiserCarte() {
 }
 
 $(document).ready(function(){
+
     // 1.1 générer les marqueurs
     initMarkers();
 
@@ -67,7 +68,7 @@ function moveToPlace(latitude, longitude){
 
 //------ AUDIO
 // variable to store HTML5 audio element
-var music = document.getElementById('music');
+var music = document.getElementById('music'); // TODO : init when document ready
 
 function playAudio() {
     if (music.paused) {
@@ -81,3 +82,20 @@ function playAudio() {
     }
 }
 
+// --- AJAX : détail de l'événement
+var center_div;
+var event_id = 1;
+
+// mettre à jour les données de la div center avec la vue
+function setEventDetail_toCenterDiv(){
+    //alert('supa!');
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('event_detail', { id: event_id }),
+        method: "POST"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
+
+// mettre à jour les données de la div center avec la vue

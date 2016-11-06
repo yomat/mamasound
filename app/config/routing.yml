@@ -10,3 +10,7 @@ yomat_catalog:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+# utiliser les routes symfony dans du javascript
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
