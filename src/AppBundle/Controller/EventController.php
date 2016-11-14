@@ -53,13 +53,16 @@ class EventController extends Controller
 	 */
 	public function showDetailEvent(Request $request, $id){
 		if($request->getMethod()=="POST"){
-			$id = $request-> get('eventId');
+			//$id = $request-> get('eventId');
 
 			// récupération de l'event dans le repo
 			$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
 			$event = $repo -> find($id);
-
-			return new JsonResponse($event);
+			return $this->render('events/event_groups.html.twig',[
+					'event' => $event
+				]
+			);
+			//return new JsonResponse($event);
 
 			/*return new JsonResponse(
 				$this 	-> getDoctrine()

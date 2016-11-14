@@ -20,12 +20,27 @@
     src: url('../fonts/ITCFranklinGothicStd-Book.otf');
 }
 
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: url('../fonts/Montserrat-Thin.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fonts/Montserrat-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../fonts/Montserrat-Bold.otf');
+}
+
 body {
-    padding-top: 20px;
+    padding-top: 10vh;
     //background: #554466 url("../images/background_expo.png") center;
     //background: #ffffc8 url("../images/entete_google_play.jpg") center;
     //background: #a5a5a5; //url("../images/entete_google_play.jpg") center;
-    background: #d8bfb4;// url("../images/expos/expo-06.jpg") center;
+    background: #c8c8c8 url("../images/expos/expo-06.jpg") center;
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -51,7 +66,7 @@ body {
     background-color: rgba(255, 255, 255, 0.91);
     float: left;
 
-    font-family: 'Essays1743';
+    font-family: 'Montserrat-Thin';
     font-size: 140%;
     color: #35364c;
     padding: 80px;
@@ -112,9 +127,8 @@ ul {
 }
 
 .navbar-fixed-top {
-    //height: 128px; /* Whatever you want. */
+    height: 10vh; /* Whatever you want. */
     background-color: rgba(0, 0, 0, 0.9);
-
 }
 
 .navbar-east {
@@ -136,15 +150,21 @@ ul {
 
 
 .west {
-
+    position: relative;
 }
 
 .events {
-    //background-color: #f4f4f4;
-    padding: 0px 5% 0px 5%;
+    background-color: #f40098;
+    //padding: 0px 5% 0px 5%;
+}
+
+#sidebar {
+    position: fixed;
+    width: 20%;
 }
 
 .east {
+    position: relative;
 }
 
 /********************************
@@ -152,18 +172,39 @@ ul {
 ********************************/
 .datepicker-here {
     padding: 0;
-}
-
-.datepicker-here > div{
-//box-shadow: 16px 16px 4px rgba(0, 0, 0, 0.75);
-}
-
-.datepicker-here > div:hover{
+    height: 25vh;
 }
 
 .datepicker--cell {
-    height: 24px;
+    height: 2em;
+    //color: #fff4f6;
+    color: white;
+    font-family: 'Montserrat-Thin';
+    font-size: 125%;
 }
+
+.datepicker--day-name {
+    color: #d4d4d4;
+    font-family: 'Montserrat-Regular';
+    font-size: 100%;
+}
+
+.datepicker--content {
+    background: #666b6e;
+}
+
+.datepicker--cell.-current-{
+    color: white;
+    font-family: 'Montserrat-Regular';
+
+}
+
+.datepicker--nav-title{
+    font-family: 'Montserrat-Regular';
+    font-size: 125%;
+
+}
+
 /********************************
     MAMAPASS [+]
 ********************************/
@@ -175,8 +216,8 @@ ul {
 
 #mamapass div{
     transform:
-            translateZ(-50px)
-            rotateY(45deg)
+            translateZ(-20px)
+            rotateY(20deg)
             scale3d(.9, .9, .9);
     transition:all 300ms ease-in;
 }
@@ -187,136 +228,7 @@ ul {
 }
 
 #mamapass div a img {
-    box-shadow: 16px 16px 4px rgba(0, 0, 0, 0.75);
-}
-/********************************
-    EVENT CELL
-********************************/
-
-.event-cell-view {
-    perspective: 1000px;
-    padding: 0;
-    margin-bottom: 4px;
-}
-
-.event {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    display: inline-flex;
-    clear: both;
-    border-style: none;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    margin: 0;
-    min-height: 50px;
-}
-
-.event:hover{
-    //transform: skewX(2deg);
-}
-
-.event-info{
-    font-family: 'Essays1743';
-    font-size: 150%;
-}
-
-.event-style-free{
-    font-family: 'Essays1743';
-    font-size: 120%;
-}
-
-.music-event{
-    box-shadow: 0px 0px 4px rgba(255, 0, 0, 0.5);
-    transition:all 750ms ease-out;
-}
-
-.music-event:hover{
-    box-shadow: 0px 0px 16px rgba(255, 0, 0, 0.9);
-    background: rgba(255, 245, 245, 1);
-    transition:all 0ms ease-in;
-}
-
-.theatral-event{
-    box-shadow: 0px 0px 4px rgba(0, 0, 255, 0.5);
-    transition:all 750ms ease-out;
-}
-
-.theatral-event:hover{
-    box-shadow: 0px 0px 16px rgba(0, 0, 255, 0.9);
-    background: rgba(245, 245, 255, 1);
-    transition:all 0ms ease-in;
-}
-
-.exposition-event{
-    box-shadow: 0px 0px 4px rgba(255, 247, 100, 0.5);
-    transition:all 750ms ease-out;
-}
-
-.exposition-event:hover{
-
-    box-shadow: 0px 0px 16px rgba(255, 180, 0, 0.9);
-    background: rgb(255, 248, 214);
-    transition:all 0ms ease-in;
-}
-
-.event-start-big {
-    font-family: itc_franklin_gothic_stdLight,sans-serif;
-    font-size: 15px;
-    color: #2e3450;
-    text-align: center;
-    padding: 0;
-}
-
-.event-style {
-    background-color: lightgray;
-    text-align: center;
-}
-
-.event-style-concert {
-    background-color: rgba(200, 200, 200, 0.95);
-    text-align: center;
-    padding: 0 0 0 10%;
-    height: 100%;
-}
-
-.event-style-concert-background{
-    background-color: #ff3333;
-    padding:0;
-    padding-left: 2px;
-}
-
-.event-style-expo {
-    background-color: rgba(200, 200, 200, 0.95);
-    text-align: center;
-    padding: 0 0 0 10%;
-}
-
-.event-style-expo-background{
-    background-color: #fff647;
-    padding:0;
-    padding-left: 2px;
-}
-
-.event-style-theatre {
-    background-color: rgba(200, 200, 200, 0.95);
-    text-align: center;
-    padding: 0 0 0 10%;
-}
-
-.event-style-theatre-background{
-    background-color: #b89bff;
-    padding:0;
-    padding-left: 2px;
-}
-
-.event-place {
-    float: right;
-    padding: 5px;
-    margin: auto 10px;
-    text-align: right;
+    //box-shadow: 16px 16px 4px rgba(0, 0, 0, 0.75);
 }
 
 /********************************

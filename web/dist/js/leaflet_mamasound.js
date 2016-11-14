@@ -99,3 +99,6 @@ function setEventDetail_toCenterDiv(){
 }
 
 // mettre à jour les données de la div center avec la vue
+
+
+

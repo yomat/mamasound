@@ -1,23 +1,28 @@
-<div class="event-cell-view row" onclick="moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});">
-    <div class="event theatral-event" data-latitude="{{ event.place.latitude }}" data-longitude="{{ event.place.longitude }}" data-place-name="{{ event.place.name }}">
+<div class="row event music-event"
+     onclick="  moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
+             setEventDetail_toCenterDiv();"
+     data-latitude="{{ event.place.latitude }}"
+     data-longitude="{{ event.place.longitude }}"
+     data-place-name="{{ event.place.name }}"
+>
 
-        <text class="event-start-big col-xs-2" color="#6cf1bc">{{ event.start | date('H\\:i') }}</text>
+    <text class="event-start-big col-lg-2">{{ event.start | date('H\\hi') }}</text>
 
-        <div class="col-xs-2 event-style-theatre-background">
-            <img  class="event-style-concert col-xs-12" src= "{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
-        </div>
-
-        <div class="col-xs-5">
-            <text class="event-info">
-                {{ event.title }}<br>
-            </text>
-            <text class="event-style-free">
-                {{ event.category }}
-            </text>
-        </div>
-
-        <div class="col-xs-3">
-            <text class="event-place"><em>{{ event.place.name }}</em></text>
-        </div>
+    <div class="event-style-concert col-lg-1">
+        <img class="event-style-concert-cat-icon"
+             src="{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
     </div>
+
+    <div class="col-lg-6">
+        <text class="event-title">
+            {{ event.title }}<br>{#<strong>{{ event.price }} €</strong><br>#}
+        </text>
+        <text class="event-style-free">
+            {{ event.category }}
+        </text>
+
+    </div>
+
+
+    <text class="event-place col-lg-2"><em>{{ event.place.name }}</em></text>
 </div>

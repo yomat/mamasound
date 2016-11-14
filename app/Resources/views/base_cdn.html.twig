@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" href="/yomat/mamasound/web/favico.png">
+
+    <title>{% block title %} mama sound {% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/starter-template.css') }}" rel="stylesheet">
+
+    <!-- Tiles for the map -->
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+
+    <!-- Include  Leaflet -->
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+
+</head>
+
+{#<body onload="InitialiserCarte();">#}
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="navbar-header col-xs-1">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ path("events", {'eventType': "all_events"}) }}">
+                <img class="col-md-12" src="{{ asset('images/mms_concerts.png') }}">
+            </a>
+        </div>
+
+        <img class="col-xs-5" src="{{ asset('images/mama-sound.png') }}" alt="Mama Sound"/>
+
+        <div class="navbar-east col-xs-5">
+            <div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        {#             <li class="active"><a href="#">  Home</a></li>#}
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "concert"}) }}">
+                                <img src="{{ asset('images/map_concert.png') }}"/>Concert</a></li>
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "expo"}) }}">
+                                <img src="{{ asset('images/map_expo.png') }}"/>Expo</a></li>
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "theatre"}) }}">
+                                <img src="{{ asset('images/map_theatre.png') }}"/>Théâtre</a></li>
+                        <li class="menu-item"><a href="{{ path("events", {'eventType': "all_events"}) }}">
+                                <img src="{{ asset('images/map_all.png') }}"/>Tout</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="navbar-east-radio col-xs-1">
+            <div id="audioplayer ">
+                <button id="playRadioButton" class="play" onclick="playAudio()"></button>
+                <div id="timeline">
+                    <div id="playhead"></div>
+                </div>
+            </div>
+            <audio  id="music">
+                <source src="http://size.ice.infomaniak.ch/size-128.mp3" type="audio/mp3">
+                {#<source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">#}
+            </audio>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="starter-template">
+        {% block layout %}
+            <h1>Bootstrap starter template</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        {% endblock %}
+
+    </div>
+
+</div><!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<!-- date picker -->
+{#<link href="{{ asset('dist/css/datepicker.min.css') }}" rel="stylesheet" type="text/css">#}
+<link href="{{ asset('dist/css/datepicker.css') }}" rel="stylesheet" type="text/css">
+<script src="{{ asset('dist/js/datepicker.min.js') }}"></script>
+
+<!-- Include French language -->
+<script src="{{ asset('dist/js/i18n/datepicker.fr.js') }}"></script>
+
+
+<script src="{{ asset('dist/js/leaflet_mamasound.js') }}"></script>
+
+<!-- enable symfony routing -->
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+<script>
+    $(document).ready(function() {
+
+        // Requête
+        function ajaxCall_getEvent(event_id) {
+            alert('ajaxCall_getEvent');
+
+            // récupérer la balise div "center"
+            var center_div = $('#center');
+            $.ajax({
+                url: Routing.generate('event_detail', { id: event_id }),
+                method: "POST",
+                data: {id: event_id}
+            }).done(function(msg){
+                setEventDetail_toCenterDiv();
+                alert('');
+            });
+        }
+
+        // mettre à jour les données de la div center avec la vue
+        function setEventDetail_toCenterDiv(){
+            // mettre à jour la div "center"
+            center_div.innerHTML= "<h1>CONCERT</h1>"; // effacer le contenu de la div
+
+        }
+    });
+
+</script>
+
+{% block javascripts %}{% endblock %}
+
+</body>
+
+<footer>
+    {{  render(controller("AppBundle:Blog:footer")) }}
+</footer>
+
+</html>

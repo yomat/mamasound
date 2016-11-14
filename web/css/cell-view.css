@@ -1,0 +1,154 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+    font-family: 'Hamster';
+    src: url('../fonts/Hamster.otf');
+}
+
+@font-face {
+    font-family: 'Delphine';
+    src: url('../fonts/Delphine.ttf');
+}
+
+@font-face {
+    font-family: 'Essays1743';
+    src: url('../fonts/Essays1743.ttf');
+}
+
+@font-face {
+    font-family: 'FranlinGothic';
+    src: url('../fonts/ITCFranklinGothicStd-Book.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Thin';
+    src: url('../fonts/Montserrat-Thin.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fonts/Montserrat-Regular.otf');
+}
+
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('../fonts/Montserrat-Bold.otf');
+}
+
+/********************************
+    EVENT CELL
+********************************/
+.event {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    //display: inline-flex;
+    //clear: both;
+
+    border-style: none;
+    width: 100%;
+    background: #3c3f41;
+    color: #e6e6e6;
+    margin: 0;
+    min-height: 60px;
+}
+
+.event:hover{
+    background: rgb(126, 116, 118);
+    background: rgba(126, 116, 118, 0.95);
+    //background: #520038;
+    color: #f5f5f5;
+}
+
+.event-title{
+    font-family: 'Montserrat-Bold';
+    font-size: 100%;
+}
+
+.event-style-free{
+    font-family: 'Montserrat-Regular';
+    font-size: 100%;
+    color: #c8c8c8;
+
+}
+
+.music-event{
+    //box-shadow: 0 0 4px rgba(255, 0, 0, 0.5);
+    transition:all 750ms ease-out;
+}
+
+.theatral-event{
+    //box-shadow: 0 0 4px rgba(0, 0, 255, 0.5);
+    transition:all 750ms ease-out;
+}
+
+.exposition-event{
+    transition:all 750ms ease-out;
+}
+
+.event-start-big {
+    font-family: Montserrat-Thin;
+    font-size: 150%;
+    color: #ffffff;
+    padding: 0 0 0 8px;
+}
+
+.event-style {
+    background-color: lightgray;
+    text-align: center;
+}
+
+.event-style-concert {
+   // align: center;
+    text-align: center;
+}
+
+/*
+*/
+.event-style-concert-cat-icon{
+    height: 7vh;
+    padding: 1vh 0 1vh 0;
+
+}
+
+.event-style-expo {
+    background-color: rgba(200, 200, 200, 0.95);
+    text-align: center;
+    padding: 0 0 0 10%;
+}
+
+.event-style-expo-background{
+    background-color: #8fff3d;
+    padding:0;
+    padding-left: 2px;
+}
+
+.event-style-theatre {
+    background-color: rgba(200, 200, 200, 0.95);
+    text-align: center;
+    padding: 0 0 0 10%;
+}
+
+.event-style-theatre-background{
+    background-color: #b89bff;
+    padding:0;
+    padding-left: 2px;
+}
+
+.event-price{
+    color: #383838;
+    font-family: Montserrat-Regular;
+    font-size: 100%;
+}
+
+.event-place {
+    display: block;
+    color: #f3f3f3;
+    font-family: Montserrat-Thin;
+    font-size: 125%;
+    padding: 5px;
+    margin: auto 10px;
+    text-align: right;
+}

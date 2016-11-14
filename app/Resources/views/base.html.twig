@@ -14,16 +14,20 @@
     {% block stylesheets %}{% endblock %}
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('css/starter-template.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('local cdn/bootstrap-3.3.7-dist/css/bootstrap.min.css') }}" />
 
     <!-- Tiles for the map -->
-    <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="{{ asset('local cdn/leaflet/leaflet.css') }}" />
+
+    <!-- Datepicker -->
+    <link href="{{ asset('dist/css/datepicker.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Include  Leaflet -->
-    <script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+    <script src="{{ asset('local cdn/leaflet/leaflet.js') }}"></script>
 
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('css/starter-template.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/cell-view.css') }}" rel="stylesheet">
 </head>
 
 {#<body onload="InitialiserCarte();">#}
@@ -94,15 +98,17 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script--->
+<!--script src="{{ asset('local cdn/jquery-3.1.1.min.js') }}"></script-->
+<script>window.jQuery || document.write('<script src="{{ asset('local cdn/jquery-3.1.1.min.js') }}"><\/script>')</script>
+<!--script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script-->
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{ asset('local cdn/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
 
 <!-- date picker -->
 {#<link href="{{ asset('dist/css/datepicker.min.css') }}" rel="stylesheet" type="text/css">#}
-<link href="{{ asset('dist/css/datepicker.css') }}" rel="stylesheet" type="text/css">
+
 <script src="{{ asset('dist/js/datepicker.min.js') }}"></script>
 
 <!-- Include French language -->
