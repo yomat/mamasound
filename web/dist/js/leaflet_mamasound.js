@@ -1,5 +1,6 @@
 var mymap;
 var markers = new Array;
+var center_div;
 
 function InitialiserCarte() {
     mymap = L.map('mapid');
@@ -26,12 +27,20 @@ function InitialiserCarte() {
 }
 
 $(document).ready(function(){
+    // I. charger les événements du jour
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('events', {}),
+        method: "POST"
+    }).done(function(msg){
+        center_div.html(msg);
+        // II. MAP
+        // 1.1 générer les marqueurs
+        initMarkers();
 
-    // 1.1 générer les marqueurs
-    initMarkers();
-
-    // 1.2 générer la carte
-    InitialiserCarte();
+        // 1.2 générer la carte
+        InitialiserCarte();
+    });
 });
 
 function initMarkers() {
@@ -83,12 +92,11 @@ function playAudio() {
 }
 
 // --- AJAX : détail de l'événement
-var center_div;
+
 var event_id = 1;
 
 // mettre à jour les données de la div center avec la vue
 function setEventDetail_toCenterDiv(){
-    //alert('supa!');
     center_div = $('#center');
     $.ajax({
         url: Routing.generate('event_detail', { id: event_id }),
@@ -98,7 +106,16 @@ function setEventDetail_toCenterDiv(){
     });
 }
 
-// mettre à jour les données de la div center avec la vue
+// les évenements pour une date donnée
+function getEventsAt(date){
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('event_detail', { id: event_id }),
+        method: "POST"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
 
 
 

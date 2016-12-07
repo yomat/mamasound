@@ -22,12 +22,18 @@ class EventController extends Controller
 	protected $nbArticlesByPage = 3;
 	protected $event_type = "concert";
 
+	/**
+	 * @Route("/", name="app")
+	 */
+	public function appAction(Request $request){
+		return $this->render('app.html.twig');
+	}
 
 	/**
-	 * @Route("/events/{eventType}/{date}", name="events",
+	 * @Route("/events/{eventType}/{date}", name="events", options={"expose"=true},
 	 *     defaults={
 	 *     	"date":null,
-	 *     	"eventType":"concert"
+	 *     	"eventType":"all_events"
 	 *	 })
 	 */
 	public function listEventsAction(Request $request, $date, $eventType){

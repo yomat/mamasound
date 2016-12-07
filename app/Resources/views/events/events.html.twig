@@ -1,88 +1,17 @@
-{%  extends "events/layout.html.twig" %}
+<div class="events  col-lg-12">
+        {% for event in events %}
 
-{% block title %}
-	{{ parent()}} - concerts
-{% endblock %}
+            {% if event.type == "expo" %}
+                {% include "events/expo_cell.html.twig" %}
+            {% endif %}
 
+            {% if event.type == "concert" %}
+                {% include "events/concert_cell.html.twig" %}
+            {% endif %}
 
-{% block body %}
+            {% if event.type == "theatre" %}
+                {% include "events/theatre_cell.html.twig" %}
+            {% endif %}
 
-    <div class="west col-lg-3 ">
-
-        <div class="container">
-            <div id="sidebar">
-                <div class="datepicker-here col-lg-12" data-language='fr'></div>
-
-                <div id="mamapass" class="col-lg-12">
-                    <div>
-                        <a href="/mamasound/shop/mamapass" style="width: 100%; float: left;">
-                            <img src="{{ asset('images/expos.png') }}" width="100%" >
-                        </a>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="center" class="col-lg-6">
-        <div class="events  col-lg-12">
-                {% for event in events %}
-
-                    {% if event.type == "expo" %}
-                        {% include "events/expo_cell.html.twig" %}
-                    {% endif %}
-
-                    {% if event.type == "concert" %}
-                        {% include "events/concert_cell.html.twig" %}
-                    {% endif %}
-
-                    {% if event.type == "theatre" %}
-                        {% include "events/theatre_cell.html.twig" %}
-                    {% endif %}
-
-                {% endfor %}
-        </div>
-    </div>
-
-    <div class="east col-lg-3">
-        <div class="container">
-            <div id="sidebar">
-                <div class="row">
-                        <div class="map col-sm-12">
-                            <div id="mapid"></div>
-                        </div>
-
-                </div>
-
-                <div class="row placeInfo-small">
-                    <div class="col-sm-6">
-                            <img class="place-sm-photo" src="{{ asset('images/placeImage.png') }}">
-                    </div>
-                    <div class="col-sm-6 place">
-                            <h3><strong>La petite scène</strong></h3>
-                            <text>6 Rue de la Fontaine</text><br>
-                            <text>34000 Montpellier</text><br>
-                            <text>04 67 54 22 15</text>
-                    </div>
-                </div>
-
-                <div class="row groupInfo-small">
-                    <div class="col-sm-6">
-                        <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
-                    </div>
-                    <div class="col-sm-6">
-                        <h3><strong>Que Tengo</strong></h3>
-                        <text>Fermez les yeux, aiguisez votre corps et laissez-vous emporter dans un univers de multiples sensations!
-                        </text>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-{% endblock %}
+        {% endfor %}
+</div>
