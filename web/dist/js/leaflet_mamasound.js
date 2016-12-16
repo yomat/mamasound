@@ -1,8 +1,41 @@
 var mymap;
-var markers = new Array;
+var markers = [];
+
+var selected_date; // TODO current
+var selected_eventType = "all_events";
+
+var events = [];
+
 var center_div;
 
-function InitialiserCarte() {
+$(document).ready(function(){
+    // I. charger les événements du jour
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('events', {}),
+        method: "POST"
+    }).done(function(msg){
+        center_div.html(msg);
+        initMarkers();
+        initialiserCarte();
+    });
+});
+
+// II. MAP
+// 1.1 générer les marqueurs
+function initMarkers() {
+    var eventElements = document.getElementsByClassName('event');
+    var i;
+    for (i = 0; i < eventElements.length; i++) {
+        el = eventElements[i]
+        var marker =  L.marker([el.getAttribute('data-latitude'), el.getAttribute('data-longitude')]);
+        marker.bindPopup(el.getAttribute('data-place-name'));
+        markers.push(marker);
+    }
+}
+
+// 1.2 générer la carte
+function initialiserCarte() {
     mymap = L.map('mapid');
 
     mymap.on("load", function(){showMarkers()});
@@ -14,44 +47,16 @@ function InitialiserCarte() {
     // create the tile layer with correct attribution
     var tileUrl = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 
-    var attrib='&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
+    //var attrib='&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
     // on paramètre le serveur de tuile
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw', {
+        // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'yomat.1330ef5f',
         accessToken: 'pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw'
     }).addTo(mymap);
-}
-
-$(document).ready(function(){
-    // I. charger les événements du jour
-    center_div = $('#center');
-    $.ajax({
-        url: Routing.generate('events', {}),
-        method: "POST"
-    }).done(function(msg){
-        center_div.html(msg);
-        // II. MAP
-        // 1.1 générer les marqueurs
-        initMarkers();
-
-        // 1.2 générer la carte
-        InitialiserCarte();
-    });
-});
-
-function initMarkers() {
-    var eventElements = document.getElementsByClassName('event');
-    var i;
-    for (i = 0; i < eventElements.length; i++) {
-        el = eventElements[i]
-        var marker =  L.marker([el.getAttribute('data-latitude'), el.getAttribute('data-longitude')]);
-        marker.bindPopup(el.getAttribute('data-place-name'));
-        markers.push(marker);
-    }
 }
 
 // 1.3 affiche les marqueurs (cf mymap.on("load"...))
@@ -108,14 +113,26 @@ function setEventDetail_toCenterDiv(){
 
 // les évenements pour une date donnée
 function getEventsAt(date){
+    selected_date = date;
     center_div = $('#center');
     $.ajax({
-        url: Routing.generate('event_detail', { id: event_id }),
+        url: Routing.generate('events', { date: date }),
         method: "POST"
     }).done(function(msg){
         center_div.html(msg);
     });
 }
 
+// les évenements pour une date donnée
+function getEventsOfType(eventType){
+    selected_eventType = eventType;
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('events', { eventType: eventType}),
+        method: "POST"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
 
 
