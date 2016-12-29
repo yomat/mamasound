@@ -1,0 +1,20 @@
+{% form_theme form 'bootstrap_3_layout.html.twig'  'blog/ckeditor.html.twig' %}
+
+{{form_start(form)}}
+{{ form_label(
+		form.title, 
+		"Enter the title of the article", 
+		{'label_attr':{class:'maclasse', 'title':'The title'} }
+	)
+}}<br>
+{{ form_widget(
+		form.title, 
+		{'attr':{'placeholder':'Titre'} }
+) }}<br>
+{{ form_errors(form.title) }}<br>
+
+{#{{form_widget(form)}}#}
+
+{{ form_row(form.author) }} <hr>
+
+{{form_end(form)}}

@@ -2,6 +2,9 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\EventCategory;
+use AppBundle\Entity\EventGenre;
+use AppBundle\Entity\Place;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -12,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use AppBundle\Entity\Category;
+use AppBundle\Entity\Event;
 
 class EventType extends AbstractType
 {
@@ -23,38 +26,38 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            -> add('Titre', TextType::class)
-			-> add('Type', EntityType::class, [
+            -> add('title', TextType::class)
+			-> add('type', EntityType::class, [
 					'class' => EventGenre::class, // /!\ to avoid pb with this class (EventType)
 					'required' => true,
-					'choice_label' => 'title',
+					'choice_label' => 'name',
 					'expanded' => true,
 					'multiple' => false,
 					'query_builder' => function($entRepo){
 						$qb = $entRepo -> createQueryBuilder('eventType');
-						$qb -> orderBy("eventType.title", "ASC");
+						$qb -> orderBy("eventType.name", "ASC");
 						return $qb;
 					}
 				])
-			-> add('Genre', EntityType::class, [
+			-> add('category', EntityType::class, [
 					'class' => EventCategory::class,
 					'required' => false,
-					'choice_label' => 'title',
+					'choice_label' => 'name',
 					'expanded' => true,
 					'multiple' => false,
 					'query_builder' => function($entRepo){
 						$qb = $entRepo -> createQueryBuilder('eventCat');
-						$qb -> orderBy("eventCat.title", "ASC");
+						$qb -> orderBy("eventCat.name", "ASC");
 						return $qb;
 					}
 				])
-			-> add('Début', DateType::class)
-			-> add('Fin', DateType::class)
-			-> add('Résumé', TextareaType::class)
-			-> add('Article', TextareaType::class)
-			-> add('Prix', NumberType::class)
-			-> add('MamaEvent', CheckboxType::class, ['required' => false])
-			-> add('Lieu', EntityType::class, [
+			-> add('start', DateType::class)
+			-> add('end', DateType::class)
+			-> add('short', TextareaType::class)
+			-> add('article', TextareaType::class)
+			-> add('price', NumberType::class)
+			-> add('mamaEvent', CheckboxType::class, ['required' => false])
+			-> add('place', EntityType::class, [
 					'class' => Place::class,
 					'required' => true,
 					'choice_label' => 'name',
@@ -66,7 +69,9 @@ class EventType extends AbstractType
 						return $qb;
 					}
 				])
-			-> add('Artistes', EntityType::class, [
+			-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
+			
+			/*-> add('Artistes', EntityType::class, [
 					'class' => Groupe::class,
 					'required' => true,
 					'choice_label' => 'name',
@@ -77,7 +82,7 @@ class EventType extends AbstractType
 						$qb -> orderBy("group.name", "ASC");
 						return $qb;
 					}
-				])
+				])*/
 
 			//-> add('image', ImageType::class, ['required' => false])
 

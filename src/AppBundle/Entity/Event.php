@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\Mapping\JoinColumn;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Event
@@ -365,5 +366,29 @@ class Event
     public function getPlace()
     {
         return $this->place;
+    }
+
+    /**
+     * Set mamaEvent
+     *
+     * @param boolean $mamaEvent
+     *
+     * @return Event
+     */
+    public function setMamaEvent($mamaEvent)
+    {
+        $this->mamaEvent = $mamaEvent;
+
+        return $this;
+    }
+
+    /**
+     * Get mamaEvent
+     *
+     * @return boolean
+     */
+    public function getMamaEvent()
+    {
+        return $this->title;
     }
 }

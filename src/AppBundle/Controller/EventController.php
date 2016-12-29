@@ -4,14 +4,19 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\ArticleType;
 use AppBundle\Entity\Article;
+use AppBundle\Entity\Event;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Comment;
 use AppBundle\Form\CommentType;
+use AppBundle\Form\EventType;
+use Symfony\Component\HttpFoundation\Response;
+
 
 /**
  * @Route("/mamasound")
@@ -129,33 +134,58 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/articles/add", name="blog_add_article")
+     * @Route("/add", name="new_event")
+	 * @Template
      */
-    public function addArticleAction(Request $request){
-    	$article = new Article();
-    	$form = $this->createForm(ArticleType::class, $article);
-    	 
-    	$form->handleRequest($request);
-    		
-    	if ($form->isSubmitted() && $form->isValid()) { //if($request->getMethod()=="POST")
-    		// ... perform some action, such as saving the task to the database
-    		$entityManager = $this->getDoctrine()->getManager();
-    		$entityManager -> persist($article);	// mise en persistance de l'objet $article
-    		
-    		$session = $this->get('session');
-    		
-    		try{
-    			$article->setEditDate($article->getDate());
-    			$entityManager -> flush();
-    			$session -> getFlashBag()-> add('info', 'Article enregistré');
-    			$session -> getFlashBag()-> add('info', 'avec succès');
-    			return $this -> redirectToRoute('blog_detail', array('id' => $article->getId()) );
-    		}catch(\PDOException $e){
-    			$session -> getFlashBag()-> add('error', 'PDOException');
-    			$session -> getFlashBag()-> add('error', 'PDOException');
-    		}
-    	}
-    	return $this->render('blog/articles/add.html.twig', ['form' => $form->createView()] );
+    public function addAction(Request $request){
+    	$event = new Event();
+    	$form = $this->createForm(EventType::class, $event);
+
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid()) {
+			// ... perform some action, such as saving the task to the database
+			$entityManager = $this->getDoctrine()->getManager();
+			$entityManager -> persist($event);	// mise en persistance de l'objet $article
+
+			$session = $this->get('session');
+
+			try{
+				//$event-> setEditDate($event->getDate());
+				$entityManager -> flush();
+				$session -> getFlashBag()-> add('info', 'Evénement enregistré');
+				$session -> getFlashBag()-> add('info', 'avec succès');
+				return $this -> redirectToRoute('event_detail', array('id' => $event->getId()) );
+			}catch(\PDOException $e){
+				$session -> getFlashBag()-> add('error', 'PDOException');
+				$session -> getFlashBag()-> add('error', 'PDOException');
+			}
+		}
+
+		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
+
+
+		/*$form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) { //if($request->getMethod()=="POST")
+            // ... perform some action, such as saving the task to the database
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager -> persist($event);	// mise en persistance de l'objet $article
+
+            $session = $this->get('session');
+
+            try{
+                $event-> setEditDate($event->getDate());
+                $entityManager -> flush();
+                $session -> getFlashBag()-> add('info', 'Evénement enregistré');
+                $session -> getFlashBag()-> add('info', 'avec succès');
+                return $this -> redirectToRoute('blog_detail', array('id' => $event->getId()) );
+            }catch(\PDOException $e){
+                $session -> getFlashBag()-> add('error', 'PDOException');
+                $session -> getFlashBag()-> add('error', 'PDOException');
+            }
+        }
+        return $this->render('events/add.html.twig', ['form' => $form->createView()] );*/
     }
 
     /**
