@@ -6,6 +6,7 @@ use AppBundle\Entity\EventCategory;
 use AppBundle\Entity\EventGenre;
 use AppBundle\Entity\Place;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -50,6 +51,12 @@ class EventType extends AbstractType
 						return $qb;
 					}
 				])
+			-> add('groups', CollectionType::class, array(
+				'label' => 'Artistes',
+				'entry_type' => GroupeType::class,
+				'allow_add' => true,
+				'allow_delete' => true
+			))
 			-> add('place', EntityType::class, [
 				'label' => 'Lieu',
 				'class' => Place::class,

@@ -139,7 +139,11 @@ class EventController extends Controller
      */
     public function addAction(Request $request){
     	$event = new Event();
-    	$form = $this->createForm(EventType::class, $event);
+
+		$event->setStart(new \DateTime());
+		$event->setEnd(new \DateTime());
+
+		$form = $this->createForm(EventType::class, $event);
 
 		$form->handleRequest($request);
 

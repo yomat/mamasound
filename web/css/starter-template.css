@@ -168,44 +168,6 @@ ul {
 }
 
 /********************************
-    DATEPICKER
-********************************/
-.datepicker-here {
-    padding: 0;
-    height: 25vh;
-}
-
-.datepicker--cell {
-    height: 2em;
-    //color: #fff4f6;
-    color: white;
-    font-family: 'Montserrat-Thin';
-    font-size: 125%;
-}
-
-.datepicker--day-name {
-    color: #d4d4d4;
-    font-family: 'Montserrat-Regular';
-    font-size: 100%;
-}
-
-.datepicker--content {
-    background: #666b6e;
-}
-
-.datepicker--cell.-current-{
-    color: white;
-    font-family: 'Montserrat-Regular';
-
-}
-
-.datepicker--nav-title{
-    font-family: 'Montserrat-Regular';
-    font-size: 125%;
-
-}
-
-/********************************
     MAMAPASS [+]
 ********************************/
 #mamapass {

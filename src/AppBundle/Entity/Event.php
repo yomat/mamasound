@@ -31,16 +31,14 @@ class Event
     private $title;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\EventGenre")
+     * @JoinColumn(name="event_genre_id", referencedColumnName="id")
      */
     private $type;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\EventCategory")
+     * @JoinColumn(name="event_category_id", referencedColumnName="id")
      */
     private $category;
 
