@@ -10,7 +10,7 @@
 
     <div class="event-style-concert col-lg-1">
         <img class="event-style-concert-cat-icon"
-             src="{{ asset('images/cats/' ~ event.category ~ '.png') }}"/>
+             src="{{ asset('images/cats/' ~ event.category.name ~ '.png') }}"/>
     </div>
 
     <div class="col-lg-6">
@@ -18,7 +18,7 @@
             {{ event.title }}<br>{#<strong>{{ event.price }} €</strong><br>#}
         </text>
         <text class="event-style-free">
-            {{ event.category }}
+            {{ event.category.name }}
         </text>
 
     </div>

@@ -1,15 +1,15 @@
 <div class="events  col-lg-12">
         {% for event in events %}
 
-            {% if event.type == "expo" %}
+            {% if event.type.name == "expo" %}
                 {% include "events/expo_cell.html.twig" %}
             {% endif %}
 
-            {% if event.type == "concert" %}
+            {% if event.type.name == "concert" %}
                 {% include "events/concert_cell.html.twig" %}
             {% endif %}
 
-            {% if event.type == "theatre" %}
+            {% if event.type.name == "theatre" %}
                 {% include "events/theatre_cell.html.twig" %}
             {% endif %}
 
