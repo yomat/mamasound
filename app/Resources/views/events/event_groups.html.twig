@@ -4,12 +4,13 @@
       <article>
           <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
           <h4>{{ event.title }}</h4>
+          <text>RESUME</text>
+          <text class = "desc">{{ event.short}}</text>
           <text class = "desc">{{ event.article }}</text>
       </article>
 
       {#TODO symfony for each group article#}
       {% for group in event.groups %}
-
           <div class="group-full">
               <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
               <article>

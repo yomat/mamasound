@@ -101,7 +101,7 @@ function playAudio() {
 var event_id = 1;
 
 // mettre à jour les données de la div center avec la vue
-function setEventDetail_toCenterDiv(){
+function setEventDetail_toCenterDiv(event_id){
     center_div = $('#center');
     $.ajax({
         url: Routing.generate('event_detail', { id: event_id }),

@@ -1,6 +1,6 @@
 <div class="row event music-event"
      onclick="  moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
-                setEventDetail_toCenterDiv();"
+                setEventDetail_toCenterDiv({{ event.id }});"
      data-latitude="{{ event.place.latitude }}"
      data-longitude="{{ event.place.longitude }}"
      data-place-name="{{ event.place.name }}"
