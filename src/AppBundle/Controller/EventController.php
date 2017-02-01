@@ -13,6 +13,8 @@ use AppBundle\Entity\Article;
 use AppBundle\Entity\Event;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Comment;
+use AppBundle\Entity\Place;
+use AppBundle\Form\PlaceType;
 use AppBundle\Form\CommentType;
 use AppBundle\Form\EventType;
 use Symfony\Component\HttpFoundation\Response;
@@ -134,10 +136,10 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/add", name="new_event")
+     * @Route("/event/add", name="new_event")
 	 * @Template
      */
-    public function addAction(Request $request){
+    public function addEventAction(Request $request){
     	$event = new Event();
 
 		$event->setStart(new \DateTime());
@@ -165,32 +167,40 @@ class EventController extends Controller
 				$session -> getFlashBag()-> add('error', 'PDOException');
 			}
 		}
-
 		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
-
-
-		/*$form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) { //if($request->getMethod()=="POST")
-            // ... perform some action, such as saving the task to the database
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager -> persist($event);	// mise en persistance de l'objet $article
-
-            $session = $this->get('session');
-
-            try{
-                $event-> setEditDate($event->getDate());
-                $entityManager -> flush();
-                $session -> getFlashBag()-> add('info', 'Evénement enregistré');
-                $session -> getFlashBag()-> add('info', 'avec succès');
-                return $this -> redirectToRoute('blog_detail', array('id' => $event->getId()) );
-            }catch(\PDOException $e){
-                $session -> getFlashBag()-> add('error', 'PDOException');
-                $session -> getFlashBag()-> add('error', 'PDOException');
-            }
-        }
-        return $this->render('events/add.html.twig', ['form' => $form->createView()] );*/
     }
+
+	/**
+	 * @Route("/place/add", name="new_place")
+	 * @Template
+	 */
+	public function addPlaceAction(Request $request){
+		$place = new Place();
+
+		$form = $this->createForm(PlaceType::class, $place);
+
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid()) {
+			// ... perform some action, such as saving the task to the database
+			$entityManager = $this->getDoctrine()->getManager();
+			$entityManager -> persist($place);	// mise en persistance de l'objet $article
+
+			$session = $this->get('session');
+
+			try{
+				//$event-> setEditDate($event->getDate());
+				$entityManager -> flush();
+				$session -> getFlashBag()-> add('info', 'Evénement enregistré');
+				$session -> getFlashBag()-> add('info', 'avec succès');
+				return $this -> redirectToRoute('place_detail', array('id' => $place->getId()) );
+			}catch(\PDOException $e){
+				$session -> getFlashBag()-> add('error', 'PDOException');
+				$session -> getFlashBag()-> add('error', 'PDOException');
+			}
+		}
+		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
+	}
 
     /**
      * @Route("/articles/delete/{id}", name="blog_delete_article", requirements={"id":"\d+"})

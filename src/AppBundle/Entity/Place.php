@@ -77,6 +77,7 @@ class Place
      */
     private $partenaire;
 
+
     /**
      * Get id
      *
@@ -254,5 +255,22 @@ class Place
     {
         return $this->article;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isPartenaire()
+    {
+        return $this->partenaire;
+    }
+
+    /**
+     * @param boolean $partenaire
+     */
+    public function setPartenaire($partenaire)
+    {
+        $this->partenaire = $partenaire;
+    }
+
 }
 

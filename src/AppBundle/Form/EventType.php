@@ -78,22 +78,6 @@ class EventType extends AbstractType
 			-> add('mamaEvent', CheckboxType::class, ['required' => false])
 			-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
 
-			/*-> add('Artistes', EntityType::class, [
-					'class' => Groupe::class,
-					'required' => true,
-					'choice_label' => 'name',
-					'expanded' => true,
-					'multiple' => true,
-					'query_builder' => function($entRepo){
-						$qb = $entRepo -> createQueryBuilder('group');
-						$qb -> orderBy("group.name", "ASC");
-						return $qb;
-					}
-				])*/
-
-			//-> add('image', ImageType::class, ['required' => false])
-
-			//-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;
 
     }
