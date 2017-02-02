@@ -1,6 +1,6 @@
 <div class="row event music-event"
      onclick="  moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
-             setEventDetail_toCenterDiv({{ event.id }});"
+                setEventDetail_toCenterDiv({{ event.id }});"
      data-latitude="{{ event.place.latitude }}"
      data-longitude="{{ event.place.longitude }}"
      data-place-name="{{ event.place.name }}"
@@ -26,3 +26,11 @@
 
     <text class="event-place col-lg-2"><em>{{ event.place.name }}</em></text>
 </div>
+
+<script>
+    $(document).ready(function() {
+        delayOver(document.getElementById("{{ 'event_' ~ event.id }}"), function () {
+            moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
+        }, 500);
+    });
+</script>

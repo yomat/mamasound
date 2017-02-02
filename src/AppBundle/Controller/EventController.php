@@ -26,8 +26,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EventController extends Controller
 {
-	protected $nbArticlesByPage = 3;
-	protected $event_type = "concert";
 
 	/**
 	 * @Route("/", name="app")
@@ -62,34 +60,27 @@ class EventController extends Controller
 	}
 
 	/**
+	 * ouvert après ajout
 	 * @Route("/eventDetail/{id}", options={"expose"=true}, name="event_detail", requirements={"id":"\d+"})
 	 */
-	public function showDetailEvent(Request $request, $id){
+	public function showDetailAction(Request $request, $id){
 		if($request->getMethod()=="POST"){
 			//$id = $request-> get('eventId');
 
 			// récupération de l'event dans le repo
 			$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
 			$event = $repo -> find($id);
-			return $this->render('events/event_groups.html.twig',[
+			return $this->render('events/event_detail.html.twig',[
 					'event' => $event
 				]
 			);
-			//return new JsonResponse($event);
-
-			/*return new JsonResponse(
-				$this 	-> getDoctrine()
-						-> getManager()
-						-> getRepository('AppBundle:Event')
-						-> find($id)
-			);*/
 		}
 		// récupération de l'event dans le repo
 		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
 		$event = $repo -> find($id);
 
 		// vue twig
-		return $this->render('events/event_groups.html.twig',[
+		return $this->render('events/event_detail.html.twig',[
 				'event' => $event
 			]
 		);
@@ -152,7 +143,7 @@ class EventController extends Controller
 		if ($form->isSubmitted() && $form->isValid()) {
 			// ... perform some action, such as saving the task to the database
 			$entityManager = $this->getDoctrine()->getManager();
-			$entityManager -> persist($event);	// mise en persistance de l'objet $article
+			$entityManager -> persist($event);	// mise en persistance de l'objet $event
 
 			$session = $this->get('session');
 
@@ -169,38 +160,6 @@ class EventController extends Controller
 		}
 		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
     }
-
-	/**
-	 * @Route("/place/add", name="new_place")
-	 * @Template
-	 */
-	public function addPlaceAction(Request $request){
-		$place = new Place();
-
-		$form = $this->createForm(PlaceType::class, $place);
-
-		$form->handleRequest($request);
-
-		if ($form->isSubmitted() && $form->isValid()) {
-			// ... perform some action, such as saving the task to the database
-			$entityManager = $this->getDoctrine()->getManager();
-			$entityManager -> persist($place);	// mise en persistance de l'objet $article
-
-			$session = $this->get('session');
-
-			try{
-				//$event-> setEditDate($event->getDate());
-				$entityManager -> flush();
-				$session -> getFlashBag()-> add('info', 'Evénement enregistré');
-				$session -> getFlashBag()-> add('info', 'avec succès');
-				return $this -> redirectToRoute('place_detail', array('id' => $place->getId()) );
-			}catch(\PDOException $e){
-				$session -> getFlashBag()-> add('error', 'PDOException');
-				$session -> getFlashBag()-> add('error', 'PDOException');
-			}
-		}
-		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
-	}
 
     /**
      * @Route("/articles/delete/{id}", name="blog_delete_article", requirements={"id":"\d+"})

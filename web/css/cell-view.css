@@ -47,6 +47,8 @@
     //display: inline-flex;
     //clear: both;
 
+    cursor: pointer;
+
     border-style: none;
     width: 100%;
     background: #3c3f41;

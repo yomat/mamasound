@@ -7,6 +7,7 @@ var selected_eventType = "all_events";
 var events = [];
 
 var center_div;
+var place_div;
 
 $(document).ready(function(){
     // I. charger les événements du jour
@@ -111,6 +112,18 @@ function setEventDetail_toCenterDiv(event_id){
     });
 }
 
+// mettre à jour les données de la div place small
+function setPlaceDetailSmall(place_id){
+    //alert("place" + place_id);
+    place_div = $('#place');
+    $.ajax({
+        url: Routing.generate('place_detail_small', { id: place_id }),
+        method: "POST"
+    }).done(function(msg){
+        place_div.html(msg);
+    });
+}
+
 // les évenements pour une date donnée
 function getEventsAt(date){
     selected_date = date;
@@ -134,5 +147,19 @@ function getEventsOfType(eventType){
         center_div.html(msg);
     });
 }
+
+// UI behaviour
+function delayOver(elem, callback, delay) {
+    var timeout = null;
+    elem.onmouseover = function() {
+        // Set timeout to be a timer which will invoke callback after 1s
+        timeout = setTimeout(callback, delay);
+    };
+
+    elem.onmouseout = function() {
+        // Clear any timers set to timeout
+        clearTimeout(timeout);
+    }
+};
 
 

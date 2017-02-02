@@ -3,9 +3,11 @@
       {#TODO si desc article#}
       <article>
           <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
-          <h4>{{ event.title }}</h4>
-          <text class = "desc">{{ event.short}}</text>
-          <text class = "desc">{{ event.article }}</text>
+          <h4>{{ event.title }}</h4> <br>
+          <text class = "desc">
+              {{ event.short}} <br>
+              {{ event.article }}
+          </text> <br>
       </article>
 
       {#TODO symfony for each group article#}
@@ -19,5 +21,5 @@
           </div>
 
       {% endfor %}
-      <br><br><br>
+
     </div>
