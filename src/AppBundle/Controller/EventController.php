@@ -86,6 +86,32 @@ class EventController extends Controller
 		);
 	}
 
+	/**
+	 * ouvert après ajout
+	 * @Route("/eventDetailSmall/{id}", options={"expose"=true}, name="event_detail_small", requirements={"id":"\d+"})
+	 */
+	public function eventDetailSmall(Request $request, $id){
+		if($request->getMethod()=="POST"){
+			//$id = $request-> get('eventId');
+
+			// récupération de l'event dans le repo
+			$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
+			$event = $repo -> find($id);
+			return $this->render('Event/detail_small.html.twig',[
+					'event' => $event
+				]
+			);
+		}
+		// récupération de l'event dans le repo
+		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Event');
+		$event = $repo -> find($id);
+
+		// vue twig
+		return $this->render('events/event_detail.html.twig',[
+				'event' => $event
+			]
+		);
+	}
 
     /**
      * @Route("/articles/{id}", name="blog_detail", requirements={"id":"\d+"})

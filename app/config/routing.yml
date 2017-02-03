@@ -11,6 +11,17 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+login:
+    path: /login
+    defaults:
+        _controller: UserBundle:Security:login
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout
+
 # utiliser les routes symfony dans du javascript
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

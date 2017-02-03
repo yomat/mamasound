@@ -8,6 +8,7 @@ var events = [];
 
 var center_div;
 var place_div;
+var event_div;
 
 $(document).ready(function(){
     // I. charger les événements du jour
@@ -114,13 +115,23 @@ function setEventDetail_toCenterDiv(event_id){
 
 // mettre à jour les données de la div place small
 function setPlaceDetailSmall(place_id){
-    //alert("place" + place_id);
-    place_div = $('#place');
+    place_div = $('#place-detail-small');
     $.ajax({
         url: Routing.generate('place_detail_small', { id: place_id }),
         method: "POST"
     }).done(function(msg){
         place_div.html(msg);
+    });
+}
+
+// mettre à jour les données de la div place small
+function setEventDetailSmall(event_id){
+    event_div = $('#event_detail_small');
+    $.ajax({
+        url: Routing.generate('event_detail_small', { id: event_id }),
+        method: "POST"
+    }).done(function(msg){
+        event_div.html(msg);
     });
 }
 

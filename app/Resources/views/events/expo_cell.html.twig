@@ -1,4 +1,5 @@
-<div class="row event music-event"
+<div id="{{ 'event_' ~ event.id }}"
+     class="row event music-event"
      onclick="  moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
                 setEventDetail_toCenterDiv({{ event.id }});"
      data-latitude="{{ event.place.latitude }}"
@@ -31,6 +32,7 @@
     $(document).ready(function() {
         delayOver(document.getElementById("{{ 'event_' ~ event.id }}"), function () {
             moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
+            setPlaceDetailSmall({{ event.place.id }});
         }, 500);
     });
 </script>

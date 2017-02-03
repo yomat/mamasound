@@ -32,7 +32,9 @@
     $(document).ready(function() {
         delayOver(document.getElementById("{{ 'event_' ~ event.id }}"), function () {
             moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
+            setEventDetailSmall({{ event.id }});
             setPlaceDetailSmall({{ event.place.id }});
+
         }, 500);
     });
 </script>
