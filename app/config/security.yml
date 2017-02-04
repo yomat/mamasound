@@ -28,9 +28,10 @@ security:
             form_login:
                 login_path: login
                 check_path: login_check
+                default_target_path: /mamasound
             logout:
                 path:       logout
-                target:     /platform
+                target:     /mamasound
 
             # activate different ways to authenticate
 
