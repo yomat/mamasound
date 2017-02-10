@@ -156,10 +156,13 @@ function getEventsOfType(eventType){
         method: "POST"
     }).done(function(msg){
         center_div.html(msg);
+        setPaddingTohideScrollbar()
     });
 }
 
 // UI behaviour
+
+// trigger event after mouse overing an element during a certain period
 function delayOver(elem, callback, delay) {
     var timeout = null;
     elem.onmouseover = function() {
@@ -173,4 +176,9 @@ function delayOver(elem, callback, delay) {
     }
 };
 
+function setPaddingTohideScrollbar(){
+    var parent = document.getElementById('scroll-out');
+    var child = document.getElementById('scroll-element');
+    child.style.paddingRight = child.offsetWidth - child.clientWidth + "px";
+}
 

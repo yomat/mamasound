@@ -44,17 +44,16 @@
     -ms-user-select: none;
     user-select: none;
 
-    //display: inline-flex;
-    //clear: both;
-
     cursor: pointer;
 
     border-style: none;
     width: 100%;
     background: #3c3f41;
     color: #e6e6e6;
-    margin: 0;
-    min-height: 60px;
+    margin: 0 0 5px 0;
+    padding: 10px 0 20px 0;
+    filter: sepia(1);
+
 }
 
 .event:hover{
@@ -62,6 +61,7 @@
     background: rgba(126, 116, 118, 0.95);
     //background: #520038;
     color: #f5f5f5;
+    filter: none;
 }
 
 .event-title{
@@ -73,6 +73,8 @@
     font-family: 'Montserrat-Regular';
     font-size: 100%;
     color: #c8c8c8;
+
+    text-align: center;
 
 }
 
@@ -102,18 +104,39 @@
     text-align: center;
 }
 
-.event-style-concert {
-   // align: center;
-    text-align: center;
-}
 
 /*
 */
-.event-style-concert-cat-icon{
-    height: 7vh;
-    padding: 1vh 0 1vh 0;
-
+.event-style-concert {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+    min-height: 12vh;
 }
+
+.event-style-bg{
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.event-style-concert-cat-icon{
+    position: absolute;
+    z-index: 2;
+    width: 40%;
+    left:30%;
+    //height: 7vh;
+    top: 15%;
+    //padding: 0 0 5px 0;
+
+    //filter: sepia(1);
+    transition:all 750ms ease-out;
+}
+
+.event-style-concert-cat-icon:hover{
+    filter: none;
+}
+
 
 .event-style-expo {
     background-color: rgba(200, 200, 200, 0.95);
