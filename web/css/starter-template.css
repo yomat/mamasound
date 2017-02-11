@@ -175,11 +175,6 @@ ul {
 #ad {
     padding: 0;
     margin-top: 20px;
-    border: 1px solid #f40098;
-}
-
-#mamapass{
-    border: 1px solid #2af1f4;
 }
 
 .space3d{
@@ -188,11 +183,10 @@ ul {
 
 .world3d{
     transform:
-            translateZ(-200px)
+            translateZ(-100px)
             rotateY(40deg)
             scale3d(.9, .9, .9);
     transition:all 200ms ease-out;
-    border: 1px solid #f3f43c;
 }
 
 .world3d:hover{

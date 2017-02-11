@@ -16,12 +16,16 @@
 
                 {% if is_granted('ROLE_ADMIN') %}
                     <div class="row">
-                        <a href="{{ path('new_event') }}">Ajouter un événement</a>
+                        <button class="col-lg-offset-6 col-lg-6 btn"
+                                type="button"
+                                onclick="newEvent()">
+                            Add Event
+                        </button>
                     </div>
                 {% endif %}
 
                 <div id="ad" class="row">
-                    <div id="mamapass" class="col-lg-6" >
+                    <div class="col-lg-6" >
                         <div class="space3d">
                             <div class="world3d shadow">
                                 <a href="/mamasound/shop/mamapass">

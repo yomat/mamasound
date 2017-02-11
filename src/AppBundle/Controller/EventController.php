@@ -153,7 +153,7 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/add", name="new_event")
+     * @Route("/event/add", name="new_event", options={"expose"=true})
 	 * @Template
      */
     public function addEventAction(Request $request){

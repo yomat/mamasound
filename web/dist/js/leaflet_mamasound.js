@@ -160,6 +160,17 @@ function getEventsOfType(eventType){
     });
 }
 
+// ajouter un événement
+function newEvent(){
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('new_event'),
+        method: "GET"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
+
 // UI behaviour
 
 // trigger event after mouse overing an element during a certain period
