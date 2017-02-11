@@ -156,7 +156,7 @@ ul {
 }
 
 .events {
-    background-color: #f40098;
+    background-color: #c8c8c8;
     //padding: 0px 5% 0px 5%;
 }
 
@@ -172,10 +172,15 @@ ul {
 /********************************
     MAMAPASS [+]
 ********************************/
-#mamapass {
+#ad {
     padding: 0;
     margin-top: 20px;
+}
+
+#mamapass{
+    //display: inline-flex;
     perspective: 500px;
+    width:50%;
 }
 
 #mamapass div{
@@ -183,18 +188,22 @@ ul {
             translateZ(-200px)
             rotateY(40deg)
             scale3d(.9, .9, .9);
-    transition:all 300ms ease-in;
+    transition:all 200ms ease-out;
 }
 
 #mamapass div:hover{
     transform:
             rotateY(0deg);
-            translateZ(0px);
-    transition:all 150ms ease-out;
+    translateZ(0px);
 }
 
-#mamapass div a img {
-    box-shadow: 16px 16px 4px rgba(0, 0, 0, 0.75);
+#mamapass div a img{
+    box-shadow: 1px 1px 2px #555;
+    transition:all 200ms ease-out;
+}
+
+#mamapass div img a:hover {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.84);
 }
 
 /********************************
@@ -209,21 +218,14 @@ ul {
     width: 100%;
     height: auto;
     background-color: white;
-    //padding: 8px;
     box-shadow: 1px 1px 2px #555;
 }
 
 .groupInfo-small {
     background-color: white;
     padding: 8px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.84);
-    transition:all 200ms ease-out;
     min-height: 25vh;
     max-height: 25vh;
-}
-
-.groupInfo-small:hover{
-    box-shadow: 1px 1px 2px #555;
 }
 
 .photo-group {
@@ -231,6 +233,14 @@ ul {
     height: auto;
 }
 
+.shadow{
+    box-shadow: 1px 1px 2px #555;
+    transition:all 200ms ease-out;
+}
+
+.shadow:hover{
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.84);
+}
 /********************************
     PLACE
 ********************************/
@@ -241,16 +251,13 @@ ul {
     margin-top: 20px;
     background-color: white;
     padding: 8px;
-    box-shadow: 1px 1px 2px #555;
 }
 
 .placeInfo-small {
     background-color: white;
     padding: 8px;
-    box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.84);
     min-height: 25vh;
     max-height: 25vh;
-    //position: fixed;
 }
 
 /********************************

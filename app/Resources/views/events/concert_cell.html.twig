@@ -1,5 +1,5 @@
 <div id="{{ 'event_' ~ event.id }}"
-     class="row event music-event"
+     class="row event music-event shadow"
      onclick="  moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
                 setEventDetail_toCenterDiv({{ event.id }});"
      data-latitude="{{ event.place.latitude }}"
