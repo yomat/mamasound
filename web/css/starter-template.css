@@ -175,35 +175,30 @@ ul {
 #ad {
     padding: 0;
     margin-top: 20px;
+    border: 1px solid #f40098;
 }
 
 #mamapass{
-    //display: inline-flex;
-    perspective: 500px;
-    width:50%;
+    border: 1px solid #2af1f4;
 }
 
-#mamapass div{
+.space3d{
+    perspective: 500px;
+}
+
+.world3d{
     transform:
             translateZ(-200px)
             rotateY(40deg)
             scale3d(.9, .9, .9);
     transition:all 200ms ease-out;
+    border: 1px solid #f3f43c;
 }
 
-#mamapass div:hover{
+.world3d:hover{
     transform:
             rotateY(0deg);
     translateZ(0px);
-}
-
-#mamapass div a img{
-    box-shadow: 1px 1px 2px #555;
-    transition:all 200ms ease-out;
-}
-
-#mamapass div img a:hover {
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.84);
 }
 
 /********************************
