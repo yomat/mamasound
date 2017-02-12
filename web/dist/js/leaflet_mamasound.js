@@ -161,6 +161,17 @@ function getEventsOfType(eventType){
 }
 
 // ajouter un événement
+function listEvents(){
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('events', {}),
+        method: "POST"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
+
+// ajouter un événement
 function newEvent(){
     center_div = $('#center');
     $.ajax({
@@ -187,9 +198,4 @@ function delayOver(elem, callback, delay) {
     }
 };
 
-function setPaddingTohideScrollbar(){
-    var parent = document.getElementById('scroll-out');
-    var child = document.getElementById('scroll-element');
-    child.style.paddingRight = child.offsetWidth - child.clientWidth + "px";
-}
 

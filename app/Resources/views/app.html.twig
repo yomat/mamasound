@@ -12,17 +12,9 @@
         <div class="container">
             <div id="sidebar">
 
-                <div class="row datepicker-here " data-language='fr'></div>
 
-                {% if is_granted('ROLE_ADMIN') %}
-                    <div class="row">
-                        <button class="col-lg-offset-6 col-lg-6 btn"
-                                type="button"
-                                onclick="newEvent()">
-                            Add Event
-                        </button>
-                    </div>
-                {% endif %}
+
+                <div class="row datepicker-here " data-language='fr'></div>
 
                 <div id="ad" class="row">
                     <div class="col-lg-6" >
@@ -34,6 +26,14 @@
                             </div>
                         </div>
                     </div>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <div class="row">
+                            <button class="col-lg-6 btn btn-primary" onclick="newEvent()">
+                                <i class="fa fa-plus"></i>&nbsp; nouvel événement
+                            </button>
+                        </div>
+                    {% endif %}
 
                 </div>
 

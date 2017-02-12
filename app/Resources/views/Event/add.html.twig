@@ -5,8 +5,10 @@
 		{#<input type="submit" value="Create" />#}
 	{{ form_end(form) }}
 
-<ul>
-	<li>
-		<a href="{{ path('app') }}">Back to the list</a>
-	</li>
-</ul>
+<div class="row">
+	<button class="btn"
+			type="button"
+			onclick="listEvents()">
+		Retour aux événements
+	</button>
+</div>

@@ -13,6 +13,19 @@
         <img class="event-style-bg" src="{{ asset('images/cats/style_bg.png') }}"/>
         <img class="event-style-concert-cat-icon"
              src="{{ asset('images/cats/' ~ event.category.name ~ '.png') }}"/>
+
+        {% if is_granted('ROLE_ADMIN') %}
+            <div class="row">
+                <button class="col-lg-6 btn btn-warning" onclick="editEvent({{ event.id }})">
+                    <i class="fa fa-pencil"></i>&nbsp; éditer
+                </button>
+
+                <button class="col-lg-6 btn btn-danger" onclick="deleteEvent({{ event.id }})">
+                    <i class="fa fa-minus"></i>&nbsp; supprimer
+                </button>
+            </div>
+        {% endif %}
+
     </div>
 
     <div class="col-lg-5">

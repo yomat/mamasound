@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Yomat\CatalogBundle\YomatCatalogBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new UserBundle\UserBundle(),
+            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
