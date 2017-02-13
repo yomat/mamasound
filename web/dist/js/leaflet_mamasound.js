@@ -160,7 +160,7 @@ function getEventsOfType(eventType){
     });
 }
 
-// ajouter un événement
+// liste des événements
 function listEvents(){
     center_div = $('#center');
     $.ajax({

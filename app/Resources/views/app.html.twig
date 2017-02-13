@@ -28,9 +28,15 @@
                     </div>
 
                     {% if is_granted('ROLE_ADMIN') %}
-                        <div class="row">
-                            <button class="col-lg-6 btn btn-primary" onclick="newEvent()">
-                                <i class="fa fa-plus"></i>&nbsp; nouvel événement
+                        <div class="col-lg-6">
+                            <button class="row btn btn-primary" onclick="newEvent()">
+                                <i class="fa fa-music"></i>&nbsp; nouvel événement
+                            </button>
+                            <button class="row btn btn-primary" onclick="newGroup()">
+                                <i class="fa fa-users"></i>&nbsp; nouvel artiste
+                            </button>
+                            <button class="row btn btn-primary" onclick="newPlace()">
+                                <i class="fa fa-map-marker"></i>&nbsp; nouvelle place
                             </button>
                         </div>
                     {% endif %}
