@@ -80,7 +80,7 @@ class PlaceController extends Controller
 	}
 
 	/**
-	 * @Route("/place/add", name="new_place")
+	 * @Route("/place/add", name="new_place", options={"expose"=true})
 	 * @Template
 	 */
 	public function addPlaceAction(Request $request){

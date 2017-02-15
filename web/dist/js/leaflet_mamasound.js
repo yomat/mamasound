@@ -182,6 +182,28 @@ function newEvent(){
     });
 }
 
+// ajouter un événement
+function newPlace(){
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('new_place'),
+        method: "GET"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
+
+// ajouter un artiste
+function newGroup(){
+    center_div = $('#center');
+    $.ajax({
+        url: Routing.generate('new_group'),
+        method: "GET"
+    }).done(function(msg){
+        center_div.html(msg);
+    });
+}
+
 // UI behaviour
 
 // trigger event after mouse overing an element during a certain period

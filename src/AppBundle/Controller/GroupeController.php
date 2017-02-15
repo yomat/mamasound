@@ -36,7 +36,7 @@ class GroupeController extends Controller
     /**
      * Creates a new Groupe entity.
      *
-     * @Route("/new", name="groupe_new")
+     * @Route("/new", name="new_group", options={"expose"=true})
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -46,17 +46,18 @@ class GroupeController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($groupe);
-            $em->flush();
+            var_dump("TO: add groupe");
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($groupe);
+
+            $entityManager->flush();
 
             return $this->redirectToRoute('groupe_show', array('id' => $groupe->getId()));
         }
 
-        return $this->render('groupe/new.html.twig', array(
-            'groupe' => $groupe,
-            'form' => $form->createView(),
-        ));
+        return $this->render('groupe/new.html.twig', ['form' => $form->createView()] );
+
     }
 
     /**

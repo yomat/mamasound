@@ -89,7 +89,6 @@ class BlogController extends Controller
     public function addArticleAction(Request $request){
     	$article = new Article();
     	$form = $this->createForm(ArticleType::class, $article);
-    	 
     	$form->handleRequest($request);
     		
     	if ($form->isSubmitted() && $form->isValid()) { //if($request->getMethod()=="POST")

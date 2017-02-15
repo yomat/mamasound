@@ -50,6 +50,8 @@ class Image {
     private $file;
 
     public function setFile(UploadedFile $file = null) {
+        var_dump("TO: setFile");
+
         $this->file = $file;
         if (null !== $this->url) {
             $this->tempFilename = $this->url;
@@ -66,6 +68,8 @@ class Image {
      * @ORM\PreUpdate()
      */
     public function preUpload() {
+        var_dump("TO: PrePersist");
+
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
             $filename = sha1(uniqid(mt_rand(), true));
@@ -78,13 +82,14 @@ class Image {
      * @ORM\PostUpdate()
      */
     public function upload() {
+        var_dump("TO: setFile");
 
         if ($this->file === null)
             return;
         $name = $this->file->getClientOriginalName();
         $this->file->move($this->getUploadRootDir(), $this->url);
-//        var_dump($this->getUploadRootDir());
-//        var_dump($this->url);
+        var_dump($this->getUploadRootDir());
+        var_dump($this->url);
 //        exit;
         if (null !== $this->tempFilename) {
 
@@ -105,7 +110,7 @@ class Image {
 
         if (is_file($this->temp) && file_exists($this->temp)) {
             if (unlink($this->temp) !== true) {
-                throw new \Exception("Error Processing Request" . $temp, 1);
+                throw new \Exception("Error Processing Request" . $this->temp, 1);
                 exit;
             }
         }

@@ -3,10 +3,12 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Groupe
  *
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="groupe")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GroupeRepository")
  */
@@ -51,6 +53,13 @@ class Groupe
     {
         return $this->id;
     }
+
+    /**
+     * @var boolean
+     * @Assert\Valid()
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"} )
+     */
+    private $image;
 
     /**
      * Set name
@@ -122,5 +131,28 @@ class Groupe
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * Set image
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Groupe
+     */
+    public function setImage(\AppBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \AppBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
