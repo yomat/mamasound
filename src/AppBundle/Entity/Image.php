@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * Image 
  *
  * @ORM\Table(name="image")
- * @ORM\HasLifecycleCallbacks
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ImageRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Image {
 
@@ -36,7 +36,7 @@ class Image {
     /**
      * @var string
      *
-     * @ORM\Column(name="alt", type="string", length=255,nullable=true)
+     * @ORM\Column(name="alt", type="string", length=255, nullable=true)
      */
     private $alt;
 ////////////////////////////////////////////
@@ -50,12 +50,11 @@ class Image {
     private $file;
 
     public function setFile(UploadedFile $file = null) {
-        var_dump("TO: setFile");
-
         $this->file = $file;
         if (null !== $this->url) {
             $this->tempFilename = $this->url;
             $this->url = null;
+            $this->alt = null;
         }
     }
 
@@ -68,12 +67,11 @@ class Image {
      * @ORM\PreUpdate()
      */
     public function preUpload() {
-        var_dump("TO: PrePersist");
-
         if (null !== $this->getFile()) {
             // do whatever you want to generate a unique name
             $filename = sha1(uniqid(mt_rand(), true));
             $this->url = $filename . '.' . $this->getFile()->guessExtension();
+            $this->alt = $this->file->getClientOriginalName();
         }
     }
 
@@ -82,20 +80,13 @@ class Image {
      * @ORM\PostUpdate()
      */
     public function upload() {
-        var_dump("TO: setFile");
-
-        if ($this->file === null)
+        if (null === $this->file)
             return;
-        $name = $this->file->getClientOriginalName();
-        $this->file->move($this->getUploadRootDir(), $this->url);
-        var_dump($this->getUploadRootDir());
-        var_dump($this->url);
-//        exit;
-        if (null !== $this->tempFilename) {
 
+        $this->file->move($this->getUploadRootDir(), $this->url);
+
+        if (null !== $this->tempFilename) {
             // delete the old image
-            var_dump($this->url);
-            //if(substr($this->url, 0, 4)!="http")
 	        unlink($this->getUploadRootDir() . '/' . $this->tempFilename);
             // clear the temp image path
             $this->tempFilename = null;
@@ -107,7 +98,6 @@ class Image {
      * @ORM\PostRemove()
      */
     public function removeUpload() {
-
         if (is_file($this->temp) && file_exists($this->temp)) {
             if (unlink($this->temp) !== true) {
                 throw new \Exception("Error Processing Request" . $this->temp, 1);

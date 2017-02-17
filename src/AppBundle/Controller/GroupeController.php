@@ -19,7 +19,7 @@ class GroupeController extends Controller
     /**
      * Lists all Groupe entities.
      *
-     * @Route("/", name="groupe_index")
+     * @Route("/index", name="groupe_index")
      * @Method("GET")
      */
     public function indexAction()

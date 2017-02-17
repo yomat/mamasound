@@ -19,8 +19,8 @@ class GroupeType extends AbstractType
     {
         $builder
             -> add('name', TextType::class, ['label' => 'Titre'])
-            -> add('short', TextareaType::class, ['label' => 'Résumé'])
-            -> add('article', TextareaType::class)
+            -> add('short', TextareaType::class, ['label' => 'Résumé'], ['required' => false])
+            -> add('article', TextareaType::class, ['required' => false])
             -> add('image', ImageType::class, ['required' => false])
             -> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;

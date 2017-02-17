@@ -28,6 +28,7 @@ class EventType extends AbstractType
     {
         $builder
             -> add('title', TextType::class, ['label' => 'Titre'])
+			//-> add('image', ImageType::class, ['required' => false])
 			-> add('type', EntityType::class, [
 					'class' => EventGenre::class, // /!\ to avoid pb with this class (EventType)
 					'required' => true,
@@ -72,11 +73,11 @@ class EventType extends AbstractType
 			])
 			-> add('start', DateTimeType::class, ['label' => 'Début'])
 			-> add('end', DateTimeType::class, ['label' => 'Fin'])
-			-> add('article', TextareaType::class)
-			-> add('short', TextareaType::class, ['label' => 'Résumé'])
+			-> add('article', TextareaType::class, ['required' => false])
+			-> add('short', TextareaType::class, ['label' => 'Résumé'], ['required' => false])
 			-> add('price', NumberType::class, ['label' => 'Prix'])
 			-> add('mamaEvent', CheckboxType::class, ['required' => false])
-			-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
+			//-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
 
         ;
 

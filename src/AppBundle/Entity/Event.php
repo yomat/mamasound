@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Event
- *
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="event")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\EventRepository")
  */
@@ -86,8 +86,7 @@ class Event
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ORM\ManyToMany(	targetEntity="AppBundle\Entity\Groupe",
-     * 					inversedBy="events")
+     * @ORM\ManyToMany(	targetEntity="AppBundle\Entity\Groupe")
      */
     private $groups;
 
@@ -97,6 +96,8 @@ class Event
      * @JoinColumn(name="place_id", referencedColumnName="id")
      */
     private $place;
+
+
 
     /**
      * Get id
@@ -255,7 +256,7 @@ class Event
     /**
      * Set price
      *
-     * @param string $article
+     * @param string $price
      *
      * @return Event
      */
@@ -389,4 +390,6 @@ class Event
     {
         return $this->title;
     }
+
+
 }

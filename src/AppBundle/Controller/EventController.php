@@ -174,7 +174,6 @@ class EventController extends Controller
 			$session = $this->get('session');
 
 			try{
-				//$event-> setEditDate($event->getDate());
 				$entityManager -> flush();
 				$session -> getFlashBag()-> add('info', 'Evénement enregistré');
 				$session -> getFlashBag()-> add('info', 'avec succès');
