@@ -59,13 +59,6 @@ class Event
     /**
      * @var string
      *
-     * @ORM\Column(name="short", type="text")
-     */
-    private $short;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="article", type="text")
      */
     private $article;
@@ -209,30 +202,6 @@ class Event
     public function getEnd()
     {
         return $this->end;
-    }
-
-    /**
-     * Set short
-     *
-     * @param string $short
-     *
-     * @return Event
-     */
-    public function setShort($short)
-    {
-        $this->short = $short;
-
-        return $this;
-    }
-
-    /**
-     * Get short
-     *
-     * @return string
-     */
-    public function getShort()
-    {
-        return $this->short;
     }
 
     /**

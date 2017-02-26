@@ -74,7 +74,6 @@ class EventType extends AbstractType
 			-> add('start', DateTimeType::class, ['label' => 'Début'])
 			-> add('end', DateTimeType::class, ['label' => 'Fin'])
 			-> add('article', TextareaType::class, ['required' => false])
-			-> add('short', TextareaType::class, ['label' => 'Résumé'], ['required' => false])
 			-> add('price', NumberType::class, ['label' => 'Prix'])
 			-> add('mamaEvent', CheckboxType::class, ['required' => false])
 			-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
