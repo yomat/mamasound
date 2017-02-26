@@ -162,7 +162,13 @@ class EventController extends Controller
 		$event->setStart(new \DateTime());
 		$event->setEnd(new \DateTime());
 
-		$form = $this->createForm(EventType::class, $event);
+		// création du formulaire et affectation de la route pour l'envoi
+		// (nécessaire pour une vue formulaire imbriquée dans une vue principale,
+		//  sinon le submit envoie les données sur la route de la vue principale)
+		$form = $this  -> createForm(EventType::class, $event, array(
+			'action' => $this->generateUrl('new_event'),
+			'method' => 'POST',
+		));
 
 		$form->handleRequest($request);
 

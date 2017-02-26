@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Place
@@ -45,23 +46,9 @@ class Place
     /**
      * @var string
      *
-     * @ORM\Column(name="elevation", type="decimal", precision=7, scale=2, nullable=true)
-     */
-    private $elevation;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="address", type="text", nullable=true)
      */
     private $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="short", type="text")
-     */
-    private $short;
 
     /**
      * @var string
@@ -77,6 +64,12 @@ class Place
      */
     private $partenaire;
 
+    /**
+     * @var boolean
+     * @Assert\Valid()
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"} )
+     */
+    private $image;
 
     /**
      * Get id
@@ -161,30 +154,6 @@ class Place
     }
 
     /**
-     * Set elevation
-     *
-     * @param string $elevation
-     *
-     * @return Place
-     */
-    public function setElevation($elevation)
-    {
-        $this->elevation = $elevation;
-
-        return $this;
-    }
-
-    /**
-     * Get elevation
-     *
-     * @return string
-     */
-    public function getElevation()
-    {
-        return $this->elevation;
-    }
-
-    /**
      * Set address
      *
      * @param string $address
@@ -206,30 +175,6 @@ class Place
     public function getAddress()
     {
         return $this->address;
-    }
-
-    /**
-     * Set short
-     *
-     * @param string $short
-     *
-     * @return Place
-     */
-    public function setShort($short)
-    {
-        $this->short = $short;
-
-        return $this;
-    }
-
-    /**
-     * Get short
-     *
-     * @return string
-     */
-    public function getShort()
-    {
-        return $this->short;
     }
 
     /**
@@ -272,5 +217,27 @@ class Place
         $this->partenaire = $partenaire;
     }
 
+    /**
+     * Set image
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Place
+     */
+    public function setImage(\AppBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \AppBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
 }
 

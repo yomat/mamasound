@@ -1,6 +1,10 @@
 <div class="row placeInfo-small shadow">
     <div class="col-sm-6">
-        <img class="place-sm-photo" src="{{ asset('images/placeImage.png') }}">
+        {%  if (place.image is not null) and (place.image.url is not null) %}
+            <img class="place-sm-photo" src="../../images/{{ place.image.url }}">
+        {% else %}
+            <img class="place-sm-photo" src="{{ asset('images/placeImage.png') }}">
+        {% endif %}
     </div>
     <div class="col-sm-6 place">
         <h3><strong>{{ place.name }}</strong></h3>

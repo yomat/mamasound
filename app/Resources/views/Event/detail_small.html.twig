@@ -1,6 +1,15 @@
 <div class="row groupInfo-small shadow">
     <div class="col-sm-6">
-        <img class="photo-group" src="{{ asset('images/photo_group.png') }}">
+
+        {%  if  (event.groups.size > 0) and
+                (event.groups[0].image is not null) and
+                (event.groups[0].image.url is not null)
+        %}
+            <img class="photo-desc" src="../../images/{{ event.groups[0].image.url }}">
+        {% else %}
+            <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
+        {% endif %}
+
     </div>
     <div class="col-sm-6">
         <h3><strong>{{ event.title }}</strong></h3>

@@ -2,8 +2,10 @@
 
       {#TODO si desc article#}
       <article>
-          <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
           <h4>{{ event.title }}</h4> <br>
+          {%  if (event.image is not null) and (event.image.url is not null) %}
+              <img class="photo-desc" src="../../images/{{ event.image.url }}">
+          {% endif %}
           <text class = "desc">
               {{ event.short}} <br>
               {{ event.article }}
@@ -13,7 +15,13 @@
       {#TODO symfony for each group article#}
       {% for group in event.groups %}
           <div class="group-full">
-              <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
+
+              {%  if (group.image is not null) and (group.image.url is not null) %}
+                  <img class="photo-desc" src="../../images/{{ group.image.url }}">
+              {% else %}
+                  <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
+              {% endif %}
+
               <article>
                   <h4>{{ group.name }}</h4>
                   <text class = "desc">{{ group.article }}</text>

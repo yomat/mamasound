@@ -22,14 +22,12 @@ class PlaceType extends AbstractType
     {
         $builder
             -> add('name', TextType::class, ['label' => 'Nom'])
-			-> add('latitude', NumberType::class)
-			-> add('longitude', NumberType::class)
-			-> add('elevation', NumberType::class)
-			-> add('address', TextType::class, ['label' => 'Adresse'])
-			-> add('short', TextareaType::class, ['label' => 'Présentation courte'])
-			-> add('article', TextareaType::class, ['label' => 'Présentation détaillée'])
-			-> add('partenaire', CheckboxType::class, ['required' => false])
-
+            -> add('article', TextareaType::class, ['label' => 'Présentation'], ['required' => false])
+            -> add('latitude', NumberType::class, ['required' => false])
+            -> add('longitude', NumberType::class, ['required' => false])
+            -> add('address', TextType::class, ['label' => 'Adresse'])
+            -> add('partenaire', CheckboxType::class, ['required' => false])
+            -> add('image', ImageType::class, ['required' => false])
             -> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;
 

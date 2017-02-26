@@ -86,7 +86,7 @@ class Event
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
-     * @ORM\ManyToMany(	targetEntity="AppBundle\Entity\Groupe")
+     * @ORM\ManyToMany(	targetEntity="AppBundle\Entity\Groupe", cascade={"persist"} )
      */
     private $groups;
 
@@ -97,6 +97,12 @@ class Event
      */
     private $place;
 
+    /**
+     * @var boolean
+     * @Assert\Valid()
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"} )
+     */
+    private $image;
 
 
     /**
@@ -391,5 +397,26 @@ class Event
         return $this->title;
     }
 
+    /**
+     * Set image
+     * @param \AppBundle\Entity\Image $image
+     *
+     * @return Place
+     */
+    public function setImage(\AppBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
 
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \AppBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
 }

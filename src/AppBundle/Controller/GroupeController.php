@@ -39,14 +39,17 @@ class GroupeController extends Controller
      * @Route("/new", name="new_group", options={"expose"=true})
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request){
         $groupe = new Groupe();
-        $form = $this->createForm('AppBundle\Form\GroupeType', $groupe);
+
+        $form = $this  -> createForm(GroupeType::class, $groupe, array(
+            'action' => $this->generateUrl('new_group'),
+            'method' => 'POST',
+        ));
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            var_dump("TO: add groupe");
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($groupe);

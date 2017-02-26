@@ -33,13 +33,6 @@ class Groupe
     /**
      * @var string
      *
-     * @ORM\Column(name="short", type="text")
-     */
-    private $short;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="article", type="text")
      */
     private $article;
@@ -83,30 +76,6 @@ class Groupe
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set short
-     *
-     * @param string $short
-     *
-     * @return Groupe
-     */
-    public function setShort($short)
-    {
-        $this->short = $short;
-
-        return $this;
-    }
-
-    /**
-     * Get short
-     *
-     * @return string
-     */
-    public function getShort()
-    {
-        return $this->short;
     }
 
     /**

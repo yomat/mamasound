@@ -2,7 +2,7 @@
 
 {{ form_start(form) }}
 {{ form_widget(form) }}
-    <input type="submit" value="Create" />
+    {#<input type="submit" value="Create" />#}
 {{ form_end(form) }}
 
 <div class="row">
@@ -12,3 +12,24 @@
         Retour aux événements
     </button>
 </div>
+
+<script>
+    // based on: http://codepen.io/tcannonfodder/pen/avJyRJ
+    // based on: http://stackoverflow.com/a/9622978
+    $('form[name="groupe"]').submit(function(e) {
+        center_div = $('#center');
+        e.preventDefault();
+        var form = e.target;
+        var data = new FormData(form);
+        $.ajax({
+                    url: $(this).attr("action"),
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: data
+                })
+                .done(function (data){
+                    center_div.html(data);
+                });
+    });
+</script>
