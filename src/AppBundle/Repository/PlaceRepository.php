@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class PlaceRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
+    public function getPlaces(){
+        $qb = $this -> _em -> createQueryBuilder()
+            -> select('p')
+            -> from('AppBundle:Place', 'p');
+        return $qb -> getQuery() -> getResult();
+    }
+
 }

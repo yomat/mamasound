@@ -1,13 +1,29 @@
 <h2>Nouvel événement</h2>
 
 {{ form_start(form) }}
-	{{ form_widget(form) }}
-	{#<input type="submit" value="Create" />#}
+	{{ form_row(form.title) }}
+	{{ form_row(form.image) }}
+	{{ form_row(form.type) }}
+	{{ form_row(form.category) }}
 
-{# formulaire  pour les artistes, bouton permettant d'ajouter d'artiste #}
+	{# formulaire  pour les artistes, bouton permettant d'ajouter d'artiste #}
 	{{ form_row(form.groups) }}
 	<a href="#" id="add_group" class="btn btn-default">Nouvel artiste</a>
 
+	{#{ form_row(form.place) }#}
+	<div>
+		{{ form_label(form.place) }}
+		{{ form_errors(form.place) }}
+		<input type="text" id="event_place" name="event[place]" value="" class="form-control">
+	</div>
+	{{ form_row(form.start) }}
+	{{ form_row(form.end) }}
+	{{ form_row(form.article) }}
+	{{ form_row(form.price) }}
+	{{ form_row(form.mamaEvent) }}
+	{{ form_row(form.submit) }}
+
+	{#<input type="submit" value="Create" />#}
 {{ form_end(form) }}
 
 <div class="row">
@@ -18,7 +34,31 @@
 	</button>
 </div>
 
+
+<script>
+	// AJOUT du LIEU
+	$('#event_place').autocomplete({
+		source : function(requete, reponse){
+			var motcle = $('#event_place').val();
+			var DATA = 'motcle=' + motcle;
+			$.ajax({
+				type:"POST",
+				url : "{{ path('places') }}",
+				dataType : 'json',
+				data : DATA,
+
+				success : function(donnee){
+					reponse($.map(donnee, function(objet){
+						return objet;
+					}));
+				}
+			});
+		}
+	});
+</script>
+
 <script type="text/javascript">
+	// AJOUT des ARTISTES
 	$(document).ready(function() {
 		// On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
 		var $container = $('div#event_groups');

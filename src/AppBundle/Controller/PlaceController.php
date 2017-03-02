@@ -28,6 +28,32 @@ class PlaceController extends Controller
 {
 
 	/**
+	 * @Route("/places", name="places", options={"expose"=true})
+	 *
+	 */
+	public function indexAction(Request $request){
+
+		// events
+		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Place');
+		$places = $repo -> getPlaces();
+
+		if($request->isXmlHttpRequest()) {
+			$namePart = $request -> request -> get('namePart');
+			/*$term = $request -> request -> get('startWith');
+			$array= $this -> getDoctrine() -> getEntityManager()
+				->getRepository('menCommandesBundle:commande')
+				->listeNature($term);
+			*/
+			$response = new Response(json_encode($places));
+			$response -> headers -> set('Content-Type', 'application/json');
+			return $response;
+		}
+
+		// vue twig
+		return $this->render('places/places.html.twig',[]); // TODO
+	}
+
+	/**
 	 * @Route("/placeDetail/{id}", options={"expose"=true}, name="place_detail", requirements={"id":"\d+"})
 	 */
 	public function showDetailPlace(Request $request, $id){
