@@ -19,4 +19,10 @@ class PlaceRepository extends \Doctrine\ORM\EntityRepository
         return $qb -> getQuery() -> getResult();
     }
 
+    public function getPlacesJSON(){
+        $qb = $this -> _em -> createQueryBuilder()
+            -> select('p')
+            -> from('AppBundle:Place', 'p');
+        return $qb -> getQuery() -> getArrayResult();
+    }
 }

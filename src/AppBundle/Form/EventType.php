@@ -27,7 +27,7 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            -> add('title', TextType::class, ['label' => 'Titre'])
+            -> add('title', TextType::class, ['label' => 'Titre', 'attr' => ['placeholder' => 'Nom de l\'événement']])
 			-> add('image', ImageType::class, ['required' => false])
 			-> add('type', EntityType::class, [
 					'class' => EventGenre::class, // /!\ to avoid pb with this class (EventType)

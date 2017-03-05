@@ -21,7 +21,7 @@ class GroupeType extends AbstractType
             -> add('name', TextType::class, ['label' => 'Nom'])
             -> add('article', TextareaType::class, ['required' => false])
             -> add('image', ImageType::class, ['required' => false])
-            -> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
+            // -> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;
     }
     

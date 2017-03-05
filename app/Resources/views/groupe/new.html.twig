@@ -1,9 +1,37 @@
 <h2>Nouvel artiste</h2>
 
-{{ form_start(form) }}
-{{ form_widget(form) }}
-    {#<input type="submit" value="Create" />#}
+{{ form_start(form, {'attr': {'class': 'row'}}) }}
+
+    <div class="col-lg-3">
+        <img id="groupe-image" class="row" src="#" alt="photo de l'artiste" />
+        <!--input id="groupe_image_file" name="groupe[image][file]" type="file" onchange="readURL(this);"-->
+        {{ form_row(form.image) }}
+    </div>
+
+    <div class="col-lg-9">
+
+        <div class="form-group row">
+            {{ form_errors(form.name) }}
+            {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'col-md-2 col-form-label'}}) }}
+            <div class="col-md-10">
+                {{ form_widget(form.name) }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            {{ form_errors(form.article) }}
+            {{ form_label(form.article, 'Article', {'label_attr': {'class': 'col-md-2 col-form-label'}}) }}
+            <div class="col-md-10">
+                {{ form_widget(form.article) }}
+            </div>
+        </div>
+
+    </div>
+
+{#{ form_widget(form) }#}
 {{ form_end(form) }}
+
+<input type="submit" value="Enregistrer" />
 
 <div class="row">
     <button class="btn"
@@ -14,6 +42,8 @@
 </div>
 
 <script>
+    // Surcharge du submit -> ajax -> reponse -> modification du DOM
+
     // based on: http://codepen.io/tcannonfodder/pen/avJyRJ
     // based on: http://stackoverflow.com/a/9622978
     $('form[name="groupe"]').submit(function(e) {
@@ -32,4 +62,28 @@
                     center_div.html(data);
                 });
     });
+</script>
+
+<script>
+    // Visualisation de l'image
+    $(document).ready(function() {
+        $('#groupe_image_file').change(function() {
+            readURL($('#groupe_image_file'));
+        });
+    });
+
+    function readURL(input) {
+        var files = input.prop("files");
+        if (files && files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#groupe-image')
+                        .attr('src', e.target.result)
+                        .width("100%")
+                        .height("100%");
+            };
+
+            reader.readAsDataURL(files[0]);
+        }
+    }
 </script>

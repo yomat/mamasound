@@ -35,7 +35,7 @@ class PlaceController extends Controller
 
 		// events
 		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Place');
-		$places = $repo -> getPlaces();
+
 
 		if($request->isXmlHttpRequest()) {
 			$namePart = $request -> request -> get('namePart');
@@ -44,13 +44,15 @@ class PlaceController extends Controller
 				->getRepository('menCommandesBundle:commande')
 				->listeNature($term);
 			*/
-			$response = new Response(json_encode($places));
-			$response -> headers -> set('Content-Type', 'application/json');
+			$places = $repo -> getPlacesJSON();
+			$response = new JsonResponse($places);
+			//$response -> headers -> set('Content-Type', 'application/json');
 			return $response;
 		}
 
+		$places = $repo -> getPlaces();
 		// vue twig
-		return $this->render('places/places.html.twig',[]); // TODO
+		return $this->render('places/places.html.twig',['places' => $places]); // TODO
 	}
 
 	/**
