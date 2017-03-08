@@ -6,8 +6,11 @@
 
 	{{ form_start(form, {'attr': {'class': 'row'}}) }}
 
-		<div class="col-lg-3">
-			{{ form_row(form.image) }}
+		<div class="col-lg-3 fileContainer">
+			{{ form_errors(form.image.file) }}
+			<img src="{{ asset('images/mama.png') }}" width="100%">
+			Flyers
+			{{ form_widget(form.image.file) }}
 		</div>
 
 		<div class="col-lg-9">
