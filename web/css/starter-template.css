@@ -100,20 +100,6 @@ h2 {
     margin-top: 40px;
 }
 
-
-
-h3 {
-    font-size: 120%;
-    padding: 0;
-    margin: 0 0 5px;
-}
-
-/*ul {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-}*/
-
 /********************************
     NAVBAR
 ********************************/
@@ -123,14 +109,6 @@ h3 {
     color: white;
     text-shadow: 1px 1px 4px #554466;
 }
-
-/*.navbar-east {
-    float: left;
-}
-
-.navbar-east-radio {
-}*/
-
 
 
 /********************************
@@ -143,24 +121,18 @@ h3 {
     padding: 0 8px 0 8px;
 }
 
-
-.west {
+/*.west {
     position: relative;
-}
+}*/
 
 .events {
     background-color: #c8c8c8;
-    //padding: 0px 5% 0px 5%;
+    /**padding: 0px 5% 0px 5%;**/
 }
 
-#sidebar {
-    position: fixed;
-    width: 20%;
-}
-
-.east {
+/*.east {
     position: relative;
-}
+}*/
 
 /********************************
     FORM
@@ -224,11 +196,6 @@ h3 {
 /********************************
     GROUP
 ********************************/
-.east > .row{
-    padding: 0;
-    margin-bottom: 8px;
-}
-
 .group {
     width: 100%;
     height: auto;
@@ -236,11 +203,11 @@ h3 {
     box-shadow: 1px 1px 2px #555;
 }
 
-.groupInfo-small {
-    background-color: white;
-    padding: 8px;
-    min-height: 25vh;
-    max-height: 25vh;
+.groupInfo-small{
+    background-color: red;
+    //padding: 8px;
+    //min-height: 25vh;
+    //max-height: 25vh;
 }
 
 .photo-group {
@@ -268,11 +235,11 @@ h3 {
     padding: 8px;
 }
 
-.placeInfo-small {
+.placeInfo-small{
     background-color: white;
-    padding: 8px;
-    min-height: 25vh;
-    max-height: 25vh;
+    //padding: 8px;
+    //min-height: 25vh;
+    //max-height: 25vh;
 }
 
 /********************************
@@ -281,14 +248,14 @@ h3 {
 .map{
     padding: 1px;
     background-color: white;
-    margin:0;
-    margin-bottom: 8px;
+    //margin:0;
+    //margin-bottom: 8px;
 }
 
 #mapid {
     min-height: 30vh;
-    margin:0;
-    padding:0
+    //margin:0;
+    //padding:0
 }
 
 .place-sm-photo {
@@ -318,10 +285,16 @@ h3 {
 }
 
 /********************************
+    Vertical Button Group
+********************************/
+.btn-text-left{
+    text-align: left;
+}
+/********************************
     FOOTER
 ********************************/
-.footer{
-    height: 100px; /* Whatever you want. */
+/*.footer{
+    height: 100px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 1);
     background-color: rgba(0, 0, 0, 0.81);
     bottom: -100px;
@@ -334,7 +307,7 @@ h3 {
     background: none;
     box-shadow: none;
 
-}
+}*/
 
 
 /********************************
@@ -345,8 +318,6 @@ h3 {
 }
 
  #playRadioButton{
-     //height:100%;
-     //width: 100%;
      border: none;
      background-size: 100% 100%;
      background-position: center;

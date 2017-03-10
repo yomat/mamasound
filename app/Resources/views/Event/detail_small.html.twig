@@ -1,5 +1,6 @@
-<div class="row groupInfo-small shadow">
-    <div class="col-sm-6">
+<div class="col-xl-12">
+
+    <div class="groupInfo-small shadow" >
 
         {%  if  (event.groups|length > 0) and
                 (event.groups[0].image is not null) and
@@ -10,9 +11,10 @@
             <img class="place-sm-photo" src="{{ asset('images/photo_group.png') }}">
         {% endif %}
 
-    </div>
-    <div class="col-sm-6">
+
         <h3><strong>{{ event.title }}</strong></h3>
         <text>{{ event.article }}</text>
+
     </div>
+
 </div>

@@ -29,7 +29,7 @@ function initMarkers() {
     var eventElements = document.getElementsByClassName('event');
     var i;
     for (i = 0; i < eventElements.length; i++) {
-        el = eventElements[i]
+        var el = eventElements[i];
         var marker =  L.marker([el.getAttribute('data-latitude'), el.getAttribute('data-longitude')]);
         marker.bindPopup(el.getAttribute('data-place-name'));
         markers.push(marker);

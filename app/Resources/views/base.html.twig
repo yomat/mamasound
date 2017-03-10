@@ -52,10 +52,6 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
 
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-
             <li class="nav-item">
                 <a class="nav-link" href="#" onclick="getEventsOfType('Concert');">
                     <img src="{{ asset('images/map_concert.png') }}"/>Concert
@@ -114,69 +110,10 @@
     </div>
 </nav>
 
-<!--nav-- class="navbar navbar-inverse fixed-top">
-    <div class="container-fluid">
-
-        <div class="navbar-header col-xs-1">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <img class="col-md-12" src="{{ asset('images/mms_concerts.png') }}" onclick="listEvents()">
-        </div>
-
-        <img class="col-xs-5" src="{{ asset('images/mama-sound.png') }}" alt="Mama Sound"/>
-
-        <div class="navbar-east col-xs-5">
-            <div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getEventsOfType('Concert');">
-                                <img src="{{ asset('images/map_concert.png') }}"/>Expo
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getEventsOfType('expo');">
-                                <img src="{{ asset('images/map_expo.png') }}"/>Expo
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getEventsOfType('theatre');">
-                                <img src="{{ asset('images/map_theatre.png') }}"/>Théâtre
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="getEventsOfType('all_events');">
-                                <img src="{{ asset('images/map_all.png') }}"/>Tout
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="navbar-east-radio col-xs-1">
-            <div id="audioplayer ">
-                <button id="playRadioButton" class="play" onclick="playAudio()"></button>
-                <div id="timeline">
-                    <div id="playhead"></div>
-                </div>
-            </div>
-            <audio  id="music">
-                <source src="http://size.ice.infomaniak.ch/size-128.mp3" type="audio/mp3">
-                {#<source src="http://audio.scdn.arkena.com/11009/franceinter-lofi32.mp3" type="audio/mp3">#}
-            </audio>
-        </div>
-    </div>
-</nav-->
 
 <div class="container-fluid">
 
-    <div class="starter-template">
+    <div class="starter-template row">
         {% block layout %}
             <h1>Bootstrap starter template</h1>
             <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>

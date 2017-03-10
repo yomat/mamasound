@@ -7,17 +7,18 @@
 
 {% block body %}
 
-    <div class="west col-lg-3 ">
+    <div class="col-lg-3">
 
-        <div class="container">
-            <div id="sidebar">
+        <div class="row">
 
+            <div class="col-xs-6">
+                <div class="datepicker-here " data-language='fr'></div>
+            </div>
 
+            <div class="col-xs-6">
+                <div class="row">
 
-                <div class="row datepicker-here " data-language='fr'></div>
-
-                <div id="ad" class="row">
-                    <div class="col-lg-6" >
+                    <div class="col-xl-6" >
                         <div class="space3d">
                             <div class="world3d shadow">
                                 <a href="/mamasound/shop/mamapass">
@@ -28,23 +29,28 @@
                     </div>
 
                     {% if is_granted('ROLE_ADMIN') %}
-                        <div class="col-lg-6">
-                            <button class="row btn btn-primary" onclick="newEvent()">
+                        <div class="col-xl-6">
+                            <button class="btn btn-primary btn-block btn-text-left" onclick="newEvent()">
                                 <i class="fa fa-music"></i>&nbsp; nouvel événement
                             </button>
-                            <button class="row btn btn-primary" onclick="newGroup()">
+
+
+                            <button class="btn btn-primary btn-block btn-text-left" onclick="newGroup()">
                                 <i class="fa fa-users"></i>&nbsp; nouvel artiste
                             </button>
-                            <button class="row btn btn-primary" onclick="newPlace()">
+
+
+                            <button class="btn btn-primary btn-block btn-text-left" onclick="newPlace()">
                                 <i class="fa fa-map-marker"></i>&nbsp; nouveau lieu
                             </button>
                         </div>
                     {% endif %}
 
                 </div>
-
             </div>
+
         </div>
+
     </div>
 
     <div class="col-lg-6">
@@ -55,24 +61,21 @@
 
 
 
-    <div class="east col-lg-3">
-        <div class="container">
-            <div id="sidebar">
-                <div class="row">
-                        <div class="map col-sm-12 shadow">
-                            <div id="mapid"></div>
-                        </div>
+    <div class="col-lg-3">
 
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="map shadow">
+                    <div id="mapid"></div>
                 </div>
-
-                <div id="place-detail-small"></div><br>
-
-                <div id="event_detail_small"></div><br>
-
-
-
             </div>
         </div>
+
+        <div class="row" id="place-detail-small"></div>
+
+        <div class="row " id="event_detail_small"></div>
+
+
     </div>
 
 
