@@ -88,13 +88,6 @@ h4 {
     padding-top: 80px;
 }
 
-.menu-item {
-    font-family: 'Delphine';
-    font-size: 200%;
-    color: whitesmoke;
-    text-shadow: 1px 1px 4px #554466;
-}
-
 h2 {
     font-family: 'Essays1743';
     color: lightgray;
@@ -115,28 +108,28 @@ h3 {
     margin: 0 0 5px;
 }
 
-ul {
+/*ul {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
+}*/
+
+/********************************
+    NAVBAR
+********************************/
+.nav-item {
+    font-family: 'Montserrat-Thin';
+    font-size: 150%;
+    color: white;
+    text-shadow: 1px 1px 4px #554466;
 }
 
-.navbar-header {
-    float: left;
-    clear: right;
-}
-
-.navbar-fixed-top {
-    height: 12vh; /* Whatever you want. */
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-east {
+/*.navbar-east {
     float: left;
 }
 
 .navbar-east-radio {
-}
+}*/
 
 
 
@@ -172,6 +165,7 @@ ul {
 /********************************
     FORM
 ********************************/
+/** input fil **/
 .fileContainer {
     overflow: hidden;
     position: relative;
@@ -189,6 +183,17 @@ ul {
     right: 0;
     text-align: right;
     top: 0;
+}
+
+/** label **/
+.control-label {
+    text-align: right;
+}
+
+.col-form-label {
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin-bottom: 0;
 }
 /********************************
     MAMAPASS [+]
