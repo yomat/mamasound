@@ -38,12 +38,12 @@ function initMarkers() {
 
 // 1.2 générer la carte
 function initialiserCarte() {
-    mymap = L.map('mapid');
+    mymap = L.map('mapid',{zoomControl: false});
 
     mymap.on("load", function(){showMarkers()});
 
     //mymap.setView([ 43.6207009, 3.9033527000000277], 15 );// Montpellier
-    mymap.setView([ 47.218371, -1.553621000000021], 15 );// Nantes
+    mymap.setView([ 47.218371, -1.553621000000021], 16 );// Nantes
 
 
     // create the tile layer with correct attribution
@@ -52,9 +52,9 @@ function initialiserCarte() {
     //var attrib='&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 
     // on paramètre le serveur de tuile
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    //L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw', {
+        //attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'yomat.1330ef5f',
         accessToken: 'pk.eyJ1IjoieW9tYXQiLCJhIjoiY2lybzJwZjg5MDA3Mmhua3dvdmZqZDB1NiJ9.c-b1yAb0XxbFAT9rvgeZHw'

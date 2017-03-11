@@ -35,12 +35,18 @@
     src: url('../fonts/Montserrat-Bold.otf');
 }
 
+@media (min-width: 1600px) {
+    .container{
+        width: 1600px;
+    }
+}
+
 body {
     padding-top: 12vh;
     //background: #554466 url("../images/background_expo.png") center;
     //background: #ffffc8 url("../images/entete_google_play.jpg") center;
     //background: #a5a5a5; //url("../images/entete_google_play.jpg") center;
-    background: #c8c8c8; //url("../images/background.png") center;
+    background: url("../images/background.png") center;
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -126,7 +132,7 @@ h2 {
 }*/
 
 .events {
-    background-color: #c8c8c8;
+    //background-color: #c8c8c8;
     /**padding: 0px 5% 0px 5%;**/
 }
 
@@ -204,7 +210,7 @@ h2 {
 }
 
 .groupInfo-small{
-    background-color: red;
+    background-color: white;
     //padding: 8px;
     //min-height: 25vh;
     //max-height: 25vh;
@@ -253,9 +259,8 @@ h2 {
 }
 
 #mapid {
-    min-height: 30vh;
-    //margin:0;
-    //padding:0
+    padding-top: 75%;
+    filter: saturate(3);
 }
 
 .place-sm-photo {
