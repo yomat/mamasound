@@ -1,32 +1,31 @@
-  <div class="event-groups">
+<div class="event-groups col-lg-12">
 
-      {#TODO si desc article#}
-      <article>
-          <h4>{{ event.title }}</h4> <br>
-          {%  if (event.image is not null) and (event.image.url is not null) %}
-              <img class="photo-desc" src="../../images/{{ event.image.url }}">
-          {% endif %}
-          <text class = "desc">
-              {{ event.article }}
-          </text> <br>
-      </article>
+    <div class="card">
 
-      {#TODO symfony for each group article#}
-      {% for group in event.groups %}
-          <div class="group-full">
+        <div class="card-block">
+            <h4 class="card-title">{{ event.title }}</h4>
+            {%  if (event.image is not null) and (event.image.url is not null) %}
+                <img class="" src="../../images/{{ event.image.url }}" width="100%">
+            {% endif %}
+            <p class="card-text">{{ event.article }}</p>
+        </div>
 
-              {%  if (group.image is not null) and (group.image.url is not null) %}
-                  <img class="photo-desc" src="../../images/{{ group.image.url }}">
-              {% else %}
-                  <img class="photo-desc" src="{{ asset('images/photo_group.png') }}">
-              {% endif %}
+        <div class="card-group">
+            {% for group in event.groups %}
 
-              <article>
-                  <h4>{{ group.name }}</h4>
-                  <text class = "desc">{{ group.article }}</text>
-              </article>
-          </div>
+                <div class="card">
 
-      {% endfor %}
-
+                    <div class="card-block">
+                        <h4 class="card-title">{{ group.name }}</h4>
+                        {%  if (group.image is not null) and (group.image.url is not null) %}
+                            <img class="card-img-top" src="../../images/{{ group.image.url }}">
+                        {% else %}
+                            <img class="card-img-top" src="{{ asset('images/photo_group.png') }}">
+                        {% endif %}
+                        <p class="card-text">{{ group.article }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+</div>

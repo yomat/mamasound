@@ -23,6 +23,7 @@
 
     <!-- Datepicker -->
     <link href="{{ asset('dist/css/datepicker.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/datepicker-app.css') }}" rel="stylesheet" type="text/css">
 
     <!-- jquery css -->
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}"  type="text/css">
@@ -102,11 +103,15 @@
         </ul>
 
         <!-- login -->
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Login">
-            <input class="form-control mr-sm-2" type="text" placeholder="Password">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-        </form>
+        {#<form class="form-inline my-2 my-lg-0">#}
+            {#<input class="form-control mr-sm-2" type="text" placeholder="Login">#}
+            {#<input class="form-control mr-sm-2" type="text" placeholder="Password">#}
+            {#<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>#}
+        {#</form>#}
+
+        <div id="login">
+            {{ render(controller('UserBundle:Security:login')) }}
+        </div>
     </div>
 </nav>
 

@@ -5,13 +5,17 @@
         <div class="row no-gutters">
 
             <div class="col-xl-6">
-                {%  if  (event.groups|length > 0) and
-                        (event.groups[0].image is not null) and
-                        (event.groups[0].image.url is not null)
-                %}
-                    <img class="place-sm-photo" src="../../images/{{ event.groups[0].image.url }}">
+                {%  if  (event.image is not null) and (event.image.url is not null) %}
+                    <img class="place-sm-photo" src="../../images/{{ event.image.url }}">
                 {% else %}
-                    <img class="place-sm-photo" src="{{ asset('images/photo_group.png') }}">
+                    {%  if  (event.groups|length > 0) and
+                            (event.groups[0].image is not null) and
+                            (event.groups[0].image.url is not null)
+                    %}
+                        <img class="place-sm-photo" src="../../images/{{ event.groups[0].image.url }}">
+                    {% else %}
+                        <img class="place-sm-photo" src="{{ asset('images/photo_group.png') }}">
+                    {% endif %}
                 {% endif %}
             </div>
 

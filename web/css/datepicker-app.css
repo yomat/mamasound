@@ -1,17 +1,26 @@
 /********************************
     DATEPICKER
 ********************************/
-.datepicker-here {
-    padding: 0;
-    height: 25vh;
+.datepicker {
+    background: none;
+    border: none;
+    min-width: 400px;
+}
+.datepicker--nav{
+    background: rgba(0, 0, 0, 0.8);
+    margin-bottom: 1px;
+    border: none;
 }
 
 .datepicker--cell {
-    height: 2em;
+    //height: 2em;
 //color: #fff4f6;
     color: white;
     font-family: 'Montserrat-Thin';
     font-size: 125%;
+    border-radius: 0;
+    height: auto;
+    padding-top: 30%;
 }
 
 .datepicker--day-name {
@@ -21,7 +30,7 @@
 }
 
 .datepicker--content {
-    background: #666b6e;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .datepicker--cell.-current-{

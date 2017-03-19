@@ -53,7 +53,7 @@ class Place
     /**
      * @var string
      *
-     * @ORM\Column(name="article", type="text")
+     * @ORM\Column(name="article", type="text", nullable=true)
      */
     private $article;
 

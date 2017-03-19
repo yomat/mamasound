@@ -35,17 +35,22 @@
     src: url('../fonts/Montserrat-Bold.otf');
 }
 
+
+@media (min-width: 1200px) {
+    .container{
+        width: 1200px;
+    }
+}
+
 @media (min-width: 1600px) {
     .container{
         width: 1600px;
     }
 }
 
+
 body {
     padding-top: 12vh;
-    //background: #554466 url("../images/background_expo.png") center;
-    //background: #ffffc8 url("../images/entete_google_play.jpg") center;
-    //background: #a5a5a5; //url("../images/entete_google_play.jpg") center;
     background: url("../images/background.png") center;
 
     background-size: cover;
@@ -53,19 +58,13 @@ body {
     background-attachment: fixed;
 }
 
-.starter-template {
-    padding: 5px 0px;
-    text-align: left;
-}
-
-
 .photo-desc{
     float: left;
     clear:both;
 
     width: 30%;
     height: auto;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .desc{
@@ -81,20 +80,20 @@ body {
 }
 
 h4 {
-    transform: skewY(-5deg);
-    float:left;
+    //transform: skewY(-5deg);
+    //float:left;
 
-    font-family: 'Essays1743';
-    color: #35364c;
-    font-size: 300%;
-    background-color: rgba(255, 255, 255, 0.73);
-    padding: 16px;
-    text-shadow: 1px 1px 4px #000000;
-    box-shadow: 1px 1px 2px #555;
-    padding-top: 80px;
+    //font-family: 'Essays1743';
+    //color: #35364c;
+    //font-size: 300%;
+    //background-color: rgba(255, 255, 255, 0.73);
+    //padding: 16px;
+    //text-shadow: 1px 1px 4px #000000;
+    //box-shadow: 1px 1px 2px #555;
+    //padding-top: 80px;
 }
 
-h2 {
+/*h2 {
     font-family: 'Essays1743';
     color: lightgray;
     font-size: 250%;
@@ -104,11 +103,22 @@ h2 {
     box-shadow: 1px 1px 2px #555;
     padding-left:150px;
     margin-top: 40px;
+}*/
+
+.card{
+    background-color: rgba(255, 255, 255, 0.84);
 }
 
+.card > .card-group > .card{
+    background-color: rgba(255, 255, 255, 0.0);
+}
 /********************************
     NAVBAR
 ********************************/
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+}
+
 .nav-item {
     font-family: 'Montserrat-Thin';
     font-size: 150%;
@@ -120,12 +130,12 @@ h2 {
 /********************************
     MAIN PANELS
 ********************************/
-.scene3d {
+/*.scene3d {
 }
 
 .starter-template > * {
     padding: 0 8px 0 8px;
-}
+}*/
 
 /*.west {
     position: relative;
@@ -136,9 +146,10 @@ h2 {
     /**padding: 0px 5% 0px 5%;**/
 }
 
-/*.east {
-    position: relative;
-}*/
+.east > .row{
+    //position: relative;
+    margin-bottom: 8px;
+}
 
 /********************************
     FORM
@@ -252,8 +263,8 @@ h2 {
     MAP
 ********************************/
 .map{
-    padding: 1px;
-    background-color: white;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
     //margin:0;
     //margin-bottom: 8px;
 }
@@ -261,6 +272,7 @@ h2 {
 #mapid {
     padding-top: 75%;
     filter: saturate(3);
+    filter: ;
 }
 
 .place-sm-photo {

@@ -45,21 +45,21 @@ class Event
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="start", type="datetimetz")
+     * @ORM\Column(name="start", type="datetimetz", nullable=true)
      */
     private $start;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="end", type="datetimetz")
+     * @ORM\Column(name="end", type="datetimetz", nullable=true)
      */
     private $end;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="article", type="text")
+     * @ORM\Column(name="article", type="text", nullable=true)
      */
     private $article;
 
@@ -93,7 +93,7 @@ class Event
     /**
      * @var boolean
      * @Assert\Valid()
-     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"} )
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
      */
     private $image;
 

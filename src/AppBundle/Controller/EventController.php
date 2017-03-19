@@ -164,7 +164,7 @@ class EventController extends Controller
 
 		// création du formulaire et affectation de la route pour l'envoi
 		// (nécessaire pour une vue formulaire imbriquée dans une vue principale,
-		//  sinon le submit envoie les données sur la route de la vue principale)
+		// sinon le submit envoie les données sur la route de la vue principale)
 		$form = $this  -> createForm(EventType::class, $event, array(
 			'action' => $this->generateUrl('new_event'),
 			'method' => 'POST',
@@ -173,12 +173,15 @@ class EventController extends Controller
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
-			// ... perform some action, such as saving the task to the database
+			
 			$entityManager = $this->getDoctrine()->getManager();
 			$entityManager -> persist($event);	// mise en persistance de l'objet $event
 
-			$session = $this->get('session');
+			$entityManager->flush();
 
+			return $this -> redirectToRoute('event_detail', array('id' => $event->getId()) );
+
+			/*$session = $this->get('session');
 			try{
 				$entityManager -> flush();
 				$session -> getFlashBag()-> add('info', 'Evénement enregistré');
@@ -187,7 +190,7 @@ class EventController extends Controller
 			}catch(\PDOException $e){
 				$session -> getFlashBag()-> add('error', 'PDOException');
 				$session -> getFlashBag()-> add('error', 'PDOException');
-			}
+			}*/
 		}
 		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
     }

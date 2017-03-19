@@ -6,6 +6,8 @@ use AppBundle\Entity\EventCategory;
 use AppBundle\Entity\EventGenre;
 use AppBundle\Entity\Place;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -27,7 +29,17 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            -> add('title', TextType::class, ['label' => 'Titre', 'attr' => ['placeholder' => 'Nom de l\'événement']])
+            -> add('title', TextType::class, [
+				'label' => 'Titre',
+				'attr' => [
+					'placeholder' => 'Nom de l\'événement',
+
+					/*'class' => 'datepicker-here',
+					'data-timepicker' => 'true',
+					'data-language' => 'fr'*/
+				]
+			])
+
 			-> add('image', ImageType::class, ['required' => false])
 			-> add('type', EntityType::class, [
 					'class' => EventGenre::class, // /!\ to avoid pb with this class (EventType)
@@ -53,6 +65,7 @@ class EventType extends AbstractType
 					}
 				])
 			-> add('groups', CollectionType::class, array(
+				'required' => false,
 				'label' => 'Artistes',
 				'entry_type' => GroupeType::class,
 				'allow_add' => true,
@@ -71,13 +84,37 @@ class EventType extends AbstractType
 					return $qb;
 				}
 			])
-			-> add('start', DateTimeType::class, ['label' => 'Début'])
-			-> add('end', DateTimeType::class, ['label' => 'Fin'])
+			/*-> add('place', EntityType::class, [
+				'label' => 'Lieu',
+				'class' => Place::class,
+				'required' => true,
+				'choice_label' => 'name',
+				'expanded' => false,
+				'multiple' => false,
+				'query_builder' => function($entRepo){
+					$qb = $entRepo -> createQueryBuilder('place');
+					$qb -> orderBy("place.name", "ASC");
+					return $qb;
+				}
+			])*/
+			-> add('start', DateTimeType::class, [
+				'attr'=> [
+					'class' => 'datepicker-here',
+					'data-timepicker' => 'true',
+					'data-language' => 'fr'
+				],
+				'input' => 'datetime',
+				'date_format' => 'dd/MM/yyyy hh:mm',
+				'widget' => 'single_text',
+				'label' => 'Début'])
+			-> add('end', DateTimeType::class, [
+				'input' => 'datetime',
+				'widget' => 'single_text',
+				'label' => 'Fin'])
 			-> add('article', TextareaType::class, ['required' => false])
 			-> add('price', NumberType::class, ['label' => 'Prix'])
 			-> add('mamaEvent', CheckboxType::class, ['required' => false])
-			-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
-
+//			-> add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;
 
     }

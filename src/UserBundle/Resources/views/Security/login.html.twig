@@ -1,8 +1,8 @@
 {# src/UserBundle/Resources/views/Security/login.html.twig #}
 
-{% extends ":events:layout.html.twig" %}
+{#{% extends ":events:layout.html.twig" %}#}
 
-{% block body %}
+{#{% block body %}#}
 
     {# S'il y a une erreur, on l'affiche dans un joli cadre #}
     {% if error %}
@@ -10,14 +10,36 @@
     {% endif %}
 
     {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
-    <form action="{{ path('login_check') }}" method="post">
-        <label for="username">Login :</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" />
-
-        <label for="password">Mot de passe :</label>
-        <input type="password" id="password" name="_password" />
-        <br />
-        <input type="submit" value="Connexion" />
+    <form class="form-inline my-2 my-lg-0" name="login" action="{{ path('login_check') }}" method="post">
+        <input class="form-control mr-sm-2" type="text" placeholder="Login"
+               id="username" name="_username" value="{{ last_username }}" />
+        <input class="form-control mr-sm-2" type="password" placeholder="Password"
+              id="password" name="_password" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+        {#<input type="submit" value="Connexion">Login</form>#}
     </form>
 
-{% endblock %}
+{#{% endblock %}#}
+
+<script>
+    // Surcharge du submit -> ajax -> reponse -> modification du DOM
+
+    // based on: http://codepen.io/tcannonfodder/pen/avJyRJ
+    // based on: http://stackoverflow.com/a/9622978
+    $('form[name="login"]').submit(function(e) {
+        login = $('#login');
+        e.preventDefault();
+        var form = e.target;
+        var data = new FormData(form);
+        $.ajax({
+                    url: $(this).attr("action"),
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    data: data
+                })
+                .done(function (data){
+                    login.html(data);
+                });
+    });
+</script>

@@ -1,34 +1,37 @@
 <div id="{{ 'event_' ~ event.id }}"
-     class="row event music-event shadow"
-     onclick="  moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
-                setEventDetail_toCenterDiv({{ event.id }});"
+     class="row event music-event shadow no-gutters"
+     onclick="
+                {#moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});#}
+                setEventDetailSmall({{ event.id }});
+                setPlaceDetailSmall({{ event.place.id }});"
+                {#setEventDetail_toCenterDiv({{ event.id }});"#}
      data-latitude="{{ event.place.latitude }}"
      data-longitude="{{ event.place.longitude }}"
      data-place-name="{{ event.place.name }}"
 >
 
-    <text class="event-start-big col-lg-1">{{ event.start | date('H\\hi') }}</text>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="event-actions">
+        <button class="btn btn-outline-warning btn-sm rounded-0 " onclick="editEvent({{ event.id }})">
+            <i class="fa fa-pencil"></i>
+        </button>
 
-    <div class="event-style-concert col-lg-3">
+        <button class="btn btn-outline-danger btn-sm rounded-0 " onclick="deleteEvent({{ event.id }})">
+            <i class="fa fa-minus"></i>
+        </button>
+        </div>
+    {% endif %}
+
+    <text class="event-start-big col-xl-2">{{ event.start | date('H\\hi') }}</text>
+
+    <div class="col-xl-3 event-style-concert">
         <img class="event-style-bg" src="{{ asset('images/cats/style_bg.png') }}"/>
         <img class="event-style-concert-cat-icon"
              src="{{ asset('images/cats/' ~ event.category.name ~ '.png') }}"/>
-
-        {% if is_granted('ROLE_ADMIN') %}
-            <div class="row">
-                <button class="col-lg-6 btn btn-warning" onclick="editEvent({{ event.id }})">
-                    <i class="fa fa-pencil"></i>&nbsp; éditer
-                </button>
-
-                <button class="col-lg-6 btn btn-danger" onclick="deleteEvent({{ event.id }})">
-                    <i class="fa fa-minus"></i>&nbsp; supprimer
-                </button>
-            </div>
-        {% endif %}
-
     </div>
 
-    <div class="col-lg-5">
+
+    <div class="col-xl-5">
         <text class="event-title">
             {{ event.title }}<br>{#<strong>{{ event.price }} €</strong><br>#}
         </text>
@@ -38,16 +41,19 @@
 
     </div>
 
-
-    <text class="event-place col-lg-2"><em>{{ event.place.name }}</em></text>
+    <div class="col-xl-2">
+        <text class="event-place">
+            <em>{{ event.place.name }}</em>
+        </text>
+    </div>
 </div>
 
 <script>
     $(document).ready(function() {
         delayOver(document.getElementById("{{ 'event_' ~ event.id }}"), function () {
             moveToPlace({{ event.place.latitude }}, {{ event.place.longitude }});
-            setEventDetailSmall({{ event.id }});
-            setPlaceDetailSmall({{ event.place.id }});
+            //setEventDetailSmall({{ event.id }});
+            //setPlaceDetailSmall({{ event.place.id }});
 
         }, 500);
 
