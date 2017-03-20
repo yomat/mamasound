@@ -85,15 +85,24 @@
 </div>
 
 <script>
-	$('#event_start').datepicker({
-		language: 'fr',
-		timepicker: true,
-		timeFormat:'hh:ii aa'
-	});
-	$('#event_end').datepicker({
-		language: 'fr',
-		timepicker: true,
-		timeFormat:'hh:ii aa'
+	$(document).ready(function() {
+		// 1. suppression des datepickers potentiellement stockés dans l'élément datepickers-container
+		var node = document.getElementById('datepickers-container');
+		if ( node != null )
+			while (node.firstChild) {
+				node.removeChild(node.firstChild);
+			}
+		// 2. ajout des datepickers pour les champs
+		$('#event_start').datepicker({
+			language: 'fr',
+			timepicker: true,
+			timeFormat:'hh:ii'
+		});
+		$('#event_end').datepicker({
+			language: 'fr',
+			timepicker: true,
+			timeFormat:'hh:ii'
+		});
 	});
 </script>
 

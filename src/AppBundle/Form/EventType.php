@@ -98,19 +98,19 @@ class EventType extends AbstractType
 				}
 			])*/
 			-> add('start', DateTimeType::class, [
-				'attr'=> [
-					'class' => 'datepicker-here',
-					'data-timepicker' => 'true',
-					'data-language' => 'fr'
-				],
+				'label' => 'Début',
+				'widget' => 'single_text',
 				'input' => 'datetime',
 				'date_format' => 'dd/MM/yyyy hh:mm',
-				'widget' => 'single_text',
-				'label' => 'Début'])
+				'format' => 'dd/MM/yyyy hh:mm',
+			])
 			-> add('end', DateTimeType::class, [
-				'input' => 'datetime',
+				'label' => 'Fin',
 				'widget' => 'single_text',
-				'label' => 'Fin'])
+				'input' => 'datetime',
+				'date_format' => 'dd/MM/yyyy hh:mm',
+				'format' => 'dd/MM/yyyy hh:mm',
+			])
 			-> add('article', TextareaType::class, ['required' => false])
 			-> add('price', NumberType::class, ['label' => 'Prix'])
 			-> add('mamaEvent', CheckboxType::class, ['required' => false])
