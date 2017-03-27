@@ -84,6 +84,29 @@
 	</div>
 </div>
 
+<!-- Select2 -->
+<script>
+	$(document).ready(function() {
+		$('#event_place').select2({
+			ajax: {
+				type:"POST",
+				url: "{{ path('placesLike') }}",
+				dataType: 'json',
+				data: function (params) {return 'search_term=' +  params.term;},
+				delay: 250,
+				processResults: function (data) {
+					return {
+						results: $.map(data, function(placeObject){
+							return {id: placeObject.id, text: placeObject.name};
+						})
+					};
+				}
+			}
+		});
+	});
+</script>
+
+<!-- Datepickers -->
 <script>
 	$(document).ready(function() {
 		// 1. suppression des datepickers potentiellement stockés dans l'élément datepickers-container
@@ -106,6 +129,7 @@
 	});
 </script>
 
+<!-- submit ajax -->
 <script>
 	// Surcharge du submit -> ajax -> reponse -> modification du DOM
 
@@ -129,6 +153,7 @@
 	});
 </script>
 
+<!-- image upload pre visualisation -->
 <script>
 	// Visualisation de l'image
 	$(document).ready(function() {
@@ -176,6 +201,7 @@
 		}
 	});*/
 </script>
+
 
 <script type="text/javascript">
 	// AJOUT des ARTISTES

@@ -56,6 +56,34 @@ class PlaceController extends Controller
 	}
 
 	/**
+	 * @Route("/placesLike", name="placesLike", options={"expose"=true}, requirements={})
+	 *
+	 */
+	public function indexLikeAction(Request $request){
+
+		// events
+		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Place');
+
+
+		if($request->isXmlHttpRequest()) {
+			$search_term = $request -> request -> get('search_term');
+			/*$term = $request -> request -> get('startWith');
+			$array= $this -> getDoctrine() -> getEntityManager()
+				->getRepository('menCommandesBundle:commande')
+				->listeNature($term);
+			*/
+			$places = $repo -> getPlacesLikeJSON($search_term);
+			$response = new JsonResponse($places);
+			//$response -> headers -> set('Content-Type', 'application/json');
+			return $response;
+		}
+
+		$places = $repo -> getPlaces();
+		// vue twig
+		return $this->render('places/places.html.twig',['places' => $places]); // TODO
+	}
+
+	/**
 	 * @Route("/placeDetail/{id}", options={"expose"=true}, name="place_detail", requirements={"id":"\d+"})
 	 */
 	public function showDetailPlace(Request $request, $id){
