@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use AppBundle\Entity\EventCategory;
 use AppBundle\Entity\EventGenre;
+use AppBundle\Entity\Groupe;
 use AppBundle\Entity\Place;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\DataTransformerInterface;
@@ -32,11 +33,7 @@ class EventType extends AbstractType
             -> add('title', TextType::class, [
 				'label' => 'Titre',
 				'attr' => [
-					'placeholder' => 'Nom de l\'événement',
-
-					/*'class' => 'datepicker-here',
-					'data-timepicker' => 'true',
-					'data-language' => 'fr'*/
+					'placeholder' => 'Nom de l\'événement'
 				]
 			])
 
@@ -64,13 +61,21 @@ class EventType extends AbstractType
 						return $qb;
 					}
 				])
-			-> add('groups', CollectionType::class, array(
+			/*-> add('groups', CollectionType::class, array(
 				'required' => false,
 				'label' => 'Artistes',
 				'entry_type' => GroupeType::class,
 				'allow_add' => true,
 				'allow_delete' => true
-			))
+			))*/
+			-> add('groups', EntityType::class, [
+				'label' => 'Artistes',
+				'class' => Groupe::class,
+				'required' => true,
+				'choice_label' => 'name',
+				'expanded' => false,
+				'multiple' => true,
+			])
 			-> add('place', EntityType::class, [
 				'label' => 'Lieu',
 				'class' => Place::class,
@@ -105,6 +110,7 @@ class EventType extends AbstractType
 				'format' => 'dd/MM/yyyy hh:mm',
 			])
 			-> add('end', DateTimeType::class, [
+				'required' => false,
 				'label' => 'Fin',
 				'widget' => 'single_text',
 				'input' => 'datetime',

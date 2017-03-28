@@ -26,12 +26,14 @@ class PlaceRepository extends \Doctrine\ORM\EntityRepository
         return $qb -> getQuery() -> getArrayResult();
     }
 
-    public function getPlacesLike(){// <--
+    public function getPlacesLike($search_term){
         $qb = $this -> _em -> createQueryBuilder()
             -> select('p')
             -> from('AppBundle:Place', 'p')
-            -> where('p.name LIKE :')
-            ;
+            -> where('p.name LIKE :search_term')
+            -> setParameter('search_term', '%'.$search_term.'%')
+            -> orderBy('p.name', 'ASC')
+        ;
         return $qb -> getQuery() -> getResult();
     }
 

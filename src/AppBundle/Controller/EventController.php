@@ -159,8 +159,8 @@ class EventController extends Controller
     public function addEventAction(Request $request){
     	$event = new Event();
 
-		$event->setStart(new \DateTime());
-		$event->setEnd(new \DateTime());
+		//$event->setStart(new \DateTime());
+		//$event->setEnd(new \DateTime());
 
 		// création du formulaire et affectation de la route pour l'envoi
 		// (nécessaire pour une vue formulaire imbriquée dans une vue principale,

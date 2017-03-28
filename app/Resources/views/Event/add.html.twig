@@ -87,10 +87,29 @@
 <!-- Select2 -->
 <script>
 	$(document).ready(function() {
+		// Place
 		$('#event_place').select2({
 			ajax: {
 				type:"POST",
 				url: "{{ path('placesLike') }}",
+				dataType: 'json',
+				data: function (params) {return 'search_term=' +  params.term;},
+				delay: 250,
+				processResults: function (data) {
+					return {
+						results: $.map(data, function(placeObject){
+							return {id: placeObject.id, text: placeObject.name};
+						})
+					};
+				}
+			}
+		});
+
+		// Groupes
+		$('#event_groups').select2({
+			ajax: {
+				type:"POST",
+				url: "{{ path('groupesLike') }}",
 				dataType: 'json',
 				data: function (params) {return 'search_term=' +  params.term;},
 				delay: 250,
@@ -203,6 +222,7 @@
 </script>
 
 
+{#
 <script type="text/javascript">
 	// AJOUT des ARTISTES
 	$(document).ready(function() {
@@ -270,3 +290,4 @@
 		}
 	});
 </script>
+#}

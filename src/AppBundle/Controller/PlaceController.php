@@ -60,25 +60,17 @@ class PlaceController extends Controller
 	 *
 	 */
 	public function indexLikeAction(Request $request){
-
-		// events
 		$repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Place');
 
-
+		// ajax call
 		if($request->isXmlHttpRequest()) {
 			$search_term = $request -> request -> get('search_term');
-			/*$term = $request -> request -> get('startWith');
-			$array= $this -> getDoctrine() -> getEntityManager()
-				->getRepository('menCommandesBundle:commande')
-				->listeNature($term);
-			*/
 			$places = $repo -> getPlacesLikeJSON($search_term);
 			$response = new JsonResponse($places);
 			//$response -> headers -> set('Content-Type', 'application/json');
 			return $response;
 		}
-
-		$places = $repo -> getPlaces();
+		$places = $repo -> getPlaces(); // TODO trancher si on passe l'argument dans la route ! => getPlacesLike()
 		// vue twig
 		return $this->render('places/places.html.twig',['places' => $places]); // TODO
 	}

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -33,6 +34,27 @@ class GroupeController extends Controller
         ));
     }
 
+    /**
+     * @Route("/groupLike", name="groupesLike", options={"expose"=true}, requirements={})
+     *
+     */
+    public function indexLikeAction(Request $request){
+        $repo = $this -> getDoctrine() -> getManager() -> getRepository('AppBundle:Groupe');
+
+        // ajax call
+        if($request->isXmlHttpRequest()) {
+            $search_term = $request -> request -> get('search_term');
+            $groupes = $repo -> getGroupesLikeJSON($search_term);
+            $response = new JsonResponse($groupes);
+            //$response -> headers -> set('Content-Type', 'application/json');
+            return $response;
+        }
+
+        $groupes = $repo -> getGroupes();
+        // vue twig
+        return $this->render('groupe/index.html.twig',['groupes' => $groupes]); // TODO
+    }
+    
     /**
      * Creates a new Groupe entity.
      *
