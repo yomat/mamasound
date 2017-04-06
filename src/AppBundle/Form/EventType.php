@@ -108,6 +108,9 @@ class EventType extends AbstractType
 				'input' => 'datetime',
 				'date_format' => 'dd/MM/yyyy hh:mm',
 				'format' => 'dd/MM/yyyy hh:mm',
+				'attr' => [
+					'placeholder' => '27/11/2017 23h00'
+				]
 			])
 			-> add('end', DateTimeType::class, [
 				'required' => false,
@@ -116,6 +119,9 @@ class EventType extends AbstractType
 				'input' => 'datetime',
 				'date_format' => 'dd/MM/yyyy hh:mm',
 				'format' => 'dd/MM/yyyy hh:mm',
+				'attr' => [
+					'placeholder' => 'Fin (optionnel)'
+				]
 			])
 			-> add('article', TextareaType::class, ['required' => false])
 			-> add('price', NumberType::class, ['label' => 'Prix'])

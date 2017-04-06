@@ -2,7 +2,7 @@
 
 	<div class="card">
 
-		<h2 class="card-header">Nouvel événement</h2>
+		<h2 class="card-header">New event : {{ genre.name }} !</h2>
 
 		<div class="card-block">
 
@@ -16,63 +16,81 @@
 
 				<div class="form-group card-title">
 					{{ form_errors(form.title) }}
-					{{ form_label(form.title, 'Nom', {'label_attr': {'class': 'col-form-label card-title'}}) }}
+					{#{{ form_label(form.title, 'Nom', {'label_attr': {'class': 'col-form-label card-title'}}) }}#}
 					{{ form_widget(form.title) }}
 				</div>
 
-				<div class="form-group card-text">
+				<div class="form-group row">
+					{{ form_errors(form.groups) }}
+					{{ form_label(form.groups, 'Artistes', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+					{#<a href="#" id="add_group" class="btn btn-default">Nouvel artiste</a>#}
+					<div class="col-11">
+						{{ form_widget(form.groups) }}
+					</div>
+				</div>
+
+				<div class="form-group row">
+					{{ form_errors(form.place) }}
+					{{ form_label(form.place, 'Lieu', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+					<div class="col-8">
+						{{ form_widget(form.place) }}
+					</div>
+
+					{{ form_errors(form.price) }}
+					{{ form_label(form.price, 'Prix', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+					<div class="col-2">
+						{{ form_widget(form.price) }}
+					</div>
+				</div>
+
+				<div class="form-group row">
 					{{ form_errors(form.type) }}
-					{{ form_label(form.type, 'Type', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.type) }}
+					{#{{ form_label(form.type, 'Type', {'label_attr': {'class': 'col-form-label'}}) }}#}
+					{{ form_widget(form.type,
+							{'attr': {
+									'value': genre.id,
+									'style': 'display: none;'
+								}
+							}
+						)
+					}}
 
 					{{ form_errors(form.category) }}
-					{{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.category) }}
-				</div>
+					{{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+					<div class="col-5">
+						{{ form_widget(form.category) }}
+					</div>
 
-				<div class="form-group card-text">
-					{{ form_errors(form.place) }}
-					{{ form_label(form.place, 'Lieu', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.place) }}
-	{#<input type="text" id="event_place" name="event[place]" value="" class="form-control">#}
-				</div>
-
-				<div class="form-group card-text">
-					{{ form_errors(form.groups) }}
-					{{ form_label(form.groups, 'Artistes', {'label_attr': {'class': 'col-form-label'}}) }}
-					<a href="#" id="add_group" class="btn btn-default">Nouvel artiste</a>
-					{{ form_widget(form.groups) }}
-				</div>
-
-				<div class="form-group card-text">
-					{{ form_errors(form.start) }}
-					{{ form_label(form.start, 'Début', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.start) }}
-
-					{{ form_errors(form.end) }}
-					{{ form_label(form.end, 'Fin', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.end) }}
-				</div>
-
-				<div class="form-group card-text">
-					{{ form_errors(form.article) }}
-					{{ form_label(form.article, 'Article', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.article) }}
-				</div>
-
-				<div class="form-group card-text">
-					{{ form_errors(form.price) }}
-					{{ form_label(form.price, 'Prix', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.price) }}
-				</div>
-
-				<div class="form-group card-text">
 					{{ form_errors(form.mamaEvent) }}
-					{{ form_label(form.mamaEvent, 'Mame Event', {'label_attr': {'class': 'col-form-label'}}) }}
-					{{ form_widget(form.mamaEvent) }}
+					{{ form_label(form.mamaEvent, 'Mame Event', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+					<div class="col-5">
+							{{ form_widget(form.mamaEvent) }}
+					</div>
+
 				</div>
 
-				{#{ form_row(form.submit) }#}
+				<div class="form-group row">
+					{{ form_errors(form.start) }}
+					{{ form_label(form.start, 'Horaires', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+
+					<div class="col-5">
+						{{ form_widget(form.start) }}
+					</div>
+					{{ form_errors(form.end) }}
+					{#{{ form_label(form.end, 'Fin', {'label_attr': {'class': 'col-form-label'}}) }}#}
+					<div class="col-5">
+						{{ form_widget(form.end) }}
+					</div>
+				</div>
+
+				<div class="form-group row">
+					{{ form_errors(form.article) }}
+					{{ form_label(form.article, 'Article', {'label_attr': {'class': 'col-1 col-form-label'}}) }}
+					<div class="col-11">
+						{{ form_widget(form.article) }}
+					</div>
+				</div>
+
 				<input class="btn btn-primary" type="submit" value="Enregistrer"/>
 				<button class="btn btn-secondary"
 						type="button"
@@ -84,6 +102,12 @@
 	</div>
 </div>
 
+<!-- Genre : valeur par défaut du select input qui est caché -->
+<script>
+	$(document).ready(function() {
+		$('#event_type').val ($('#event_type').attr("value"));
+	});
+</script>
 <!-- Select2 -->
 <script>
 	$(document).ready(function() {

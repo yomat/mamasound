@@ -153,10 +153,10 @@ class EventController extends Controller
     }
 
     /**
-     * @Route("/event/add", name="new_event", options={"expose"=true})
+     * @Route("/event/add/{id_genre}", name="new_event", options={"expose"=true}, requirements={"id":"\d+"})
 	 * @Template
      */
-    public function addEventAction(Request $request){
+    public function addEventAction(Request $request, $id_genre){
     	$event = new Event();
 
 		//$event->setStart(new \DateTime());
@@ -166,7 +166,7 @@ class EventController extends Controller
 		// (nécessaire pour une vue formulaire imbriquée dans une vue principale,
 		// sinon le submit envoie les données sur la route de la vue principale)
 		$form = $this  -> createForm(EventType::class, $event, array(
-			'action' => $this->generateUrl('new_event'),
+			'action' => $this->generateUrl('new_event', ['id_genre' => $id_genre]),
 			'method' => 'POST',
 		));
 
@@ -192,7 +192,15 @@ class EventController extends Controller
 				$session -> getFlashBag()-> add('error', 'PDOException');
 			}*/
 		}
-		return $this->render('Event/add.html.twig', ['form' => $form->createView()] );
+
+
+		$entityManager = $this -> getDoctrine() -> getManager();
+		$repository = $entityManager -> getRepository('AppBundle:EventGenre');
+		$genre = $repository -> find ($id_genre);
+		return $this->render('Event/add.html.twig', [
+			'form' => $form->createView(),
+			'genre' => $genre
+		] );
     }
 
     /**

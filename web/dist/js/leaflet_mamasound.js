@@ -172,17 +172,17 @@ function listEvents(){
 }
 
 // ajouter un événement
-function newEvent(){
+function newEvent($genreId){
     center_div = $('#center');
     $.ajax({
-        url: Routing.generate('new_event'),
+        url: Routing.generate('new_event', {id_genre: $genreId}),
         method: "GET"
     }).done(function(msg){
         center_div.html(msg);
     });
 }
 
-// ajouter un événement
+// ajouter un lieu
 function newPlace(){
     center_div = $('#center');
     $.ajax({
